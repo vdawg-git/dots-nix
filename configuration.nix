@@ -78,7 +78,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.mutableUsers = true;
+  users.mutableUsers = false;
   users.users = {
   
   	vdawg = {
@@ -87,7 +87,6 @@
 	    description = "personal account";
 	    extraGroups = [ "networkmanager" "wheel" ];
 	    hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-	    password = "a";
 	    packages = with pkgs; [
 	    #  thunderbird
 	    ];
@@ -98,7 +97,6 @@
 		shell = pkgs.fish;
 		description = "work account";
 	        hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-	        password = "a";
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
 		    #  thunderbird
