@@ -149,7 +149,7 @@
 	tree
 	blanket
 	blueman
-	git-delta
+	delta
 	grim
 	imagemagick
 	kew
