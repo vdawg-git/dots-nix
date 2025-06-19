@@ -30,7 +30,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -47,8 +46,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -144,6 +143,40 @@
 	neovim
 	vim 
 	wget
+	yazi
+	ripgrep
+	starship
+	tree
+	blanket
+	blueman
+	git-delta
+	grim
+	imagemagick
+	kew
+	keyd
+	mediainfo
+	megacmd
+	mpv
+	nautilus
+	networkmanager
+	networkmanagerapplet
+	nwg-displays
+	nwg-panel
+	obsidian
+	pavucontrol
+	qbittorrent-enhanced
+	rclone
+	rhythmbox
+	slurp
+	swappy
+	swaynotificationcenter
+	swww
+	tesseract
+	tree
+	nerd-fonts.jetbrains-mono
+	vesktop
+	vscode.fhs
+	wireguard-tools
 	zoxide
   ];
 
@@ -151,6 +184,8 @@
 	package = pkgs.nix;
 	settings.experimental-features = [ "nix-command" "flakes"];
   };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
