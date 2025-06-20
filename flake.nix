@@ -13,8 +13,8 @@
 
 	userNames = ["vdawg" "ck"];
   in
-  {
-	nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+ {
+	nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
 		specialArgs = { inherit inputs userNames; };
 		modules = [
 			./configuration.nix
