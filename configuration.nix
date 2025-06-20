@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -100,6 +101,14 @@
 		packages = with pkgs; [
 		    #  thunderbird
 		];
+	};
+  };
+
+  home-manager = {
+	specialArgs = { inherit inputs };
+	users = {
+	   "vdawg" = import ./home.nix;
+	   # "ck" = import ./home.nix;
 	};
   };
 

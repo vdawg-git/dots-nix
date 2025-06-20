@@ -17,8 +17,8 @@
 	nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
 		specialArgs = { inherit inputs userNames; };
 		modules = [
+			inputs.home-manager.nixosModules.default
 			./configuration.nix
-			./home.nix
 		];
 	};
 
