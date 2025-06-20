@@ -1,4 +1,4 @@
-
+{
   description = "A very basic flake";
 
   inputs = {
