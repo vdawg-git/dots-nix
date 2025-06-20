@@ -1,0 +1,112 @@
+# Make sure that kew is closed before editing this file in order for changes to take effect.
+
+[miscellaneous]
+path=/mnt/media/z_Bearbeiten
+version=3.2.0
+allowNotifications=0
+hideLogo=1
+hideHelp=1
+lastVolume=100
+
+# Cache: Set to 1 to use cache of the music library directory tree for faster startup times.
+cacheLibrary=1
+
+# Delay when drawing title in track view, set to 0 to have no delay.
+titleDelay=9
+
+# Same as '--quitonstop' flag, exits after playing the whole playlist.
+quitOnStop=0
+
+# Glimmering text on the bottom row.
+hideGlimmeringText=0
+
+[visualizer]
+visualizerEnabled=1
+visualizerHeight=5
+visualizerBrailleMode=0
+
+# How colors are laid out in the spectrum visualizer. 0=default, 1=brightness depending on bar height, 2=reversed.
+visualizerColorType=0
+
+# How fast the visualizer moves (higher values = faster) Normal values: 0.23 and 0.13.
+tweenFactor=0.23
+tweenFactorFall=0.13
+
+# How the progress bar looks. 0=Dots, 1=Line
+progressBarType=0
+
+[colors]
+
+# Use the configuration file colors below
+useConfigColors=0
+
+# Color values are 0=Black, 1=Red, 2=Green, 3=Yellow, 4=Blue, 5=Magenta, 6=Cyan, 7=White
+# These mostly affect the library view.
+
+# Logo color:
+color=6
+
+# Header color in library view:
+artistColor=6
+
+# Now playing song text in library view:
+titleColor=6
+
+# Color of enqueued songs in library view:
+enqueuedColor=7
+
+[track cover]
+coverEnabled=1
+coverAnsi=0
+
+[mouse]
+mouseEnabled=1
+
+# Mouse actions are 0=none, 1=select song, 2=toggle pause, 3=scroll up, 4=scroll down, 5=seek forward, 6=seek backward, 7=volume up, 8=volume down, 9=switch to next view, 10=switch to previous view
+mouseLeftClickAction=0
+mouseMiddleClickAction=1
+mouseRightClickAction=2
+mouseScrollUpAction=3
+mouseScrollDownAction=4
+
+# Mouse action when using mouse scroll + alt
+mouseAltScrollUpAction=7
+mouseAltScrollDownAction=8
+
+[key bindings]
+volumeUp=+
+volumeUpAlt==
+volumeDown=-
+previousTrackAlt=h
+nextTrackAlt=l
+scrollUpAlt=k
+scrollDownAlt=j
+switchNumberedSong=
+togglePause=p
+toggleColorsDerivedFrom=i
+toggleVisualizer=v
+toggleAscii=b
+toggleRepeat=r
+toggleShuffle=s
+seekBackward=a
+seekForward=d
+savePlaylist=x
+addToMainPlaylist=.
+updateLibrary=u
+moveSongUp=t
+moveSongDown=g
+enqueueAndPlay=^M
+sortLibrary=o
+quit=q
+
+# Alt keys for the different main views, normally F2-F7:
+showPlaylistAlt=Z
+showLibraryAlt=X
+showTrackAlt=C
+showSearchAlt=V
+showRadioSearchAlt=B
+showKeysAlt=N
+
+# For special keys use terminal codes: OS, for F4 for instance. This can depend on the terminal.
+# You can find out the codes for the keys by using tools like showkey.
+# For special keys, see the key value after the bracket "[" after typing "showkey -a" in the terminal and then pressing a key you want info about.

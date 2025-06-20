@@ -1,4 +1,4 @@
-{
+
   description = "A very basic flake";
 
   inputs = {
@@ -10,12 +10,15 @@
   outputs = { nixpkgs, ... } @inputs :
   let 
 	a = 1;
+
+	userNames = ["vdawg" "ck"];
   in
   {
-	nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
-		specialArgs = { inherit inputs; };
+	nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+		specialArgs = { inherit inputs userNames; };
 		modules = [
 			./configuration.nix
+			./home.nix
 		];
 	};
 

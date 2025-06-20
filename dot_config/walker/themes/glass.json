@@ -1,0 +1,111 @@
+{
+	"ui": {
+		"anchors": {
+			"bottom": false,
+			"left": false,
+			"right": false,
+			"top": false
+		},
+		"fullscreen": false,
+		"ignore_exclusive": true,
+		"window": {
+			"name": "window",
+			"v_align": "center",
+			"box": {
+				"name": "box",
+				"orientation": "vertical",
+				"revert": false,
+				"h_align": "fill",
+				"v_align": "fill",
+				"spacing": 16,
+				"margins": {
+					"bottom": 0,
+					"top": 0
+				},
+				"min_height": 200,
+				"max_height": 400,
+				"max_width": 400,
+				"width": 400,
+				"min_width": 400,
+				"scroll": {
+					"h_scrollbar_policy": "automatic",
+					"overlay_scrolling": true,
+					"v_align": "fill",
+					"h_align": "fill",
+					"list": {
+						"always_show": true,
+						"h_expand": false,
+						"orientation": "vertical",
+						"name": "list",
+						"v_scrollbar_policy": "automatic",
+						"min_height": 400,
+						"width": 400,
+						"min_width": 400,
+						"max_width": 400,
+						"item": {
+							"name": "item",
+							"orientation": "horizontal",
+							"revert": false,
+							"h_align": "fill",
+							"spacing": 0,
+							"icon": {
+								"icon_size": "large",
+								"name": "icon",
+								"pixel_size": 32,
+								"theme": "",
+								"v_align": "center"
+							},
+							"text": {
+								"name": "text",
+								"h_align": "start",
+								"h_expand": true,
+								"max_width_chars": 12,
+								"orientation": "vertical",
+								"revert": false,
+								"spacing": 0,
+								"label": {
+									"h_align": "start",
+									"h_expand": true,
+									"name": "label",
+									"width": 20,
+									"ellipsize": "end",
+									"wrap": true,
+									"wrap-mode": "word",
+									"max_width_chars": 12
+								},
+								"sub": {
+									"name": "sub",
+									"h_align": "start",
+									"hide": true
+								}
+							},
+							"activation_label": {
+								"name": "activationlabel",
+								"width": 0,
+								"x_align": 1
+							}
+						}
+					}
+				},
+				"search": {
+					"v_align": "center",
+					"width": 0,
+					"name": "search",
+					"revert": false,
+					"spacing": 12,
+					"input": {
+						"h_align": "fill",
+						"h_expand": true,
+						"icons": false,
+						"name": "input"
+					},
+					"spinner": {
+						"hide": true,
+						"name": "spinner",
+						"v_align": "fill"
+					}
+				}
+			}
+		}
+	}
+}

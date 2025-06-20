@@ -1,0 +1,45 @@
+body,
+#app-mount,
+[class^="app_"],
+[class^="app_"] > [class^="bg_"],
+[class^="appMount_"],
+/* channels */
+[class^="sidebar_"],
+/* servers */
+nav[class^="wrapper_"],
+nav[class^="private"],
+nav[class^="private"] [class^="scroller_"],
+[class^="profilePanel_"],
+[class^="profilePanel_"],
+[class^="userProfileInner_"],
+[class^="userPanelOuter_"],
+[class^="userPanelInner_"] {
+	background: transparent !important;
+	background-color: transparent !important;
+}
+
+[class^="panels_"],
+[class^="panels_"] [class^="container_"] {
+	background: var(--background-primary) !important;
+	border-radius: 8px 4px 0px 0px;
+}
+
+
+/* channels */
+div [class^="sidebar_"] nav[class^="container_"] {
+	background: var(--background-primary) !important;
+	border-radius: 8px 4px 0px 0px;
+}
+
+[class^="chat_"],
+[class^="title_"] {
+	border-radius: 8px 0px 0px;
+}
+
+:root {
+	--bg-overlay-chat: color-mix(
+		in srgb,
+		var(--background-primary),
+		transparent 40%
+	);
+}

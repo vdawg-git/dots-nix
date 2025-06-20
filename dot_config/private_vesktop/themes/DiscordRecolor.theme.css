@@ -1,0 +1,161 @@
+/**
+ * @name DiscordRecolor
+ * @description Allows you to customize Discord's native Color Scheme
+ * @author DevilBro
+ * @version 1.0.0
+ * @authorId 278543574059057154
+ * @invite Jx3TjNS
+ * @donate https://www.paypal.me/MircoWittrien
+ * @patreon https://www.patreon.com/MircoWittrien
+ * @website https://mwittrien.github.io/
+ * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/DiscordRecolor/
+ * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.theme.css
+ *
+ * @var checkbox			settingsicons_s			"User Settings Icons"					1
+ * @var text				font_s				"General Font"						"gg sans", "Noto Sans"
+ * @var text				accentcolor_s			"Blurple Color: [default] = 88, 101, 242"		88, 101, 242
+ * @var text				accentcolor2_s			"Boost Pink Color: [default] = 255, 115, 250"		255, 115, 250
+ * @var text				linkcolor_s			"Link Color: [default] = 0, 176, 244"			0, 176, 244
+ * @var text				mentioncolor_s			"Mentioned Color: [default] = 250, 166, 26"		250, 166, 26
+ * @var text				successcolor_s			"Success Color: [default] = 59, 165, 92"		59, 165, 92
+ * @var text				warningcolor_s			"Warning Color: [default] = 250, 166, 26"		250, 166, 26
+ * @var text				dangercolor_s			"Danger Color: [default] = 237, 66, 69"			237, 66, 69
+ * @var text				textbrightest_s			"Text Color 1: [default] = 255, 255, 255"		255, 255, 255
+ * @var text				textbrighter_s			"Text Color 2: [default] = 220, 221, 222"		222, 222, 222
+ * @var text				textbright_s			"Text Color 3: [default] = 185, 187, 190"		185, 185, 185
+ * @var text				textdark_s			"Text Color 4: [default] = 142, 146, 151"		140, 140, 140
+ * @var text				textdarker_s			"Text Color 5: [default] = 114, 118, 125"		115, 115, 115
+ * @var text				textdarkest_s			"Text Color 6: [default] = 79, 84, 92"			80, 80, 80
+ * @var text				backgroundaccent_s		"Background Accent: [default] = 64, 68, 75"		50, 50, 50
+ * @var text				backgroundprimary_s		"Background 1: [default] = 54, 57, 63"			30, 30, 30
+ * @var text				backgroundsecondary_s		"Background 2: [default] = 47, 49, 54"			20, 20, 20
+ * @var text				backgroundsecondaryalt_s	"Background 3: [default] = 41, 43, 47"			15, 15, 15
+ * @var text				backgroundtertiary_s		"Background 4: [default] = 32, 34, 37"			10, 10, 10
+ * @var text				backgroundfloating_s		"Background Elevated: [default] = 24, 25, 28"		0, 0, 0
+ */
+
+/* To change the colors, change the variables inside the root {}, do NOT change the @import url() */
+
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css);
+
+/* All colors are in RGB format (red, green, blue) use: https://www.google.com/search?q=colorpicker	*/
+
+:root {
+	--settingsicons: 1; /*	Use Settings Icons in User Settings: 1 = yes, 0 = no							*/
+	--font: "gg sans", "Noto Sans"; /*	General Font												*/
+
+	--accentcolor: 131, 165, 152; /*	Blurple -	hex:	#5865f2		*/
+	--accentcolor2: 211, 134, 155; /*	Boostpink -	hex:	#ff73fa		*/
+	--linkcolor: 131, 165, 152; /*	Link Color -	hex:	#00b0f4		*/
+	--mentioncolor: 250, 166, 26; /*	Highlight Color -	hex:	#faa61a		*/
+	--successcolor: 59, 165, 92; /*	Success Color -	hex:	#3ba55c		*/
+	--warningcolor: 250, 166, 26; /*	Warning Color -	hex:	#faa61a		*/
+	--dangercolor: 237, 66, 69; /*	Danger Color -	hex:	#ed4245		*/
+
+	--textbrightest: 251, 241, 199; /*	Text Color 1 -	hex:	#ffffff		*/
+	--textbrighter: 235, 219, 178; /*	Text Color 2 -	hex:	#dcddde		*/
+	--textbright: 189, 174, 147; /*	Text Color 3 -	hex:	#b9bbbe		*/
+	--textdark: 168, 153, 132; /*	Text Color 4 -	hex:	#8e9297		*/
+	--textdarker: 124, 111, 100; /*	Text Color 5 -	hex:	#72767d		*/
+	--textdarkest: 102, 92, 84; /*	Text Color 6 -	hex:	#4f545c		*/
+
+	--backgroundaccent: 60, 56, 54; /*	Background Accent -	hex:	#40444b		*/
+	--backgroundprimary: 13, 9, 7; /*	Background 1 -	hex:	#36393f		*/
+	--backgroundsecondary: 40, 40, 40; /*	Background 2 -	hex:	#2f3136		*/
+	--backgroundsecondaryalt: 40, 40, 40; /*	Background 3 -	hex:	#292b2f		*/
+	--backgroundtertiary: 29, 32, 33; /*	Background 4 -	hex:	#202225		*/
+	--backgroundfloating: 20, 22, 23; /*	Background Elevated -	hex:	#18191c		*/
+}
+
+/* \ 'bg_dim':           ['rgb(20, 22, 23)',   '232'],
+\ 'bg0':              ['rgb(29, 32, 33)',   '234'],
+\ 'bg1':              ['rgb(40, 40, 40)',   '235'],
+\ 'bg2':              ['rgb(40, 40, 40)',   '235'],
+\ 'bg3':              ['rgb(60, 56, 54)',   '237'],
+\ 'bg4':              ['rgb(60, 56, 54)',   '237'],
+\ 'bg5':              ['rgb(80, 73, 69)',   '239'],
+\ 'bg_statusline1':   ['rgb(40, 40, 40)',   '235'],
+\ 'bg_statusline2':   ['rgb(50, 48, 47)',   '235'],
+\ 'bg_statusline3':   ['rgb(80, 73, 69)',   '239'],
+\ 'bg_diff_green':    ['#32361a',   '22'],
+\ 'bg_visual_green':  ['#333e34',   '22'],
+\ 'bg_diff_red':      ['#3c1f1e',   '52'],
+\ 'bg_visual_red':    ['#442e2d',   '52'],
+\ 'bg_diff_blue':     ['#0d3138',   '17'],
+\ 'bg_visual_blue':   ['#2e3b3b',   '17'],
+\ 'bg_visual_yellow': ['#473c29',   '94'],
+\ 'bg_current_word':  ['rgb(50, 48, 47)',   '236']
+
+
+\ 'bg_dim':           ['rgb(37, 36, 35)',   '233'],
+\ 'bg0':              ['rgb(50, 48, 47)',   '236'],
+\ 'bg1':              ['rgb(60, 56, 54)',   '237'],
+\ 'bg2':              ['rgb(60, 56, 54)',   '237'],
+\ 'bg3':              ['rgb(80, 73, 69)',   '239'],
+\ 'bg4':              ['rgb(80, 73, 69)',   '239'],
+\ 'bg5':              ['rgb(102, 92, 84)',   '241'],
+\ 'bg_statusline1':   ['#3c3836',   '237'],
+\ 'bg_statusline2':   ['#46413e',   '237'],
+\ 'bg_statusline3':   ['#5b534d',   '241'],
+\ 'bg_diff_green':    ['#3d4220',   '22'],
+\ 'bg_visual_green':  ['#424a3e',   '22'],
+\ 'bg_diff_red':      ['#472322',   '52'],
+\ 'bg_visual_red':    ['#543937',   '52'],
+\ 'bg_diff_blue':     ['#0f3a42',   '17'],
+\ 'bg_visual_blue':   ['#404946',   '17'],
+\ 'bg_visual_yellow': ['#574833',   '94'],
+\ 'bg_current_word':  ['#45403d',   '238']
+\ } */
+
+/* cursor                  #928374
+cursor_text_color       background
+
+url_color               #83a598
+
+visual_bell_color       #8ec07c
+bell_border_color       #8ec07c
+
+active_border_color     #d3869b
+inactive_border_color   #665c54
+
+foreground              #ebdbb2
+background              #000000
+selection_foreground    #928374
+selection_background    #ebdbb2
+
+active_tab_foreground   #fbf1c7
+active_tab_background   #665c54
+inactive_tab_foreground #a89984
+inactive_tab_background #3c3836
+
+# black  (bg3/bg4)
+color0                  #665c54
+color8                  #7c6f64
+
+# red
+color1                  #cc241d
+color9                  #fb4934
+
+#: green
+color2                  #98971a
+color10                 #b8bb26
+
+# yellow
+color3                  #d79921
+color11                 #fabd2f
+
+# blue
+color4                  #458588
+color12                 #83a598
+
+# purple
+color5                  #b16286
+color13                 #d3869b
+
+# aqua
+color6                  #689d6a
+color14                 #8ec07c
+
+# white (fg4/fg3)
+color7                  #a89984
+color15                 #bdae93 */

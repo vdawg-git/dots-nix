@@ -1,0 +1,28 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[[manager.prepend_keymap]]
+on = "y"
+run = [
+    '''
+	shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm
+''',
+    "yank",
+]
+desc = "Copy/yank"
+
+[[manager.prepend_keymap]]
+on = "<C-n>"
+desc = "Open drag-and-drop box"
+run = '''
+shell 'dragon-drop --and-exit --icon-only --on-top "$0"' --confirm --orphan
+'''
+
+[[manager.prepend_keymap]]
+on   = "<C-s>"
+run  = 'shell "$SHELL" --block --confirm'
+desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"

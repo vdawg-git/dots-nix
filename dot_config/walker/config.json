@@ -1,0 +1,94 @@
+{
+  "builtins": {
+    "applications": {
+      "actions": {
+		"enabled": true
+	    },
+      "context_aware": true,
+      "name": "applications",
+      "placeholder": "Applications",
+      "prioritize_new": true,
+      "refresh": true,
+      "show_sub_when_single": true
+    },
+    "clipboard": {
+      "image_height": 300,
+      "max_entries": 10,
+      "name": "clipboard",
+      "placeholder": "Clipboard",
+      "switcher_only": true
+    },
+    "commands": {
+      "name": "commands",
+      "placeholder": "Commands",
+      "switcher_only": true
+    },
+    "custom_commands": {
+      "name": "custom_commands",
+      "placeholder": "Custom Commands"
+    },
+    "dmenu": {
+      "name": "dmenu",
+      "placeholder": "Dmenu",
+      "switcher_only": true
+    },
+    "emojis": {
+      "history": true,
+      "name": "emojis",
+      "placeholder": "Emojis",
+      "switcher_only": true,
+      "typeahead": true
+    },
+    "finder": {
+      "concurrency": 8,
+      "ignore_gitignore": true,
+      "name": "finder",
+      "placeholder": "Finder",
+      "refresh": true,
+      "switcher_only": true
+    },
+    "runner": {
+      "generic_entry": false,
+      "history": true,
+      "name": "runner",
+      "placeholder": "Runner",
+      "refresh": true,
+      "typeahead": true
+    },
+    "ssh": {
+      "history": true,
+      "name": "ssh",
+      "placeholder": "SSH",
+      "refresh": true,
+      "switcher_only": true
+    },
+    "switcher": {
+      "name": "switcher",
+      "placeholder": "Switcher",
+      "prefix": "/"
+    },
+    "websearch": {
+      "engines": [
+        "google"
+      ],
+      "name": "websearch",
+      "placeholder": "Websearch"
+    },
+    "windows": {
+      "name": "windows",
+      "placeholder": "Windows"
+    }
+  },
+  "list": {
+    "max_entries": 50,
+    "show_initial_entries": true,
+    "single_click": false
+  },
+  "search": {
+    "delay": 0,
+    "force_keyboard_focus": true,
+    "history": true,
+    "placeholder": "Search..."
+  },
+  "theme": "glass"
+}

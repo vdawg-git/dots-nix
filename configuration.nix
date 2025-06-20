@@ -128,8 +128,11 @@
 	bat
 	bitwarden-cli
 	bitwarden-desktop
+	blanket
+	blueman
 	brave
 	btop
+	delta
 	dragon-drop
 	eog
 	fastfetch
@@ -139,25 +142,18 @@
 	git-lfs
 	gnome-calculator
 	gnome-system-monitor
-	kitty
-	neovim
-	vim 
-	wget
-	yazi
-	ripgrep
-	starship
-	tree
-	blanket
-	blueman
-	delta
 	grim
+	home-manager
 	imagemagick
 	kew
 	keyd
+	kitty
 	mediainfo
 	megacmd
 	mpv
 	nautilus
+	neovim
+	nerd-fonts.jetbrains-mono
 	networkmanager
 	networkmanagerapplet
 	nwg-displays
@@ -167,16 +163,21 @@
 	qbittorrent-enhanced
 	rclone
 	rhythmbox
+	ripgrep
 	slurp
+	starship
 	swappy
 	swaynotificationcenter
 	swww
 	tesseract
 	tree
-	nerd-fonts.jetbrains-mono
+	tree
 	vesktop
+	vim 
 	vscode.fhs
+	wget
 	wireguard-tools
+	yazi
 	zoxide
   ];
 
