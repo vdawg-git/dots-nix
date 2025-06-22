@@ -57,7 +57,12 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
+
+  services.atuin = {
+	  enable = true;
+	  openFirewall = true;
+	  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -153,7 +158,12 @@
 	eog
 	fastfetch
 	fsearch
+	yt-dlp
 	fzf
+	kdePackages.kdenlive
+	kalker
+	jq
+	bun
 	git
 	git-lfs
 	gnome-calculator
@@ -180,14 +190,19 @@
 	rclone
 	rhythmbox
 	ripgrep
+	rustup
 	slurp
 	starship
+	rsync
+	rhythmbox
 	swappy
 	swaynotificationcenter
+	obs-studio
 	swww
 	tesseract
 	tree
 	tree
+	rclone
 	vesktop
 	vim 
 	vscode.fhs

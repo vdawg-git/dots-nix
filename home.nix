@@ -10,10 +10,10 @@ let
    (builtins.attrNames)
    (map toString)
    (map (name: let 
-	   from = "${configDir}/${name}";
-	   to = "${homeDirectory}/${name}";
+	   from = "${baseConfigDir}/${name}";
+	   to = "${homeDirectory}/.config/${name}";
 
-	   in "safe-link -sf ${from} ${to}"
+	   in "safe_link '${from}' '${to}'"
 	   )
    )
    (lib.concatStringsSep "\n") 
@@ -26,11 +26,13 @@ in
   home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.activation.linkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] configLinks 
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] configLinks ;
   home.activation.init = lib.hm.dag.entryBefore ["linkDotfiles"] ''
 	safe_link() {
 	  local src="$1"
 	  local dest="$2"
+
+	  echo $1
 
 	  mkdir -p "$(dirname "$dest")"  # make parent dir if needed
 
@@ -54,7 +56,7 @@ in
 		return 0
 	  fi
 	}
-  ''
+  '';
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
