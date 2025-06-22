@@ -21,6 +21,12 @@
 			./configuration.nix
 		];
 	};
+       nixosConfigurations.nixos  = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs userNames; };
+                modules = [
+                        ./configuration.nix
+                ];
+        };
 
 
   };

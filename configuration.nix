@@ -145,6 +145,7 @@
   environment.systemPackages = with pkgs; [
 	atuin  
 	aw-watcher-window
+	switcheroo
 	awatcher
 	bat
 	bitwarden-cli
