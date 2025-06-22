@@ -1,19 +1,61 @@
-{ config, pkgs, lib,  imports, ... }:
+{ config, pkgs, lib, inputs,  imports, ... }:
 let
-  configDir = ./dot_config;
-  configEntries = builtins.readDir configDir;
-  configLinks = lib.mapAttrs (name: _: {
-     source = "${configDir}/${name}";
-  }) configDir;
+  userName = "vdawg";
+  homeDirectory = "/home/${userName}";
+
+  # The parent is this flake
+  baseConfigDir = "/home/vdawg/dotfiles/dot_config";
+
+  configLinks = lib.pipe (builtins.readDir baseConfigDir) [
+   (builtins.attrNames)
+   (map toString)
+   (map (name: let 
+	   from = "${configDir}/${name}";
+	   to = "${homeDirectory}/${name}";
+
+	   in "safe-link -sf ${from} ${to}"
+	   )
+   )
+   (lib.concatStringsSep "\n") 
+  ];
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "vdawg";
-  home.homeDirectory = "/home/vdawg";
+  home.username = userName;
+  home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.file = configLinks;
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] configLinks 
+  home.activation.init = lib.hm.dag.entryBefore ["linkDotfiles"] ''
+	safe_link() {
+	  local src="$1"
+	  local dest="$2"
+
+	  mkdir -p "$(dirname "$dest")"  # make parent dir if needed
+
+	  if [ -L "$dest" ]; then
+		# It's a symlink — check if it points to the correct target
+		local current_target
+		current_target=$(readlink -f "$dest")
+		if [ "$(readlink -f "$src")" = "$current_target" ]; then
+		  echo "[✓] $dest already correctly linked"
+		  return 0
+		else
+		  echo "[✗] ERROR: $dest is a symlink, but points to $current_target, not $src"
+		  return 1
+		fi
+	  elif [ -e "$dest" ]; then
+		echo "[✗] ERROR: $dest already exists and is not a symlink"
+		return 1
+	  else
+		ln -s "$src" "$dest"
+		echo "[+] Linked $dest → $src"
+		return 0
+	  fi
+	}
+  ''
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -56,10 +98,13 @@ in
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+	# Added so that programs have access to it (Treesitter Neovim needs it),
+    # as systemPackages dont have (and like in this case kinda shouldnt) be in $PATH 
+	gcc
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

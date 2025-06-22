@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -105,7 +105,7 @@
   };
 
   home-manager = {
-	specialArgs = { inherit inputs };
+	extraSpecialArgs = { inherit inputs; };
 	users = {
 	   "vdawg" = import ./home.nix;
 	   # "ck" = import ./home.nix;
@@ -113,6 +113,15 @@
   };
 
   programs.fish.enable = true;
+  programs.neovim = { 
+	enable = true;
+	defaultEditor = true;
+  };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+	libgcc
+  ];
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -125,8 +134,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -196,6 +203,9 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
