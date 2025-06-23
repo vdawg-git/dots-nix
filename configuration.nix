@@ -49,9 +49,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -140,16 +137,11 @@
   services.displayManager.autoLogin.user = "vdawg";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
-  programs.hyprlock.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -165,6 +157,7 @@
     blueman
     brave
     btop
+	hyprsunset
     delta
     dragon-drop
     eog
@@ -225,56 +218,6 @@
     zoxide
   ];
 
-  services.keyd.enable = true;
-  services.keyd.keyboards.default = {
-    ids = [
-      "*"
-      # Ignore split keyboard
-      "-beeb:0002:35429553"
-      "-beeb:0002:cb369b64"
-      "-beeb:0002:7b9d9329"
-      "-beeb:0002:fcb4ba9a"
-    ];
-    settings = {
-      main = {
-        # MacOs modifier layout
-        leftmeta = "layer(alt)";
-        leftcontrol = "layer(meta)";
-        leftalt = "layer(control)";
-
-        # Nicer capslock
-        # When capslock is held hjkl keys becomes arrow keys
-        capslock = "overload(arrow_layer, esc)";
-
-        # MacOs arrow power ( Home / End ) - to be implemented
-
-        # Homerow mods
-        # From https://github.com/rvaiya/keyd/issues/437
-        a = "overloadt2(shift, a, 220)";
-        semicolon = "overloadt2(shift, ;, 220)";
-        d = "overloadt2(meta, d, 220)";
-        # f = overloadt2(shift, f, 220)
-        # s = overloadt2(alt, s, 220);
-        # a = overloadt2(control, a, 220)
-        # s = overloadt2(alt, s, 220)
-
-      };
-      # When tab is held hjkl keys becomes arrow keys
-      # tab = overload(arrow_layer, tab)
-      arrow_layer = {
-        # chord_hold_timeout = 1000
-        h = "left";
-        j = "down";
-        k = "up";
-        l = "right";
-
-        e = "home";
-        r = "end";
-      };
-    };
-
-  };
-
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [
@@ -283,7 +226,6 @@
     ];
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

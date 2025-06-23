@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on = "y"
 run = [
     '''
@@ -10,19 +10,19 @@ run = [
 ]
 desc = "Copy/yank"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on = "<C-n>"
 desc = "Open drag-and-drop box"
 run = '''
 shell 'dragon-drop --and-exit --icon-only --on-top "$0"' --confirm --orphan
 '''
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"

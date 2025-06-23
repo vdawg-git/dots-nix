@@ -19,6 +19,8 @@
 		specialArgs = { inherit inputs userNames; };
 		modules = [
 			./configuration.nix
+			./modules/hyprland.nix
+			./modules/keyd.nix
 		];
 	};
 
