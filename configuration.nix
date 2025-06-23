@@ -2,21 +2,24 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [
+    ./hardware/legion.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 50;
+  boot.loader.grub.enable = false;
 
-  networking.hostName = "swordfish"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -60,9 +63,9 @@
   services.printing.enable = false;
 
   services.atuin = {
-	  enable = true;
-	  openFirewall = true;
-	  };
+    enable = true;
+    openFirewall = true;
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -85,47 +88,51 @@
 
   users.mutableUsers = false;
   users.users = {
-  
-  	vdawg = {
-	    isNormalUser = true;
-            shell = pkgs.fish;
-	    description = "personal account";
-	    extraGroups = [ "networkmanager" "wheel" ];
-	    hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-	    packages = with pkgs; [
-	    #  thunderbird
-	    ];
-	};
 
-	ck = {
-		isNormalUser = true;
-		shell = pkgs.fish;
-		description = "work account";
-	        hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [
-		    #  thunderbird
-		];
-	};
+    vdawg = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      description = "personal account";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      packages = with pkgs; [
+        #  thunderbird
+      ];
+    };
+
+    ck = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      description = "work account";
+      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [ ];
+    };
   };
 
   home-manager = {
-	extraSpecialArgs = { inherit inputs; };
-	users = {
-	   "vdawg" = import ./home.nix;
-	   # "ck" = import ./home.nix;
-	};
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "vdawg" = import ./home.nix;
+      # "ck" = import ./home.nix;
+    };
   };
 
   programs.fish.enable = true;
-  programs.neovim = { 
-	enable = true;
-	defaultEditor = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
   };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-	libgcc
+    libgcc
   ];
 
   # Enable automatic login for the user.
@@ -138,84 +145,142 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+  programs.hyprlock.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	atuin  
-	aw-watcher-window
-	switcheroo
-	awatcher
-	bat
-	bitwarden-cli
-	bitwarden-desktop
-	blanket
-	blueman
-	brave
-	btop
-	delta
-	dragon-drop
-	eog
-	fastfetch
-	fsearch
-	yt-dlp
-	fzf
-	kdePackages.kdenlive
-	kalker
-	jq
-	bun
-	git
-	git-lfs
-	gnome-calculator
-	gnome-system-monitor
-	grim
-	home-manager
-	imagemagick
-	kew
-	keyd
-	kitty
-	mediainfo
-	megacmd
-	mpv
-	nautilus
-	neovim
-	nerd-fonts.jetbrains-mono
-	networkmanager
-	networkmanagerapplet
-	nwg-displays
-	nwg-panel
-	obsidian
-	pavucontrol
-	qbittorrent-enhanced
-	rclone
-	rhythmbox
-	ripgrep
-	rustup
-	slurp
-	starship
-	rsync
-	rhythmbox
-	swappy
-	swaynotificationcenter
-	obs-studio
-	swww
-	tesseract
-	tree
-	tree
-	rclone
-	vesktop
-	vim 
-	vscode.fhs
-	wget
-	wireguard-tools
-	yazi
-	zoxide
+    atuin
+    aw-watcher-window
+    switcheroo
+    awatcher
+    bat
+    bitwarden-cli
+    bitwarden-desktop
+    blanket
+    blueman
+    brave
+    btop
+    delta
+    dragon-drop
+    eog
+    fastfetch
+    fsearch
+    yt-dlp
+    fzf
+    nixfmt-rfc-style
+    kdePackages.kdenlive
+    kalker
+    jq
+    bun
+    git
+    git-lfs
+    gnome-calculator
+    gnome-system-monitor
+    grim
+    home-manager
+    imagemagick
+    kew
+    keyd
+    kitty
+    mediainfo
+    megacmd
+    mpv
+    nautilus
+    neovim
+    nerd-fonts.jetbrains-mono
+    networkmanager
+    networkmanagerapplet
+    nwg-displays
+    nwg-panel
+    obsidian
+    pavucontrol
+    qbittorrent-enhanced
+    rclone
+    rhythmbox
+    ripgrep
+    rustup
+    slurp
+    starship
+    rsync
+    rhythmbox
+    swappy
+    swaynotificationcenter
+    obs-studio
+    swww
+    tesseract
+    tree
+    tree
+    rclone
+    vesktop
+    vim
+    vscode.fhs
+    wget
+    wireguard-tools
+    yazi
+    zoxide
   ];
 
+  services.keyd.enable = true;
+  services.keyd.keyboards.default = {
+    ids = [
+      "*"
+      # Ignore split keyboard
+      "-beeb:0002:35429553"
+      "-beeb:0002:cb369b64"
+      "-beeb:0002:7b9d9329"
+      "-beeb:0002:fcb4ba9a"
+    ];
+    settings = {
+      main = {
+        # MacOs modifier layout
+        leftmeta = "layer(alt)";
+        leftcontrol = "layer(meta)";
+        leftalt = "layer(control)";
+
+        # Nicer capslock
+        # When capslock is held hjkl keys becomes arrow keys
+        capslock = "overload(arrow_layer, esc)";
+
+        # MacOs arrow power ( Home / End ) - to be implemented
+
+        # Homerow mods
+        # From https://github.com/rvaiya/keyd/issues/437
+        a = "overloadt2(shift, a, 220)";
+        semicolon = "overloadt2(shift, ;, 220)";
+        d = "overloadt2(meta, d, 220)";
+        # f = overloadt2(shift, f, 220)
+        # s = overloadt2(alt, s, 220);
+        # a = overloadt2(control, a, 220)
+        # s = overloadt2(alt, s, 220)
+
+      };
+      # When tab is held hjkl keys becomes arrow keys
+      # tab = overload(arrow_layer, tab)
+      arrow_layer = {
+        # chord_hold_timeout = 1000
+        h = "left";
+        j = "down";
+        k = "up";
+        l = "right";
+
+        e = "home";
+        r = "end";
+      };
+    };
+
+  };
+
   nix = {
-	package = pkgs.nix;
-	settings.experimental-features = [ "nix-command" "flakes"];
+    package = pkgs.nix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -249,5 +314,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
