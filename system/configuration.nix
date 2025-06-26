@@ -11,10 +11,7 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 50;
-  boot.loader.grub.enable = false;
+  networking.hostName = "legion";
 
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
