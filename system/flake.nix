@@ -21,7 +21,6 @@
         modules = [
           ./bootloader.nix
           ./configuration.nix
-          ./home.nix
           ./hyprland.nix
           ./keyd.nix
 

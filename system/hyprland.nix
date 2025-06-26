@@ -20,6 +20,7 @@
     hypridle
     swww
     kitty
+    greetd.tuigreet
   ];
 
   # Enable Display Manager
@@ -46,5 +47,4 @@
     linger = true;
   };
 
-  environment.systemPackages = with pkgs; [ greetd.tuigreet ];
 }

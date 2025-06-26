@@ -13,8 +13,6 @@
 
   networking.hostName = "legion";
 
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -102,14 +100,6 @@
         "wheel"
       ];
       packages = with pkgs; [ ];
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "vdawg" = import ./home.nix;
-      # "ck" = import ./home.nix;
     };
   };
 
@@ -245,4 +235,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      vdawg = import ./home.nix;
+    };
+  };
 }

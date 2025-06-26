@@ -14,28 +14,35 @@ let
   baseConfigDir = "/home/vdawg/dotfiles/home";
   dotPrefix = "dot_";
 
-  configLinks = lib.pipe baseConfigDir [
+  execConfigLinks = lib.pipe baseConfigDir [
     (builtins.readDir)
     (builtins.attrNames)
     (map toString)
     (map (
-      dirName:
+      dotDir:
       let
-        fromBase = "${baseConfigDir}/${dirName}";
+        dotDirPath = "${baseConfigDir}/${dotDir}";
 
-        links = lib.pipe (builtins.readDir fromBase) [
-          (builtins.attrNames)
-          (map toString)
-          (map getFromSymlinks)
+        links = lib.pipe (builtins.readDir dotDirPath) [
+          (lib.mapAttrsToList (
+            child: type:
+            let
+              absolutePath = "${dotDirPath}/${child}";
+              toLink = if type == "directory" then (getFromSymlinks absolutePath) else [ absolutePath ];
+            in
+            toLink
+          ))
+          (lib.flatten)
           (map (toLink: {
             from = toLink;
-            to = lib.removePrefix dotPrefix toLink;
+            to = lib.replaceStrings [ dotPrefix ] [ "" ] toLink;
           }))
         ];
       in
       links
     ))
-    (map ({ to, from }: "safe_link '${from}' '${to}'"))
+    (lib.flatten)
+    (map ({ from, to }: "safe_link '${from}' '${to}'"))
     (lib.concatStringsSep "\n")
   ];
 
@@ -44,15 +51,13 @@ let
   getFromSymlinks = (
     dir:
     lib.pipe (builtins.readDir dir) [
-      (builtins.attrNames)
-      (map toString)
-      (map (
-        childDir:
+      (lib.mapAttrsToList (
+        child: type:
         let
-          absolutePath = "${dir}/${childDir}";
-          isPassthrough = lib.hasInfix passThroughPrefix childDir;
-          toSymlinks = if isPassthrough then (getFromSymlinks absolutePath) else [ absolutePath ];
-
+          absolutePath = "${dir}/${child}";
+          isPassthrough = lib.hasInfix passThroughPrefix child;
+          toSymlinks =
+            if isPassthrough && type != "regular" then (getFromSymlinks absolutePath) else [ absolutePath ];
         in
         toSymlinks
       ))
@@ -67,7 +72,7 @@ in
   home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] configLinks;
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] execConfigLinks;
   home.activation.init = lib.hm.dag.entryBefore [ "linkDotfiles" ] ''
     safe_link() {
       local src="$1"
