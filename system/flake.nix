@@ -8,29 +8,33 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ... } @inputs :
-  let 
-	a = 1;
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      userNames = [
+        "vdawg"
+        "ck"
+      ];
+    in
+    {
+      nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs userNames; };
+        modules = [
+          ./bootloader.nix
+          ./configuration.nix
+          ./home.nix
+          ./hyprland.nix
+          ./keyd.nix
 
-	userNames = ["vdawg" "ck"];
-  in
- {
-	nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
-		specialArgs = { inherit inputs userNames; };
-		modules = [
-			./configuration.nix
-			./hyprland.nix
-			./keyd.nix
-		];
-	};
+        ];
+      };
 
-    nixosConfigurations.legion  = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs userNames; };
-                modules = [
-                        ./configuration.nix
-                ];
-        };
+      nixosConfigurations.legion = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs userNames; };
+        modules = [
+          ./configuration.nix
+        ];
+      };
 
-
-  };
+    };
 }

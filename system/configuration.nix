@@ -1,15 +1,22 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ ./hardware/legion.nix inputs.home-manager.nixosModules.default ];
+  imports = [
+    ./hardware/legion.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 50;
   boot.loader.grub.enable = false;
 
-  networking.wireless.enable =
-    true; # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -78,22 +85,25 @@
       isNormalUser = true;
       shell = pkgs.fish;
       description = "personal account";
-      extraGroups = [ "networkmanager" "wheel" ];
-      hashedPassword =
-        "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      packages = with pkgs;
-        [
-          #  thunderbird
-        ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      packages = with pkgs; [
+        #  thunderbird
+      ];
     };
 
     ck = {
       isNormalUser = true;
       shell = pkgs.fish;
       description = "work account";
-      hashedPassword =
-        "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      extraGroups = [ "networkmanager" "wheel" ];
+      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [ ];
     };
   };
@@ -148,6 +158,7 @@
     fastfetch
     fsearch
     fzf
+    wl-clipboard
     git
     git-lfs
     gnome-calculator
@@ -202,7 +213,10 @@
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   # Allow unfree packages

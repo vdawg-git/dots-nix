@@ -46,6 +46,7 @@
 
         e = "home";
         r = "end";
+        # TODO when space is held arrow keys go to start/end (home/end/page up/page down)
       };
     };
 
