@@ -1,4 +1,11 @@
-{ config, pkgs, lib, inputs, imports, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  imports,
+  ...
+}:
 let
   userName = "vdawg";
   homeDirectory = "/home/${userName}";
@@ -11,7 +18,8 @@ let
     (builtins.readDir)
     (builtins.attrNames)
     (map toString)
-    (map (dirName:
+    (map (
+      dirName:
       let
         fromBase = "${baseConfigDir}/${dirName}";
 
@@ -24,38 +32,42 @@ let
             to = lib.removePrefix dotPrefix toLink;
           }))
         ];
-      in links))
+      in
+      links
+    ))
     (map ({ to, from }: "safe_link '${from}' '${to}'"))
     (lib.concatStringsSep "\n")
   ];
 
   passThroughPrefix = "pass_";
 
-  getFromSymlinks = (dir:
+  getFromSymlinks = (
+    dir:
     lib.pipe (builtins.readDir dir) [
       (builtins.attrNames)
       (map toString)
-      (map (childDir:
+      (map (
+        childDir:
         let
           absolutePath = "${dir}/${childDir}";
           isPassthrough = lib.hasInfix passThroughPrefix childDir;
-          toSymlinks = if isPassthrough then
-            (getToSymlinks absolutePath)
-          else
-            [ absolutePath ];
+          toSymlinks = if isPassthrough then (getFromSymlinks absolutePath) else [ absolutePath ];
 
-        in toSymlinks))
+        in
+        toSymlinks
+      ))
       (lib.flatten)
-    ]);
-in {
+    ]
+  );
+in
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userName;
   home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.activation.linkDotfiles =
-    lib.hm.dag.entryAfter [ "writeBoundary" ] configLinks;
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] configLinks;
   home.activation.init = lib.hm.dag.entryBefore [ "linkDotfiles" ] ''
     safe_link() {
       local src="$1"
@@ -118,30 +130,31 @@ in {
   #
   #  /etc/profiles/per-user/vdawg/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;
-    [
-      # Added so that programs have access to it (Treesitter Neovim needs it),
-      # as systemPackages dont have (and like in this case kinda shouldnt) be in $PATH 
-      gcc
+  home.packages = with pkgs; [
+    # Added so that programs have access to it (Treesitter Neovim needs it),
+    # as systemPackages dont have (and like in this case kinda shouldnt) be in $PATH
+    gcc
 
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
-    ];
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+  ];
 }

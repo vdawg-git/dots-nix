@@ -15,9 +15,8 @@
         "vdawg"
         "ck"
       ];
-    in
-    {
-      nixosConfigurations.swordfish = nixpkgs.lib.nixosSystem {
+
+      default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs userNames; };
         modules = [
           ./bootloader.nix
@@ -28,13 +27,10 @@
 
         ];
       };
-
-      nixosConfigurations.legion = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs userNames; };
-        modules = [
-          ./configuration.nix
-        ];
-      };
-
+    in
+    {
+      nixosConfigurations.swordfish = default;
+      nixosConfigurations.legion = default;
+      nixosConfigurations.nixos = default;
     };
 }
