@@ -1,26 +1,15 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ config, pkgs, inputs, ... }:
 
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-
-{
-  imports = [
-    ./hardware/legion.nix
-    inputs.home-manager.nixosModules.default
-  ];
+  imports = [ ./hardware/legion.nix inputs.home-manager.nixosModules.default ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 50;
   boot.loader.grub.enable = false;
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable =
+    true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -48,7 +37,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,25 +78,22 @@
       isNormalUser = true;
       shell = pkgs.fish;
       description = "personal account";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      packages = with pkgs; [
-        #  thunderbird
-      ];
+      extraGroups = [ "networkmanager" "wheel" ];
+      hashedPassword =
+        "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      packages = with pkgs;
+        [
+          #  thunderbird
+        ];
     };
 
     ck = {
       isNormalUser = true;
       shell = pkgs.fish;
       description = "work account";
-      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
+      hashedPassword =
+        "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
+      extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [ ];
     };
   };
@@ -128,9 +113,7 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    libgcc
-  ];
+  programs.nix-ld.libraries = with pkgs; [ libgcc ];
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -146,8 +129,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	hyprsunset
-	walker
+    hyprsunset
+    walker
     atuin
     aw-watcher-window
     awatcher
@@ -219,12 +202,8 @@
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

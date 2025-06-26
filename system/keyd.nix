@@ -1,4 +1,4 @@
-{inputs, pgks,...}:
+{ inputs, pkgs, ... }:
 
 {
   services.keyd.enable = true;
@@ -50,3 +50,4 @@
     };
 
   };
+}
