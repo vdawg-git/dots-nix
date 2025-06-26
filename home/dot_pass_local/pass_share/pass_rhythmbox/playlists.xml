@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<rhythmdb-playlists>
+  <playlist name="Boss" show-browser="false" browser-position="61" search-type="search-match" type="automatic" sort-key="Artist" sort-direction="0">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <like prop="title-folded"/>
+          <like prop="artist-folded">Kollegah</like>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Chill" show-browser="false" browser-position="61" search-type="search-match" type="automatic" sort-key="Track" sort-direction="0">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <like prop="genre-folded">classic</like>
+          <disjunction/>
+          <like prop="genre-folded">Hiphop beat</like>
+          <disjunction/>
+          <like prop="genre-folded">world</like>
+          <disjunction/>
+          <like prop="genre-folded">chill</like>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Code" show-browser="false" browser-position="63" search-type="search-match" type="automatic" sort-key="Artist" sort-direction="0">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <like prop="genre-folded">Chant</like>
+          <disjunction/>
+          <like prop="genre-folded">chant</like>
+          <disjunction/>
+          <like prop="artist-folded">erik satie</like>
+          <disjunction/>
+          <like prop="artist-folded">ensemble organum</like>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="HipHop" show-browser="false" browser-position="63" search-type="search-match" type="automatic" sort-key="Artist" sort-direction="0">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <like prop="genre-folded">Deutschrap</like>
+          <disjunction/>
+          <like prop="genre-folded">Hip-hop</like>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="My Top Rated" show-browser="false" browser-position="63" search-type="search-match" type="automatic" sort-key="Rating" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <greater prop="rating">4.000000</greater>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Recently Added" show-browser="false" browser-position="64" search-type="search-match" type="automatic" sort-key="FirstSeen" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <current-time-within prop="first-seen">604800</current-time-within>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Recently Played" show-browser="false" browser-position="122" search-type="search-match" type="automatic" sort-key="LastPlayed" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <current-time-within prop="last-played">604800</current-time-within>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Play Queue" show-browser="true" browser-position="145" search-type="search-match" type="queue"/>
+</rhythmdb-playlists>
