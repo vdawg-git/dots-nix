@@ -13,6 +13,7 @@ let
   # The parent is this flake
   baseConfigDir = "/home/vdawg/dotfiles/home";
   dotPrefix = "dot_";
+  passThroughPrefix = "pass_";
 
   execConfigLinks = lib.pipe baseConfigDir [
     (builtins.readDir)
@@ -28,14 +29,16 @@ let
             child: type:
             let
               absolutePath = "${dotDirPath}/${child}";
-              toLink = if type == "directory" then (getFromSymlinks absolutePath) else [ absolutePath ];
+              isPassthrough = lib.hasInfix passThroughPrefix child;
+              toLink =
+                if type == "directory" && isPassthrough then (getFromSymlinks absolutePath) else [ absolutePath ];
             in
             toLink
           ))
           (lib.flatten)
           (map (toLink: {
             from = toLink;
-            to = lib.replaceStrings [ dotPrefix ] [ "" ] toLink;
+            to = lib.replaceStrings [ dotPrefix passThroughPrefix "/dotfiles/home/" ] [ "." "" "/" ] toLink;
           }))
         ];
       in
@@ -45,8 +48,6 @@ let
     (map ({ from, to }: "safe_link '${from}' '${to}'"))
     (lib.concatStringsSep "\n")
   ];
-
-  passThroughPrefix = "pass_";
 
   getFromSymlinks = (
     dir:
@@ -64,6 +65,7 @@ let
       (lib.flatten)
     ]
   );
+
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -72,7 +74,9 @@ in
   home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] execConfigLinks;
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter [
+    "writeBoundary"
+  ] (builtins.trace execConfigLinks execConfigLinks);
   home.activation.init = lib.hm.dag.entryBefore [ "linkDotfiles" ] ''
     safe_link() {
       local src="$1"
