@@ -8,13 +8,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
-      userNames = [
-        "vdawg"
-        "ck"
-      ];
+      userNames = [ "vdawg" "ck" ];
 
       default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs userNames; };
@@ -23,11 +19,10 @@
           ./configuration.nix
           ./hyprland.nix
           ./keyd.nix
-
+          ./pkgs-base.nix
         ];
       };
-    in
-    {
+    in {
       nixosConfigurations.swordfish = default;
       nixosConfigurations.legion = default;
       nixosConfigurations.nixos = default;
