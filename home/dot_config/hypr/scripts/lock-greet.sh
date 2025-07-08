@@ -5,7 +5,7 @@ user=$(whoami)
 capitalized_user=$(echo "$user" | awk '{print toupper(substr($0,1,2)) tolower(substr($0,3))}')
 
 morning_greetings=(
-	"Hail, fair morn" 
+	"Greetings, fair morn" 
 	"Good morrow" 
 	"Bright morning to thee"
 	"Purer than the snow"
@@ -26,11 +26,9 @@ evening_greetings=(
 )
 
 # Select a random greeting based on the current hour
-if [ $current_hour -lt 12 ]; then
-    # If the hour is less than 12 (morning)
+if [ $current_hour -lt 11 ]; then
     greetings=("${morning_greetings[@]}")
 elif [ $current_hour -lt 18 ]; then
-    # If the hour is less than 18 (afternoon)
     greetings=("${afternoon_greetings[@]}")
 else
     # If the hour is 18 or greater (evening)
