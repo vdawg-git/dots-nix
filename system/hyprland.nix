@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
-
+let
+  username = "vdawg";
+  command = "uwsm start hyprland";
+in
 {
   # Enable Hyprland
   programs.hyprland = {
@@ -23,15 +26,23 @@
     greetd.tuigreet
   ];
 
-  # Enable Display Manager
+  # Enable Display Manager and auto-login
   services.greetd = {
     enable = true;
     settings = {
+      initial_session = {
+        command = command;
+        user = "${username}";
+      };
       default_session = {
         command = ''
           ${pkgs.greetd.tuigreet}/bin/tuigreet 
+                    --greeting 'Thou art returned. The sun doth rise on new opportunities ^-^'
+                    --remember --remember-session
+                    --asterisks-char ▓
                     --time --time-format '%I:%M %p | %a • %h | %F' 
-                    --cmd 'uwsm start hyprland'';
+                    --cmd '${command}'
+        '';
         user = "greeter";
       };
     };
