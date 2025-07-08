@@ -131,9 +131,6 @@
         "Dearrow": {
             "enabled": false
         },
-        "EmoteCloner": {
-            "enabled": false
-        },
         "Experiments": {
             "enabled": false
         },
@@ -699,6 +696,9 @@
         },
         "IrcColors": {
             "enabled": false
+        },
+        "ExpressionCloner": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -711,6 +711,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1738752412345
-    }
+        "settingsSyncVersion": 1752006679865
+    },
+    "eagerPatches": false
 }

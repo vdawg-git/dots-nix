@@ -1,5 +1,5 @@
 {
-    "minimizeToTray": "on",
+    "minimizeToTray": true,
     "discordBranch": "stable",
     "splashColor": "rgb(235, 219, 178)",
     "splashBackground": "rgb(13, 9, 7)",
@@ -7,5 +7,6 @@
     "spellCheckLanguages": [
         "en-US",
         "en"
-    ]
+    ],
+    "arRPC": false
 }
