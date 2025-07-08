@@ -1,15 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ config, pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./hardware/legion.nix
-    inputs.home-manager.nixosModules.default
-  ];
+  imports = [ ./hardware/legion.nix inputs.home-manager.nixosModules.default ];
 
   networking.hostName = "legion";
 
@@ -73,33 +65,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.mutableUsers = false;
+  users.mutableUsers = true;
   users.users = {
-
     vdawg = {
       isNormalUser = true;
       shell = pkgs.fish;
       description = "personal account";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      packages = with pkgs; [
-        #  thunderbird
-      ];
-    };
-
-    ck = {
-      isNormalUser = true;
-      shell = pkgs.fish;
-      description = "work account";
-      hashedPassword = "$6$Zaay0c3zuB2PzJXS$T0QDNB4RZLghjLeK50Ygh5NVqbL/hl7uzgSTelo9ZLbHaQAWr83yJwucOVmEi1GYDb/lCDS36drksPrwmSuJ1/";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = with pkgs; [ ];
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs;
+        [
+          #  thunderbird
+        ];
     };
   };
 
@@ -123,13 +99,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   # Allow unfree packages
@@ -164,8 +136,6 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      vdawg = import ./home.nix;
-    };
+    users = { vdawg = import ./home.nix; };
   };
 }
