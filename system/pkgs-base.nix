@@ -65,6 +65,7 @@
     ripgrep
     rsync
     rustup
+    sassc # For the generation of the Colloid theme
     slurp
     starship
     swappy
