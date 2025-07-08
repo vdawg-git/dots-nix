@@ -13,12 +13,7 @@
   # boot.initrd.availableKernelModules = [ "i915" ];
   # boot.initrd.kernelModules          = [ "i915" ];
   boot.consoleLogLevel = 3;
-  # boot.plymouth = {
-  #   enable = true;
-  #   font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
-  #   themePackages = [ pkgs.catppuccin-plymouth ];
-  #   theme = "catppuccin-macchiato";
-  # };
+  boot.plymouth.enable = false;
 
   environment.systemPackages = with pkgs; [ greetd.tuigreet ];
 }
