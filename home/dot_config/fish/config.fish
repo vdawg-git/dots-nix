@@ -12,8 +12,8 @@ string match -q "$TERM_PROGRAM" "vscode"
 and . (code --locate-shell-integration-path fish)
 
 
-# Rust
-source "$HOME/.cargo/env.fish"
+# Cargo
+fish_add_path "$HOME/.cargo/bin"
 # Dart
 fish_add_path $HOME/.pub-cache/bin
 # pnpm
