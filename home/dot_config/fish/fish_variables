@@ -8,8 +8,8 @@ SETUVAR --export --path PATH:/home/vdawg/\x2ecargo/bin\x1e/usr/local/sbin\x1e/us
 SETUVAR --export SUDO_EDITOR:nvim
 SETUVAR --export TERM:kitty
 SETUVAR --export VISUAL:nvim
-SETUVAR --export __ABBR_TIPS_KEYS:dotdot
-SETUVAR --export __ABBR_TIPS_VALUES:
+SETUVAR --export __ABBR_TIPS_KEYS:dotdot\x1epn\x1epnd\x1epnb\x1epni\x1exclip\x1ecz\x1epac\x1epacr\x1eyays\x1eicat\x1ec\x2e\x1en\x2e\x1eh\x2e\x1emvd\x1emvc\x1emvs\x1elsg\x1ewgu\x1ewgd\x1eg\x1egitc\x1egitcf\x1egitf\x1egitp\x1efrb\x1ea__cd\x1ea__cdi\x1ea__l\x1ea__ll\x1ea__ls
+SETUVAR --export __ABBR_TIPS_VALUES:\x1epnpm\x1epnpm\x20dev\x1epnpm\x20build\x1epnpm\x20install\x1exclip\x20\x2dselection\x20c\x1echezmoi\x1esudo\x20pacman\x20\x2dS\x20\x1esudo\x20pacman\x20\x2dRs\x20\x1eyay\x20\x2dSyu\x20\x1ekitty\x20\x2bkitten\x20icat\x1ecode\x20\x2e\x1envim\x20\x2e\x1envim\x20\x7e/\x2econfig/hypr\x1emullvad\x20disconnect\x1emullvad\x20connect\x1emullvad\x20status\x1els\x20\x7c\x20rg\x20\x1ewg\x2dquick\x20up\x20job\x20\x1ewg\x2dquick\x20down\x20job\x20\x1egit\x1egit\x2dclone\x2dand\x2dcd\x1egit\x2dclone\x2dand\x2dcd\x2dfast\x1e\x22git\x20add\x20\x2dA\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27commit\x20save\x20point\x27\x20\x26\x26\x20git\x20push\x22\x1egit\x20pull\x1eflutter_rust_bridge_codegen\x1e__zoxide_z\x1e__zoxide_zi\x1els\x20\x2dalh\x1els\x20\x2dl\x1els\x20\x2d\x2dcolor\x3dtty
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_g_2D_plane_2F_pnpm_2D_shell_2D_completion_files:\x7e/\x2econfig/fish/conf\x2ed/pnpm\x2dshell\x2dcompletion\x2efish
@@ -33,7 +33,7 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/vdawg/go/bin\x1e/home/vdawg/\x2elocal/share/pnpm\x1e/home/vdawg/\x2epub\x2dcache/bin
+SETUVAR fish_user_paths:/home/vdawg/\x2elocal/bin\x1e/home/vdawg/go/bin\x1e/home/vdawg/\x2elocal/share/pnpm\x1e/home/vdawg/\x2epub\x2dcache/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched

@@ -19,7 +19,7 @@ fish_add_path $HOME/.pub-cache/bin
 # pnpm
 fish_add_path "$HOME/.local/share/pnpm"
 # pipx
-fish_add_path $HOME/vdawg/.local/bin
+fish_add_path $HOME/.local/bin
 # go
 fish_add_path $HOME/go/bin
 
