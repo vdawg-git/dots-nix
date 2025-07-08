@@ -1,7 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ ./hardware/legion.nix inputs.home-manager.nixosModules.default ];
+  imports = [
+    ./hardware/legion.nix
+  ];
 
   networking.hostName = "legion";
 
@@ -71,11 +78,13 @@
       isNormalUser = true;
       shell = pkgs.fish;
       description = "personal account";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs;
-        [
-          #  thunderbird
-        ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [
+        #  thunderbird
+      ];
     };
   };
 
@@ -101,7 +110,10 @@
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   # Allow unfree packages
@@ -134,8 +146,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { vdawg = import ./home.nix; };
-  };
 }

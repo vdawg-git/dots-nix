@@ -10,6 +10,9 @@ let
   userName = "vdawg";
   homeDirectory = "/home/${userName}";
 
+  # home-manager.url = "github:nix-community/home-manager";
+  # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   # The parent is this flake
   baseConfigDir = "/home/vdawg/dotfiles/home";
   dotPrefix = "dot_";
