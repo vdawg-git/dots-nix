@@ -39,6 +39,7 @@
     kew
     keyd
     kitty
+    lazygit
     libclang
     libxkbcommon
     mediainfo
