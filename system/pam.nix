@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  security.pam.services.vdawg.kwallet = {
+  security.pam.services.kwallet = {
     name = "kwallet";
     enableKwallet = true;
   };
