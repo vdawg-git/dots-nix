@@ -21,6 +21,7 @@
     dragon-drop
     eog
     fastfetch
+    fnm
     fsearch
     fzf
     gcc
@@ -75,6 +76,7 @@
     swww
     tesseract
     tree
+    uv
     vesktop
     vim
     vscode.fhs
