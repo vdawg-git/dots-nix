@@ -1,10 +1,10 @@
 # Autostart Hyprland at login
-if status --is-interactive
-  if test -z "$DISPLAY" -a $XDG_VTNR = 1
-	echo "Fish: Autostarting Hyprland from fish config.."
-    exec Hyprland
-  end
-end
+# if status --is-interactive
+#   if test -z "$DISPLAY" -a $XDG_VTNR = 1
+# 	echo "Fish: Autostarting Hyprland from fish config.."
+#     exec Hyprland
+#   end
+# end
 
 
 # VS Code shell integration - see https://code.visualstudio.com/docs/terminal/shell-integration
@@ -54,6 +54,3 @@ end
 
 
 set fish_vi_force_cursor true
-
-
-
