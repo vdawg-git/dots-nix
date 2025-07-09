@@ -18,10 +18,12 @@
         specialArgs = { inherit inputs userNames; };
         modules = [
           ./1password.nix
+          ./atuin.nix
           ./bootloader.nix
           ./configuration.nix
           ./hyprland.nix
           ./keyd.nix
+          ./nixx.nix
           ./pam.nix
           ./pkgs-base.nix
           ./theme.nix

@@ -48,11 +48,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = false;
 
-  services.atuin = {
-    enable = true;
-    openFirewall = true;
-  };
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
