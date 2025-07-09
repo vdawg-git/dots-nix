@@ -77,39 +77,39 @@ in
   home.homeDirectory = homeDirectory;
   home.stateVersion = "25.05"; # Dont change to prevent breaking changes
 
-  home.activation.linkDotfiles = lib.hm.dag.entryAfter [
-    "writeBoundary"
-  ] (builtins.trace execConfigLinks execConfigLinks);
-  home.activation.init = lib.hm.dag.entryBefore [ "linkDotfiles" ] ''
-    safe_link() {
-      local src="$1"
-      local dest="$2"
+  # home.activation.linkDotfiles = lib.hm.dag.entryAfter [
+  #   "writeBoundary"
+  # ] (builtins.trace execConfigLinks execConfigLinks);
+  # home.activation.init = lib.hm.dag.entryBefore [ "linkDotfiles" ] ''
+  #   safe_link() {
+  #     local src="$1"
+  #     local dest="$2"
 
-      echo $1
+  #     echo $1
 
-      mkdir -p "$(dirname "$dest")"  # make parent dir if needed
+  #     mkdir -p "$(dirname "$dest")"  # make parent dir if needed
 
-      if [ -L "$dest" ]; then
-    	# It's a symlink — check if it points to the correct target
-    	local current_target
-    	current_target=$(readlink -f "$dest")
-    	if [ "$(readlink -f "$src")" = "$current_target" ]; then
-    	  echo "[✓] $dest already correctly linked"
-    	  return 0
-    	else
-    	  echo "[✗] ERROR: $dest is a symlink, but points to $current_target, not $src"
-    	  return 1
-    	fi
-      elif [ -e "$dest" ]; then
-    	echo "[✗] ERROR: $dest already exists and is not a symlink"
-    	return 1
-      else
-    	ln -s "$src" "$dest"
-    	echo "[+] Linked $dest → $src"
-    	return 0
-      fi
-    }
-  '';
+  #     if [ -L "$dest" ]; then
+  #   	# It's a symlink — check if it points to the correct target
+  #   	local current_target
+  #   	current_target=$(readlink -f "$dest")
+  #   	if [ "$(readlink -f "$src")" = "$current_target" ]; then
+  #   	  echo "[✓] $dest already correctly linked"
+  #   	  return 0
+  #   	else
+  #   	  echo "[✗] ERROR: $dest is a symlink, but points to $current_target, not $src"
+  #   	  return 1
+  #   	fi
+  #     elif [ -e "$dest" ]; then
+  #   	echo "[✗] ERROR: $dest already exists and is not a symlink"
+  #   	return 1
+  #     else
+  #   	ln -s "$src" "$dest"
+  #   	echo "[+] Linked $dest → $src"
+  #   	return 0
+  #     fi
+  #   }
+  # '';
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
