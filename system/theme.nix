@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   console = {
     earlySetup = true;

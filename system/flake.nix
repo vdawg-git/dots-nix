@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
 
   outputs =
@@ -16,12 +17,14 @@
       default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs userNames; };
         modules = [
+          ./1password.nix
           ./bootloader.nix
           ./configuration.nix
           ./hyprland.nix
           ./keyd.nix
-          ./pkgs-base.nix
           ./pam.nix
+          ./pkgs-base.nix
+          ./theme.nix
         ];
       };
     in
