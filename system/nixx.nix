@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,5 +7,8 @@
     manix # Easy NixOs docs searcher
   ];
 
+  # Idk why, but this failed
+  programs.command-not-found.enable = false;
+  # And this works hopefully
   programs.nix-index.enable = true;
 }

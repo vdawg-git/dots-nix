@@ -1,7 +1,6 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 
 {
-
   programs._1password.enable = true;
 
   programs._1password-gui = {
