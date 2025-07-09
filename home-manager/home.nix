@@ -156,6 +156,9 @@ in
     # as systemPackages dont have (and like in this case kinda shouldnt) be in $PATH
     gcc
 
+    # Just have a global NodeJs version for ease of use, too
+    nodePackages_latest.nodejs
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
