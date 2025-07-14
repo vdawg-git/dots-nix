@@ -1,13 +1,13 @@
 [
   {
     "name": "panel-top",
-    "output": "eDP-1",
+    "output": "All",
     "layer": "top",
     "position": "top",
     "controls": "right",
     "width": "auto",
     "height": 12,
-    "margin-bottom": -4,
+    "margin-bottom": -6,
     "padding-horizontal": 0,
     "padding-vertical": 0,
     "spacing": 0,
@@ -237,6 +237,8 @@
     "monitor": "",
     "width-as-percentage": false,
     "hyprland-submap": {},
-    "random-wallpaper": {}
+    "random-wallpaper": {},
+    "niri-taskbar": {},
+    "pinned": {}
   }
 ]
