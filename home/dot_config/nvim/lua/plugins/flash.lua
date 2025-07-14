@@ -21,7 +21,6 @@ return {
 			}
 
 			for hl_group, hl_def in pairs(highlights) do
-				print("Setting highlight for", hl_group, "with", vim.inspect(hl_def))
 				vim.api.nvim_set_hl(0, hl_group, hl_def)
 			end
 		else
