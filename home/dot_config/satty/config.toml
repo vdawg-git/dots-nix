@@ -20,15 +20,7 @@ primary-highlighter = "block"
 disable-notifications = true
 
 # Font to use for text annotations
-[font]
-family = "Roboto"
-style = "Bold"
+# [font]
+# family = "Roboto"
+# style = "Bold"
 
-# custom colours for the colour palette
-[color-palette]
-first= "#00ffff"
-second= "#a52a2a"
-third= "#dc143c"
-fourth= "#ff1493"
-fifth= "#ffd700"
-custom= "#008000"
