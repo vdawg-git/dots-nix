@@ -90,7 +90,14 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ libgcc ];
+  programs.nix-ld.libraries = with pkgs; [
+    # Core system libraries
+    stdenv.cc.cc.lib # libstdc++, libgcc_s
+    glibc # libc, libm, libdl, libpthread
+    mesa # libgbm.so.1, libGL.so.1
+    libxkbcommon # libxkbcommon.so.0
+
+  ];
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;

@@ -76,7 +76,6 @@
     swww
     tesseract
     tree
-    uv
     vesktop
     vim
     vscode.fhs

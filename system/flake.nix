@@ -27,6 +27,7 @@
           ./pam.nix
           ./pkgs-base.nix
           ./theme.nix
+          ./python.nix
         ];
       };
     in

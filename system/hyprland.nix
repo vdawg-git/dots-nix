@@ -11,7 +11,6 @@ in
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  # environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
@@ -31,7 +30,7 @@ in
     enable = true;
     settings = {
       initial_session = {
-        command = command;
+        command = "${command}";
         user = "${username}";
       };
       default_session = {
