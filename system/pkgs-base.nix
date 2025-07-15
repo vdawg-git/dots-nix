@@ -49,6 +49,7 @@
     neovim
     nerd-fonts.jetbrains-mono
     networkmanager
+    pnpm-shell-completion
     networkmanagerapplet
     nixfmt-rfc-style
     nwg-displays
