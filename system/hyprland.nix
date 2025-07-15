@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
 let
   username = "vdawg";
-  command = "uwsm start hyprland";
+  # This dbus activate thing is nessecary so that the keychain gets unlocked (no more annoying password again)
+  command = "dbus-update-activation-environment --systemd DISPLAY && uwsm start hyprland";
 in
 {
   # Enable Hyprland
