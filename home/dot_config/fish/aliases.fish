@@ -28,4 +28,6 @@ abbr gitcf "git-clone-and-cd-fast"
 abbr gitf "git add -A && git commit -m 'commit save point' && git push"
 abbr gitp "git pull"
 
+abbr nixs "nix-shell"
+
 abbr frb "flutter_rust_bridge_codegen"
