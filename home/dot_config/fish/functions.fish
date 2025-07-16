@@ -4,11 +4,6 @@ function mkcd
     and cd $argv[1]
 end
 
-function addpk
-  echo $argv[1] | tee -a ~/.local/share/chezmoi/.install_pkg.lst 
-  and sort -u -o ~/.local/share/chezmoi/.install_pkg.lst ~/.local/share/chezmoi/.install_pkg.lst  
-end
-
 function git-clone-and-cd
   git clone $argv[1] $argv[2]
   cd $(test -n "$argv[2]"; and echo $argv[2]; or echo $argv[1] | sed 's/^.*\///;s/\.git//')
@@ -26,15 +21,6 @@ function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-
-# auto-configm yay updates if there are no problems
-function yayu
-    expect -c "
-    spawn yay -Syu --devel 
-    expect_background -ex \"Proceed with installation\" {send \"y\\n\"}
-    interact
-	"
-end
 
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -79,3 +65,4 @@ end
 function cdn 
 	cd $argv[1] && nvim .
 end
+
