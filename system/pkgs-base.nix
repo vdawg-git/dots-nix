@@ -4,6 +4,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+	any-nix-shell
     aw-watcher-window
     awatcher
     bat
@@ -15,6 +16,7 @@
     btop
     bun
     clang
+	zip
     cmake
     delta
     dragon-drop
@@ -49,7 +51,6 @@
     neovim
     nerd-fonts.jetbrains-mono
     networkmanager
-    pnpm-shell-completion
     networkmanagerapplet
     nixfmt-rfc-style
     nwg-displays
@@ -59,6 +60,7 @@
     openssl.dev
     pavucontrol
     pkg-config
+    pnpm-shell-completion
     python3
     qbittorrent-enhanced
     rclone
@@ -89,4 +91,6 @@
     zlib.dev
     zoxide
   ];
+
+  programs.file-roller.enable = true;
 }

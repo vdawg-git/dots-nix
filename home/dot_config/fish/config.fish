@@ -46,6 +46,7 @@ if status is-interactive
 	atuin init fish | source
 	starship init fish | source # prompt
     zoxide init fish --cmd cd | source # folder auto jumping
+	any-nix-shell fish --info-right | source
 end
 
 function fish_greeting
@@ -54,3 +55,4 @@ end
 
 
 set fish_vi_force_cursor true
+
