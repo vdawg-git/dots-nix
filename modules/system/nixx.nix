@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
     comma # Run anything instantly with `, some-app`

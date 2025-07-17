@@ -2,9 +2,10 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   # Shell plugins
-  imports = [inputs._1password-shell-plugins.nixosModules.default];
+  imports = [ inputs._1password-shell-plugins.nixosModules.default ];
 
   programs = {
     _1password.enable = true;
@@ -12,7 +13,7 @@
     _1password-gui = {
       enable = true;
       # this makes system auth etc. work properly
-      polkitPolicyOwners = ["vdawg"];
+      polkitPolicyOwners = [ "vdawg" ];
     };
 
     _1password-shell-plugins = {

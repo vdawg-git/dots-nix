@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   userName = "vdawg";
   homeDirectory = "/home/${userName}";
 
@@ -19,56 +20,59 @@
     (builtins.attrNames)
     (map toString)
     (map (
-      dotDir: let
+      dotDir:
+      let
         dotDirPath = "${baseConfigDir}/${dotDir}";
 
         links = lib.pipe (builtins.readDir dotDirPath) [
           (lib.mapAttrsToList (
-            child: type: let
+            child: type:
+            let
               absolutePath = "${dotDirPath}/${child}";
               isPassthrough = lib.hasInfix passThroughPrefix child;
               toLink =
-                if type == "directory" && isPassthrough
-                then (getFromSymlinks absolutePath)
-                else [absolutePath];
+                if type == "directory" && isPassthrough then (getFromSymlinks absolutePath) else [ absolutePath ];
             in
-              toLink
+            toLink
           ))
           (lib.flatten)
           (map (toLink: {
             from = toLink;
-            to = lib.replaceStrings [dotPrefix passThroughPrefix "/dotfiles/home/"] ["." "" "/"] toLink;
+            to = lib.replaceStrings [ dotPrefix passThroughPrefix "/dotfiles/home/" ] [ "." "" "/" ] toLink;
           }))
         ];
       in
-        links
+      links
     ))
     (lib.flatten)
-    (map ({
-      from,
-      to,
-    }: "safe_link '${from}' '${to}'"))
+    (map (
+      {
+        from,
+        to,
+      }:
+      "safe_link '${from}' '${to}'"
+    ))
     (lib.concatStringsSep "\n")
   ];
 
   getFromSymlinks = (
     dir:
-      lib.pipe (builtins.readDir dir) [
-        (lib.mapAttrsToList (
-          child: type: let
-            absolutePath = "${dir}/${child}";
-            isPassthrough = lib.hasInfix passThroughPrefix child;
-            toSymlinks =
-              if isPassthrough && type != "regular"
-              then (getFromSymlinks absolutePath)
-              else [absolutePath];
-          in
-            toSymlinks
-        ))
-        (lib.flatten)
-      ]
+    lib.pipe (builtins.readDir dir) [
+      (lib.mapAttrsToList (
+        child: type:
+        let
+          absolutePath = "${dir}/${child}";
+          isPassthrough = lib.hasInfix passThroughPrefix child;
+          toSymlinks =
+            if isPassthrough && type != "regular" then (getFromSymlinks absolutePath) else [ absolutePath ];
+        in
+        toSymlinks
+      ))
+      (lib.flatten)
+    ]
   );
-in {
+in
+{
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
