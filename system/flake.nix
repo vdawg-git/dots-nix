@@ -29,6 +29,7 @@
           ./pkgs-base.nix
           ./theme.nix
           ./python.nix
+          ./docker.nix
         ];
       };
     in
