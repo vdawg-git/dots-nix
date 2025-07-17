@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	any-nix-shell
+    any-nix-shell
     aw-watcher-window
     awatcher
     bat
@@ -16,7 +14,7 @@
     btop
     bun
     clang
-	zip
+    zip
     cmake
     delta
     dragon-drop
@@ -50,8 +48,6 @@
     nautilus
     neovim
     nerd-fonts.jetbrains-mono
-    networkmanager
-    networkmanagerapplet
     nixfmt-rfc-style
     nwg-displays
     nwg-panel
@@ -86,7 +82,6 @@
     wget
     wireguard-tools
     wl-clipboard
-    yazi
     yt-dlp
     zlib.dev
     zoxide
