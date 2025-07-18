@@ -10,7 +10,7 @@
   };
 
   virtualisation.docker.daemon.settings = {
-    userland-proxy = false;
+    userland-proxy = true;
     experimental = true;
     ipv6 = false;
     # metrics-addr = "0.0.0.0:9323";
