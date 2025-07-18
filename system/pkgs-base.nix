@@ -5,6 +5,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	any-nix-shell
+	telegram-desktop
+	zip
     aw-watcher-window
     awatcher
     bat
@@ -16,7 +18,6 @@
     btop
     bun
     clang
-	zip
     cmake
     delta
     dragon-drop
@@ -43,6 +44,7 @@
     kitty
     lazygit
     libclang
+	lsof
     libxkbcommon
     mediainfo
     megacmd
