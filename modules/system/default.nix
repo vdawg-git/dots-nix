@@ -2,7 +2,7 @@
   imports = [
     ./1password.nix
     ./atuin.nix
-    ./bootloader
+    ./bootloader.nix
     ./docker.nix
     ./greetd.nix
     ./hyprland.nix
