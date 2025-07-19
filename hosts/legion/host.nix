@@ -8,9 +8,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -70,16 +67,13 @@
         "wheel"
       ];
       packages = with pkgs; [
-        #  thunderbird
+        # Just have a global NodeJs version for ease of use, too
+        nodePackages_latest.nodejs
       ];
     };
   };
 
   programs.fish.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
