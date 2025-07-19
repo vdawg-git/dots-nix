@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
@@ -12,7 +10,6 @@
   outputs =
     {
       nixpkgs,
-      home-manager,
       self,
       ...
     }@inputs:
@@ -30,10 +27,6 @@
         }
       );
 
-      userNames = [
-        "vdawg"
-        "ck"
-      ];
     in
     {
       nixosConfigurations = {
@@ -41,7 +34,7 @@
         # a hostname, the special args, and extraModules to append. That way we can construct the
         # nixosSystem args dynamically, per-host. That is for another time, though.
         legion = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs userNames; };
+          specialArgs = { inherit inputs  };
           modules = [
             # Get host-specific configuration from hosts/<hostname>/host.nix
             # This is not a convention, but it's nice to have :)
@@ -57,7 +50,7 @@
           # TODO: Uncomment when those hosts have real configurations, or import Legion's host
           # config in them to satisfy base assertions for, e.g., filesystems.
           swordfish = nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs userNames;};
+            specialArgs = {inherit inputs ;};
             modules = [
               ./modules/system
 
@@ -70,7 +63,7 @@
           };
 
           nixos = nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs userNames;};
+            specialArgs = {inherit inputs ;};
             modules = [
               ./modules/system
               {nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";}
@@ -78,25 +71,5 @@
           };
         */
       };
-
-      homeConfigurations.
-
-      homeConfigurations = nixpkgs.lib.mapAttrs (system: pkgs: {
-        "vdawg" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            # Import the home of the 'vdawg' user. The naming choice is
-            # not really a convention, but it *is* nice to have.
-            ./homes/vdawg/home.nix
-          ];
-
-          # Make sure HM has access to 'inputs' and everything that comes
-          # from it.
-          extraSpecialArgs = { inherit inputs; };
-        };
-      }) pkgsForEach;
     };
 }
