@@ -1,12 +1,11 @@
 { pkgs, ... }:
-
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	any-nix-shell
-	telegram-desktop
-	zip
+    any-nix-shell
+    telegram-desktop
+    zip
     aw-watcher-window
     awatcher
     bat
@@ -44,7 +43,7 @@
     kitty
     lazygit
     libclang
-	lsof
+    lsof
     libxkbcommon
     mediainfo
     megacmd
@@ -52,8 +51,6 @@
     nautilus
     neovim
     nerd-fonts.jetbrains-mono
-    networkmanager
-    networkmanagerapplet
     nixfmt-rfc-style
     nwg-displays
     nwg-panel
@@ -88,7 +85,6 @@
     wget
     wireguard-tools
     wl-clipboard
-    yazi
     yt-dlp
     zlib.dev
     zoxide

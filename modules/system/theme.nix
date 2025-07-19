@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   console = {
     earlySetup = true;
