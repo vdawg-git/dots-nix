@@ -1,9 +1,9 @@
 {
   imports = [
-    ./bootloader
-
     ./1password.nix
     ./atuin.nix
+    ./bootloader
+    ./docker.nix
     ./greetd.nix
     ./hyprland.nix
     ./keyd.nix
@@ -12,8 +12,8 @@
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
-    ./theme.nix
     ./python.nix
-    ./docker.nix
+    ./theme.nix
+    ./yazi.nix
   ];
 }
