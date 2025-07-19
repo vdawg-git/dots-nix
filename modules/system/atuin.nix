@@ -1,6 +1,6 @@
 {
   services.atuin = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 }
