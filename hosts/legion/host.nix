@@ -1,14 +1,6 @@
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-
-{
-  imports = [
-    ./hardware/legion.nix
-  ];
+  imports = [ ./hardware.nix ];
 
   networking.hostName = "legion";
 
@@ -96,7 +88,6 @@
     glibc # libc, libm, libdl, libpthread
     mesa # libgbm.so.1, libGL.so.1
     libxkbcommon # libxkbcommon.so.0
-
   ];
 
   # Enable automatic login for the user.
@@ -147,5 +138,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
