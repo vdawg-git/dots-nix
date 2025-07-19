@@ -2,8 +2,8 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/?rev=nixos-25.05";
-    home-manager.url = "github:nix-community/home-manager?rev=release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
