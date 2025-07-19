@@ -34,7 +34,7 @@
         # a hostname, the special args, and extraModules to append. That way we can construct the
         # nixosSystem args dynamically, per-host. That is for another time, though.
         legion = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs  };
+          specialArgs = { inherit inputs; };
           modules = [
             # Get host-specific configuration from hosts/<hostname>/host.nix
             # This is not a convention, but it's nice to have :)

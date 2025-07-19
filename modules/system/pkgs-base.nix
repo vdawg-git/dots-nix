@@ -3,9 +3,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    any-nix-shell
-    telegram-desktop
-    zip
     bat
     bitwarden-cli
     bitwarden-desktop
@@ -17,6 +14,7 @@
     clang
     cmake
     delta
+    dotbot
     dragon-drop
     eog
     fastfetch
@@ -40,8 +38,8 @@
     kitty
     lazygit
     libclang
-    lsof
     libxkbcommon
+    lsof
     mediainfo
     megacmd
     mpv
@@ -73,6 +71,7 @@
     swayosd
     switcheroo
     swww
+    telegram-desktop
     tesseract
     tree
     vesktop
@@ -83,6 +82,7 @@
     wireguard-tools
     wl-clipboard
     yt-dlp
+    zip
     zlib.dev
     zoxide
   ];
