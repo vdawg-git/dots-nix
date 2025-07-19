@@ -6,8 +6,6 @@
     any-nix-shell
     telegram-desktop
     zip
-    aw-watcher-window
-    awatcher
     bat
     bitwarden-cli
     bitwarden-desktop
@@ -32,7 +30,6 @@
     gnome-system-monitor
     gnumake
     grim
-    home-manager
     hyprsunset
     imagemagick
     jq
