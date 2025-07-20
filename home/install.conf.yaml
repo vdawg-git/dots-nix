@@ -1,0 +1,28 @@
+- link:
+    ~/.config/:
+      glob: true
+      path: dot_config/*
+      exclude: [dot_config/vesktop]
+
+    ~/.icons/default/index.theme:
+      path: dot_icons/default/index.theme
+      create: true
+
+    ~/.local/share/icons/:
+      path: dot_local/
+      create: true
+
+    ~/.local/share/rhythmbox/playlists.xmsl:
+      path: dot_local/share/rhythmbox/playlists.xml
+      create: true
+
+    ~/.gtkrc-2.0:
+
+    # We only want some of the files
+    ~/.config/vesktop:
+      path: dot_config/vesktop/*
+      glob: true
+      create: true
+
+- create:
+    - ~/dev/
