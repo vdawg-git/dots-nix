@@ -2,7 +2,7 @@
     ~/.config/:
       glob: true
       path: dot_config/*
-      exclude: [dot_config/vesktop]
+      exclude: [dot_config/vesktop, dotconfig/atuin]
 
     ~/.icons/:
       path: dot_icons/*
@@ -26,5 +26,10 @@
       glob: true
       create: true
 
+    # The atuin config keeps respawning prob bc of the service
+    ~/.config/atuin:
+      path: dot_config/atuin
+      force: true
+
 - create:
-    - ~/dev/
+    - ~/dev/playground
