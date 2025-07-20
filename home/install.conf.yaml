@@ -4,8 +4,9 @@
       path: dot_config/*
       exclude: [dot_config/vesktop]
 
-    ~/.icons/default/index.theme:
-      path: dot_icons/default/index.theme
+    ~/.icons/:
+      path: dot_icons/*
+      glob: true
       create: true
 
     ~/.local/share/icons/:
@@ -17,8 +18,9 @@
       create: true
 
     ~/.gtkrc-2.0:
+    ~/.gitconfig:
 
-    # We only want some of the files
+    # We only want the setting-files, not caches etc.
     ~/.config/vesktop:
       path: dot_config/vesktop/*
       glob: true
