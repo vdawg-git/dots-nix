@@ -5,6 +5,7 @@
     ./bootloader.nix
     ./docker.nix
     ./greetd.nix
+    ./host-base.nix
     ./hyprland.nix
     ./keyd.nix
     ./neovim.nix
