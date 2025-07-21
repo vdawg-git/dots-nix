@@ -66,3 +66,7 @@ function cdn
 	cd $argv[1] && nvim .
 end
 
+function cdc
+	cd $argv[1] && code .
+end
+
