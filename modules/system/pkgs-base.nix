@@ -32,7 +32,6 @@
     imagemagick
     jq
     kalker
-    kdePackages.kdenlive
     kew
     keyd
     kitty
