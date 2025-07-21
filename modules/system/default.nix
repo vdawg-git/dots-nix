@@ -13,6 +13,7 @@
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
+    ./postgres.nix
     ./python.nix
     ./theme.nix
     ./yazi.nix

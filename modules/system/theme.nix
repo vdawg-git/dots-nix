@@ -10,7 +10,7 @@
       "d3869b" # magenta
       "89b482" # cyan
       "c5b18d" # light gray
-      "5a524c" # dark gray (bright black)
+      "3c3836" # dark gray (bright black)
       "ea6962" # bright red
       "a9b665" # bright green
       "d8a657" # bright yellow

@@ -5,6 +5,9 @@
 }:
 
 {
+  # This whole thing is not working atm
+
+
   environment.systemPackages = with pkgs; [
     awatcher
     activitywatch
