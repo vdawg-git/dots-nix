@@ -9,4 +9,6 @@
   environment.systemPackages = with pkgs; [
     vial
   ];
+
+  hardware.keyboard.qmk.enable = true;
 }
