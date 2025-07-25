@@ -7,6 +7,7 @@
     ./greetd.nix
     ./host-base.nix
     ./hyprland.nix
+    ./keyboard.nix
     ./keyd.nix
     ./neovim.nix
     ./networking.nix
