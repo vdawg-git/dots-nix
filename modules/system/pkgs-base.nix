@@ -1,26 +1,18 @@
 { pkgs, ... }:
-{
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bat
-    bitwarden-cli
+let
+  baseTools = with pkgs; [
     bitwarden-desktop
     blanket
     blueman
     brave
-    btop
     bun
     clang
     cmake
-    delta
     dotbot
     dragon-drop
     eog
     fastfetch
-    fnm
     fsearch
-    fzf
     gcc
     git
     git-lfs
@@ -30,20 +22,16 @@
     grim
     hyprsunset
     imagemagick
-    jq
-    kalker
-    kew
     keyd
     kitty
-    lazygit
     libclang
     libxkbcommon
     lsof
     mediainfo
     megacmd
+    monaspace
     mpv
     nautilus
-    neovim
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     nwg-displays
@@ -53,38 +41,55 @@
     openssl.dev
     pavucontrol
     pkg-config
-    pnpm-shell-completion
     python3
     qbittorrent-enhanced
-    rclone
     rhythmbox
-    ripgrep
-    rsync
-    rustup
     sassc # For the generation of the Colloid theme
-    satty
-    slurp
-    starship
-    swappy
     swaynotificationcenter
     swayosd
-    switcheroo
+    switcheroo # File conversion
     swww
     telegram-desktop
     tesseract
-    tree
     vesktop
-    vim
     vscode.fhs
     walker
     wget
     wireguard-tools
+    zlib.dev
+  ];
+
+  cliTools = with pkgs; [
+    bat
+    bitwarden-cli
+    btop
+    delta # Git differ
+    fnm
+    fzf
+    hurl # Easy endpoint testing
+    jq
+    kalker # calculator
+    kew
+    lazygit
+    pnpm-shell-completion
+    rclone
+    ripgrep # rg, faster grep
+    rsync
+    rustup
+    satty
+    slurp
+    starship # Fancy prompt
+    swappy
+    tree
+    vim
     wl-clipboard
     yt-dlp
     zip
-    zlib.dev
-    zoxide
+    zoxide # Better cd
   ];
+in
+{
+  environment.systemPackages = baseTools ++ cliTools;
 
   programs.file-roller.enable = true;
   programs.firefox.enable = true;
