@@ -12,4 +12,11 @@
 
   # And this works hopefully
   programs.nix-index.enable = true;
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 15d --keep 3";
+    flake = "/home/vdawg/dotfiles"; # sets NH_OS_FLAKE variable for you
+  };
 }
