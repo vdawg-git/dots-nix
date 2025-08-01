@@ -32,6 +32,10 @@ set -gx VISUAL nvim
 set -Ux MANPAGER "nvim +Man!"
 # set -Ux MANWIDTH "999"
 set -Ux fifc_editor nvim
+# ctrl-x for fzf
+set -U fifc_keybinding \cx
+
+
 set -gx TERM kitty
 set -Ux TERM kitty
 
