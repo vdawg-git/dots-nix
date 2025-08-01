@@ -60,6 +60,7 @@ let
   ];
 
   cliTools = with pkgs; [
+    file
     bat
     bitwarden-cli
     btop
@@ -86,6 +87,11 @@ let
     yt-dlp
     zip
     zoxide # Better cd
+    chafa # preview images, gif , pdf etc (works with fifc)
+    fd # Complete paths (works with fifc)
+    eza # Better ls (works with fish fifc)
+    procs # Complete processes and preview their tree (for fifc)
+    broot # explore directory trees (for fifc)
   ];
 in
 {
