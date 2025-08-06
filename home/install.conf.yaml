@@ -30,5 +30,9 @@
       glob: true
       create: true
 
+    ~/.local/share/icons/bibata-modern-classic:
+      path: dot_local/share/icons/bibata-modern-classic
+      create: true
+
 - create:
     - ~/dev/playground
