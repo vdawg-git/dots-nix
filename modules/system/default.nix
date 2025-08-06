@@ -2,7 +2,6 @@
   imports = [
     # ./postgres.nix
     ./1password.nix
-    ./atuin.nix
     ./bootloader.nix
     ./docker.nix
     ./fonts.nix

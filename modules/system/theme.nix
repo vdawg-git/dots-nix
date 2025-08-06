@@ -21,9 +21,9 @@
       "ddc7a1" # white
     ];
   };
-  
+
   environment.systemPackages = with pkgs; [
     nwg-look
     sassc # For the generation of the Colloid theme
-  ]
+  ];
 }

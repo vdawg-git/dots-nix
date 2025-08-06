@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  fonts.pkgs = with pkgs; [
+  fonts.packages = with pkgs; [
     monaspace
   ];
 
