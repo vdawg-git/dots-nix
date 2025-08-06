@@ -2,8 +2,8 @@
   description = "A very basic flake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-25.05";
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
 
@@ -34,7 +34,10 @@
         # a hostname, the special args, and extraModules to append. That way we can construct the
         # nixosSystem args dynamically, per-host. That is for another time, though.
         legion = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            stablePkgs = import inputs.stable { system = "x86_64-linux"; };
+          };
           modules = [
             # Get host-specific configuration from hosts/<hostname>/host.nix
             # This is not a convention, but it's nice to have :)

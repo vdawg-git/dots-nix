@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, stablePkgs, ... }:
 
 {
-  fonts.packages = with pkgs; [
-    monaspace
+  fonts.packages = [
+    pkgs.monaspace
+    pkgs.jetbrains-mono
+    stablePkgs.google-fonts
+
   ];
 
   environment.systemPackages = with pkgs; [

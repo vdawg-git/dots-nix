@@ -2,15 +2,10 @@
     ~/.config/:
       glob: true
       path: dot_config/*
-      exclude: [dot_config/vesktop, dotconfig/atuin]
+      exclude: [dot_config/vesktop, dot_config/gtk*]
 
-    ~/.icons/:
-      path: dot_icons/*
-      glob: true
-      create: true
-
-    ~/.local/share/icons/:
-      path: dot_local/
+    ~/.icons/default:
+      path: dot_icons/default
       create: true
 
     ~/.local/share/rhythmbox/playlists.xmsl:
@@ -26,10 +21,14 @@
       glob: true
       create: true
 
-    # The atuin config keeps respawning prob bc of the service
-    ~/.config/atuin:
-      path: dot_config/atuin
-      force: true
+    ~/.config/gtk-3.0:
+      path: dot_config/gtk-3.0/*
+      glob: true
+      create: true
+    ~/.config/gtk-4.0:
+      path: dot_config/gtk-4.0/*
+      glob: true
+      create: true
 
 - create:
     - ~/dev/playground
