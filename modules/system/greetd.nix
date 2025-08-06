@@ -2,7 +2,7 @@
 let
   username = "vdawg";
   # This dbus activate thing is nessecary so that the keychain gets unlocked (no more annoying password again)
-  command = "dbus-update-activation-environment --systemd DISPLAY && Hyprland";
+  command = "dbus-update-activation-environment --systemd DISPLAY && uwsm start hyprland";
 in
 {
   # Force the Kernel to log in in TTY1 so that it does not override a possible instance
