@@ -6,30 +6,21 @@ let
     blueman
     brave
     bun
-    clang
-    cmake
     dotbot
     dragon-drop
     eog
     fastfetch
     fsearch
-    gcc
+    gcc # For Neovim Treesitter, so that it can create grammars
     git
     git-lfs
     gnome-calculator
     gnome-system-monitor
-    gnumake
     grim
-    hyprsunset
     imagemagick
-    keyd
     kitty
-    libclang
-    libxkbcommon
-    lsof
     mediainfo
     megacmd
-    monaspace
     mpv
     nautilus
     nerd-fonts.jetbrains-mono
@@ -38,33 +29,32 @@ let
     nwg-panel
     obs-studio
     obsidian
-    openssl.dev
     pavucontrol
-    pkg-config
     python3
     qbittorrent-enhanced
     rhythmbox
-    sassc # For the generation of the Colloid theme
     swaynotificationcenter
     swayosd
     switcheroo # File conversion
-    swww
     telegram-desktop
     tesseract
     vesktop
     vscode.fhs
     walker
-    wget
     wireguard-tools
-    zlib.dev
   ];
 
   cliTools = with pkgs; [
-    file
+    atuin
     bat
     bitwarden-cli
+    broot # explore directory trees (for fifc)
     btop
+    chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
+    eza # Better ls (works with fish fifc)
+    fd # Complete paths (works with fifc)
+    file
     fnm
     fzf
     hurl # Easy endpoint testing
@@ -73,6 +63,7 @@ let
     kew
     lazygit
     pnpm-shell-completion
+    procs # Complete processes and preview their tree (for fifc)
     rclone
     ripgrep # rg, faster grep
     rsync
@@ -87,11 +78,6 @@ let
     yt-dlp
     zip
     zoxide # Better cd
-    chafa # preview images, gif , pdf etc (works with fifc)
-    fd # Complete paths (works with fifc)
-    eza # Better ls (works with fish fifc)
-    procs # Complete processes and preview their tree (for fifc)
-    broot # explore directory trees (for fifc)
   ];
 in
 {

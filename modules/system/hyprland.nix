@@ -12,11 +12,12 @@
   services.hypridle.enable = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpicker
     hyprcursor
-    hyprlock
     hypridle
-    swww
+    hyprlock
+    hyprpicker
+    hyprsunset
     kitty
+    swww
   ];
 }

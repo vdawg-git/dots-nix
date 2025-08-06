@@ -1,9 +1,11 @@
 {
   imports = [
+    # ./postgres.nix
     ./1password.nix
     ./atuin.nix
     ./bootloader.nix
     ./docker.nix
+    ./fonts.nix
     ./greetd.nix
     ./host-base.nix
     ./hyprland.nix
@@ -14,7 +16,6 @@
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
-    ./postgres.nix
     ./python.nix
     ./theme.nix
     ./yazi.nix
