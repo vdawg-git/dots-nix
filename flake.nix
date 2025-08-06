@@ -46,6 +46,9 @@
             # Blanket-import all shared modules in ./modules
             # The alternative to this is getting them one-by-one.
             ./modules/system
+
+            # Extra module as not every device has bluetooth
+            ./modules/system/bluetooth.nix
           ];
         };
 
