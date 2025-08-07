@@ -70,3 +70,27 @@ function cdc
 	cd $argv[1] && code .
 end
 
+function commit_empty
+    # Check if email argument is provided
+    if test (count $argv) -eq 0
+        echo "Usage: commit_empty <email>"
+		set_color grey
+        echo "Example: commit_empty user@example.com"
+        return 1
+    end
+    
+    set email $argv[1]
+    
+    # Create empty commit with specified email
+    git -c user.email="$email" commit --allow-empty -m "empty commit - VDawg"
+    
+    if test $status -eq 0
+		set_color green
+        echo "✧ Empty commit created successfully with email: $email (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧"
+    else
+		set_color red
+        echo "Failed to create commit"
+        return 1
+    end
+end
+
