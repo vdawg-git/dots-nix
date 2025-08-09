@@ -4,9 +4,34 @@
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
-  # What is starting this. I dont want this
-  security.pam.services.kwallet = {
-    name = "kwallet";
-    enableKwallet = false;
-  };
+  # Unlock GPG keyring on login
+  security.pam.services =
+    let
+      gnupg = {
+        enable = true;
+        noAutostart = true;
+        storeOnly = true;
+      };
+    in
+    {
+      login = {
+        enableGnomeKeyring = true;
+        inherit gnupg;
+      };
+
+      greetd = {
+        enableGnomeKeyring = true;
+        inherit gnupg;
+      };
+
+      tuigreet = {
+        enableGnomeKeyring = true;
+        inherit gnupg;
+      };
+
+      kwallet = {
+        name = "kwallet";
+        enableKwallet = false;
+      };
+    };
 }

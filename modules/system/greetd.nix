@@ -23,11 +23,11 @@ in
       default_session = {
         user = "greeter";
         command = ''
-          ${pkgs.greetd.tuigreet}/bin/tuigreet
-                    --greeting 'Thou art returned. The sun doth rise on new opportunities ^-^'
-                    --remember --remember-session
-                    --asterisks-char ▓
-                    --time --time-format '%I:%M %p | %a • %h | %F'
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+                    --greeting 'Thou art returned. The sun doth rise on new opportunities ^-^' \
+                    --remember --remember-session \
+                    --asterisks-char ▓ \
+                    --time --time-format '%I:%M %p | %a • %h | %F' \
                     --cmd '${command}'
         '';
       };
@@ -43,30 +43,4 @@ in
     ];
     linger = true;
   };
-
-  # Unlock GPG keyring on login
-  security.pam.services =
-    let
-      gnupg = {
-        enable = true;
-        noAutostart = true;
-        storeOnly = true;
-      };
-    in
-    {
-      login = {
-        enableGnomeKeyring = true;
-        inherit gnupg;
-      };
-
-      greetd = {
-        enableGnomeKeyring = true;
-        inherit gnupg;
-      };
-
-      tuigreet = {
-        enableGnomeKeyring = true;
-        inherit gnupg;
-      };
-    };
 }

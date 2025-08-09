@@ -2,10 +2,11 @@
   imports = [
     # ./postgres.nix
     ./1password.nix
+    ./autologin.nix
     ./bootloader.nix
     ./docker.nix
     ./fonts.nix
-    ./greetd.nix
+    # ./greetd.nix
     ./host-base.nix
     ./hyprland.nix
     ./keyboard.nix
