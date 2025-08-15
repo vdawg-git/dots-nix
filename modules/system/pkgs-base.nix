@@ -71,7 +71,9 @@ let
     satty
     slurp
     starship # Fancy prompt
+    superfile
     swappy
+    tealdeer
     tree
     vim
     wl-clipboard
