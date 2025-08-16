@@ -1,17 +1,41 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
-##########
-# WIP
-# https://nix.dev/tutorials/working-with-local-files.html
-# https://github.com/samdroid-apps/nix-articles/blob/master/04-proper-mkderivation.md
-##########
+# https://stackoverflow.com/questions/68523367/in-nixpkgs-how-do-i-override-files-of-a-package-without-recompilation
 
 let
   filesToApply = [
-    "vscode" # Nice rounding
-    "gruvbox" # Changes some colors (icons get a sepia filter)
+    "vscode.css" # Nice rounding
+    "gruvbox.css" # Changes some colors (icons get a sepia filter)
   ];
-in
-{
 
+  vscode = pkgs.vscode;
+
+  postBuild = ''
+    set -euo pipefail
+
+    workbenchPath="$( ${pkgs.fd}/bin/fd workbench.html $out )"
+    echo Found workbenchPath: 
+    echo $workbenchPath
+
+    if [ -z $workbenchPath ]; then
+      echo "No workspace.html found. Cannot modify CSS. Aborting.."
+      exit 1
+    fi
+
+
+    # install -v "${vscode}"/"$workbenchPath" "$out"/"$workbenchPatha"
+    # sed -i -e 's/usage:/USAGE:/g' "$out"/share/git/contrib/fast-import/git-import.sh
+  '';
+
+in
+pkgs.symlinkJoin {
+  inherit (vscode)
+    name
+    pname
+    version
+    meta
+    ;
+
+  paths = [ vscode ];
+  inherit postBuild;
 }
