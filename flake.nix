@@ -52,6 +52,45 @@
           ];
         };
 
+
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            stablePkgs = import inputs.stable { system = "x86_64-linux"; };
+          };
+          modules = [
+            # Get host-specific configuration from hosts/<hostname>/host.nix
+            # This is not a convention, but it's nice to have :)
+            ./hosts/swordfish/host.nix
+
+            # Blanket-import all shared modules in ./modules
+            # The alternative to this is getting them one-by-one.
+            ./modules/system
+
+            # Extra module as not every device has bluetooth
+            ./modules/system/bluetooth.nix
+          ];
+        };
+
+swordfish = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            stablePkgs = import inputs.stable { system = "x86_64-linux"; };
+          };
+          modules = [
+            # Get host-specific configuration from hosts/<hostname>/host.nix
+            # This is not a convention, but it's nice to have :)
+            ./hosts/swordfish/host.nix
+
+            # Blanket-import all shared modules in ./modules
+            # The alternative to this is getting them one-by-one.
+            ./modules/system
+
+            # Extra module as not every device has bluetooth
+            ./modules/system/bluetooth.nix
+          ];
+        };
+
         /*
           # TODO: Uncomment when those hosts have real configurations, or import Legion's host
           # config in them to satisfy base assertions for, e.g., filesystems.
