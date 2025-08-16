@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   services.xserver.displayManager.lightdm.enable = false;
   services.getty.autologinUser = "vdawg"; # Auto-login user on boot
 

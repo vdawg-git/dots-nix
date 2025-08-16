@@ -1,7 +1,9 @@
-{ pkgs, lib, ... }:
-
+{
+  pkgs,
+  lib,
+  ...
+}:
 # https://stackoverflow.com/questions/68523367/in-nixpkgs-how-do-i-override-files-of-a-package-without-recompilation
-
 let
   filesToApply = [
     "vscode.css" # Nice rounding
@@ -14,7 +16,7 @@ let
     set -euo pipefail
 
     workbenchPath="$( ${pkgs.fd}/bin/fd workbench.html $out )"
-    echo Found workbenchPath: 
+    echo Found workbenchPath:
     echo $workbenchPath
 
     if [ -z $workbenchPath ]; then
@@ -26,16 +28,16 @@ let
     # install -v "${vscode}"/"$workbenchPath" "$out"/"$workbenchPatha"
     # sed -i -e 's/usage:/USAGE:/g' "$out"/share/git/contrib/fast-import/git-import.sh
   '';
-
 in
-pkgs.symlinkJoin {
-  inherit (vscode)
-    name
-    pname
-    version
-    meta
-    ;
+  pkgs.symlinkJoin {
+    inherit
+      (vscode)
+      name
+      pname
+      version
+      meta
+      ;
 
-  paths = [ vscode ];
-  inherit postBuild;
-}
+    paths = [vscode];
+    inherit postBuild;
+  }

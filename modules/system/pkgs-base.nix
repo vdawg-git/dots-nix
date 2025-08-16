@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   baseTools = with pkgs; [
     bitwarden-desktop
     blanket
@@ -47,6 +46,7 @@ let
   cliTools = with pkgs; [
     atuin
     bat
+    corepack_latest
     bitwarden-cli
     broot # explore directory trees (for fifc)
     btop
@@ -81,8 +81,7 @@ let
     zip
     zoxide # Better cd
   ];
-in
-{
+in {
   environment.systemPackages = baseTools ++ cliTools;
 
   programs.file-roller.enable = true;

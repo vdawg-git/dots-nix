@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   time.timeZone = lib.mkDefault "Europe/Berlin";
 
   i18n.defaultLocale = "en_US.UTF-8";

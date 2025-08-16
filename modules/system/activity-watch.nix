@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-
-{
+}: {
   # This whole thing is not working atm
 
   environment.systemPackages = with pkgs; [
@@ -16,7 +14,7 @@
     description = "ActivityWatch time tracker server";
     enable = true;
 
-    wantedBy = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
 
     serviceConfig = {
       ExecStart = "${lib.getExe' pkgs.activitywatch "aq-qt"}";
@@ -52,8 +50,7 @@
       "aw-server.service"
       "graphical-session.target"
     ];
-    requires = [ "aw-server.service" ];
-    wantedBy = [ "graphical-session.target" ];
+    requires = ["aw-server.service"];
+    wantedBy = ["graphical-session.target"];
   };
-
 }

@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    nixfmt-rfc-style # CLI formatter
+    alejandra # Fast nice nix code formatter
     comma # Run anything instantly with `, some-app`
     manix # Easy NixOS docs searcher
     any-nix-shell # Use Fish after going into a shell

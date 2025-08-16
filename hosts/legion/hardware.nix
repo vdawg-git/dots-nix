@@ -6,14 +6,13 @@
   lib,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   boot = {
-    kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [ ];
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
 
     initrd = {
       availableKernelModules = [
@@ -24,10 +23,9 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [ ];
+      kernelModules = [];
 
-      luks.devices."luks-613226af-a6b0-4792-b839-32a0c1ab5c7a".device =
-        "/dev/disk/by-uuid/613226af-a6b0-4792-b839-32a0c1ab5c7a";
+      luks.devices."luks-613226af-a6b0-4792-b839-32a0c1ab5c7a".device = "/dev/disk/by-uuid/613226af-a6b0-4792-b839-32a0c1ab5c7a";
     };
   };
 
