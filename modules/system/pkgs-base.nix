@@ -39,7 +39,7 @@ let
     telegram-desktop
     tesseract
     vesktop
-    vscode.fhs
+    vscode
     walker
     wireguard-tools
   ];
