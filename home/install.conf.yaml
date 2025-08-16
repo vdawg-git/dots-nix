@@ -36,3 +36,6 @@
 
 - create:
     - ~/dev/playground
+
+- shell:
+    - touch ~/.config/hypr/monitors.conf
