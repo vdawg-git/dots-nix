@@ -4,7 +4,6 @@
     blanket
     blueman
     brave
-    bun
     dotbot
     dragon-drop
     eog
@@ -13,7 +12,6 @@
     gcc # For Neovim Treesitter, so that it can create grammars
     git
     git-lfs
-    gnome-calculator
     gnome-system-monitor
     grim
     imagemagick
@@ -23,7 +21,6 @@
     mpv
     nautilus
     nerd-fonts.jetbrains-mono
-    nixfmt-rfc-style
     nwg-displays
     nwg-panel
     obs-studio
@@ -46,7 +43,6 @@
   cliTools = with pkgs; [
     atuin
     bat
-    corepack_latest
     bitwarden-cli
     broot # explore directory trees (for fifc)
     btop
@@ -67,7 +63,6 @@
     rclone
     ripgrep # rg, faster grep
     rsync
-    rustup
     satty
     slurp
     starship # Fancy prompt
@@ -87,4 +82,9 @@ in {
   programs.file-roller.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
+
+  programs.yazi = {
+    enable = true;
+    settings = {};
+  };
 }

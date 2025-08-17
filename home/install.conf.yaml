@@ -8,7 +8,7 @@
       path: dot_icons/default
       create: true
 
-    ~/.local/share/rhythmbox/playlists.xmsl:
+    ~/.local/share/rhythmbox/playlists.xml:
       path: dot_local/share/rhythmbox/playlists.xml
       create: true
 
@@ -36,6 +36,7 @@
 
 - create:
     - ~/dev/playground
+    - ~/z_bearbeiten
 
 - shell:
     - touch ~/.config/hypr/monitors.conf

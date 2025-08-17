@@ -43,6 +43,8 @@
           j = "down";
           k = "up";
           l = "right";
+          # Easier shift for selecting while in arrow mode
+          f = "shift";
 
           e = "home";
           r = "end";

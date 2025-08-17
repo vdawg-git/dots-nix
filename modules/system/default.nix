@@ -4,9 +4,9 @@
     ./1password.nix
     ./autologin.nix
     ./bootloader.nix
+    ./devstuff.nix
     ./docker.nix
     ./fonts.nix
-    # ./greetd.nix
     ./host-base.nix
     ./hyprland.nix
     ./keyboard.nix
@@ -16,8 +16,6 @@
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
-    ./python.nix
     ./theme.nix
-    ./yazi.nix
   ];
 }
