@@ -59,6 +59,7 @@
     kalker # calculator
     kew
     lazygit
+    playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
     rclone
