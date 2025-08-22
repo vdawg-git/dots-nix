@@ -6,6 +6,7 @@
     ./bootloader.nix
     ./devstuff.nix
     ./docker.nix
+    ./external-hardware.nix
     ./fonts.nix
     ./host-base.nix
     ./hyprland.nix

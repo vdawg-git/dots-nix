@@ -16,5 +16,8 @@
 
     consoleLogLevel = 3;
     plymouth.enable = false;
+
+    supportedFilesystems = ["ntfs"];
+    initrd.supportedFilesystems = ["ntfs"];
   };
 }
