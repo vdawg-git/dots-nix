@@ -10,5 +10,6 @@
     uv
     corepack_latest
     bun
+    direnv
   ];
 }

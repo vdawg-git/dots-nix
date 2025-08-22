@@ -4,6 +4,7 @@
     blanket
     blueman
     brave
+    clapper
     dotbot
     dragon-drop
     eog
@@ -72,6 +73,7 @@
     tree
     vim
     wl-clipboard
+    playerctl
     yt-dlp
     zip
     zoxide # Better cd

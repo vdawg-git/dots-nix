@@ -31,3 +31,5 @@ abbr gitp "git pull"
 abbr nixs "nix-shell"
 
 abbr frb "flutter_rust_bridge_codegen"
+
+abbr sepoku "systemctl poweroff"

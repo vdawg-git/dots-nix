@@ -51,7 +51,6 @@ if status is-interactive
 	starship init fish | source # prompt
     zoxide init fish --cmd cd | source # folder auto jumping
 	any-nix-shell fish --info-right | source
-	set -g direnv_fish_mode eval_on_arrow
 	direnv hook fish | source
 
 end
