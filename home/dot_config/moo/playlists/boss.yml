@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooPlaylist.json
+
+name: (⌐■_■) Boss
+
+rules:
+  - any:
+      - artist:
+          includes:
+            - kollegah

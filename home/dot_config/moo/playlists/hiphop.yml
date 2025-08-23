@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooPlaylist.json
+
+name: Hip-Hop
+
+rules:
+  - any:
+      - genre:
+          includes:
+            - hip-hop
+            - deutschrap

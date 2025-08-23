@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooPlaylist.json
+
+name: ....φ(︶▽︶)φ.... Code
+
+rules:
+  - any:
+      - genre:
+          includes:
+            - chant
+      - artist:
+          includes:
+            - ensemble organum
+            - erik satie

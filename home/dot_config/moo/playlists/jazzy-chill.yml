@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooPlaylist.json
+
+name: ౦０o ｡ (‾́。‾́ ) Jazzy
+
+rules:
+  - any:
+      - genre:
+          includes:
+            - jazz
+      - artist:
+          includes: 
+            - devaloop
+            - okawari
