@@ -1,2 +1,0 @@
-rclone copy -P  mega:z_bearbeiten ~/z_bearbeiten/
-rclone copy -P  mega:music ~/Music
