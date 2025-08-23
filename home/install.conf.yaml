@@ -37,6 +37,9 @@
 - create:
     - ~/dev/playground
     - ~/z_bearbeiten
+    - ~/Documents/sync
+    - ~/Pictures/memes
 
 - shell:
+    # Needs to exist for the Hyprland config, but not synced as it changes all the time between devices
     - touch ~/.config/hypr/monitors.conf
