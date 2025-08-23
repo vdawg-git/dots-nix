@@ -14,8 +14,8 @@ nav[class^="private"] [class^="scroller_"],
 [class^="userProfileInner_"],
 [class^="userPanelOuter_"],
 [class^="userPanelInner_"] {
-	background: transparent !important;
-	background-color: transparent !important;
+	background: rgba(0,0,0,0.2) !important;
+	background-color: rgba(0,0,0,0.2)  !important;
 }
 
 [class^="panels_"],
