@@ -35,10 +35,11 @@
       create: true
 
 - create:
-    - ~/dev/playground
-    - ~/z_bearbeiten
+    - ~/Documents/obsidian
     - ~/Documents/sync
     - ~/Pictures/memes
+    - ~/dev/playground
+    - ~/z_bearbeiten
 
 - shell:
     # Needs to exist for the Hyprland config, but not synced as it changes all the time between devices

@@ -4,6 +4,7 @@
 # Those dirs get created by dotbot automatically
 declare -A SYNC_DIRS=(
     ["/home/vdawg/Documents/sync"]="/documents"
+    ["/home/vdawg/Documents/obsidian"]="/obsidian"
     ["/home/vdawg/Music"]="/music"
     ["/home/vdawg/z_bearbeiten"]="/z_bearbeiten"
     ["/home/vdawg/Pictures/memes"]="/memes"
@@ -17,7 +18,7 @@ read -s -p "Enter MEGA password: " MEGA_PASS
 echo ""
 
 # Logout just in case
-mega-logout >/dev/null 2>&1
+# mega-logout >/dev/null 2>&1
 
 # Login
 mega-login "$MEGA_USER" "$MEGA_PASS"
