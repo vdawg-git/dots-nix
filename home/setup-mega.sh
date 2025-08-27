@@ -3,11 +3,12 @@
 # === CONFIG ===
 # Those dirs get created by dotbot automatically
 declare -A SYNC_DIRS=(
+    ["/home/vdawg/Documents/obsidian"]="/obsidian"
     ["/home/vdawg/Documents/sync"]="/documents"
     ["/home/vdawg/Documents/obsidian"]="/obsidian"
     ["/home/vdawg/Music"]="/music"
-    ["/home/vdawg/z_bearbeiten"]="/z_bearbeiten"
     ["/home/vdawg/Pictures/memes"]="/memes"
+    ["/home/vdawg/z_bearbeiten"]="/z_bearbeiten"
 )
 
 # === SCRIPT ===
