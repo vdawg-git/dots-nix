@@ -1,6 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
+
+  services.dbus.packages = [pkgs.gnome-keyring pkgs.gcr];
 
   # Unlock GPG keyring on login
   # https://github.com/JohnRTitor/nix-conf/commit/53bc83aef18849976d5a42cc727d38dd0e38c5b0
@@ -39,12 +41,5 @@
       name = "kwallet";
       enableKwallet = false;
     };
-
-    services.dbus.packages = [pkgs.gnome-keyring pkgs.gcr];
-
-    services.xserver.displayManager.sessionCommands = ''
-      eval $(gnome-keyring-daemon --start --daemonize --components=ssh,secrets)
-      export SSH_AUTH_SOCK
-    '';
   };
 }
