@@ -37,7 +37,6 @@
     tesseract
     vesktop
     vscode
-    walker
     wireguard-tools
   ];
 
