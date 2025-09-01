@@ -12,6 +12,10 @@
       path: dot_local/share/rhythmbox/playlists.xml
       create: true
 
+    ~/Documents/obsidian/.obsidian/:
+      path: dot_obsidian
+      create: true
+
     ~/.gtkrc-2.0:
     ~/.gitconfig:
 

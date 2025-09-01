@@ -1,0 +1,10 @@
+.is-translucent:not(.is-fullscreen) .titlebar,
+.is-translucent:not(.is-fullscreen) .app-container {
+	background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.markdown-preview-view,
+.popover,
+.workspace-leaf-content[data-type="markdown"] {
+	border-radius: 12px 0px 0px 12px;
+}

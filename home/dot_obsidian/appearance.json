@@ -1,0 +1,11 @@
+{
+  "accentColor": "#bd7047",
+  "cssTheme": "Minimal",
+  "theme": "obsidian",
+  "monospaceFontFamily": "JetBrains Mono",
+  "translucency": true,
+  "showViewHeader": true,
+  "enabledCssSnippets": [
+    "translucency"
+  ]
+}
