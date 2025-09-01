@@ -42,6 +42,7 @@
   ];
 
   cliTools = with pkgs; [
+    gh
     atuin
     bat
     bitwarden-cli
@@ -60,6 +61,7 @@
     kew
     lazygit
     playerctl
+    playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
     rclone
@@ -74,7 +76,6 @@
     tree
     vim
     wl-clipboard
-    playerctl
     yt-dlp
     zip
     zoxide # Better cd
