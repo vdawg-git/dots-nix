@@ -1,0 +1,45 @@
+{
+  "panel": {
+    "numrows": "5"
+  },
+  "0": {
+    "tags": [
+      "artist"
+    ],
+    "titles": [
+      "&Artist"
+    ]
+  },
+  "1": {
+    "tags": [
+      "title"
+    ],
+    "titles": [
+      "&Title"
+    ]
+  },
+  "2": {
+    "tags": [
+      "album"
+    ],
+    "titles": [
+      "Al&bum"
+    ]
+  },
+  "3": {
+    "tags": [
+      "genre"
+    ],
+    "titles": [
+      "&Genre"
+    ]
+  },
+  "4": {
+    "tags": [
+      "albumartist"
+    ],
+    "titles": [
+      "&Albumartist"
+    ]
+  }
+}

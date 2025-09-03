@@ -2,7 +2,7 @@
     ~/.config/:
       glob: true
       path: dot_config/*
-      exclude: [dot_config/vesktop, dot_config/gtk*]
+      exclude: [dot_config/vesktop, dot_config/gtk*, dot_config/puddletag]
 
     ~/.icons/default:
       path: dot_icons/default
@@ -31,6 +31,11 @@
       create: true
     ~/.config/gtk-4.0:
       path: dot_config/gtk-4.0/*
+      glob: true
+      create: true
+
+    ~/.config/puddletag:
+      path: dot_config/puddletag/*
       glob: true
       create: true
 

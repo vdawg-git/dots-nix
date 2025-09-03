@@ -1,0 +1,26 @@
+{
+  "Su&bfolders": {
+    "value": true
+  },
+  "Show &gridlines": {
+    "value": true
+  },
+  "Show tooltips in file-view:": {
+    "value": true
+  },
+  "Show &row numbers": {
+    "value": true
+  },
+  "Automatically resize columns to contents": {
+    "value": true
+  },
+  "&Preserve file modification times (if supported)": {
+    "value": false
+  },
+  "Program to &play files with:": {
+    "value": "amberol"
+  },
+  "&Load last folder at startup": {
+    "value": false
+  }
+}

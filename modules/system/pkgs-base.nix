@@ -1,5 +1,6 @@
 {pkgs, ...}: let
   baseTools = with pkgs; [
+    amberol
     bitwarden-desktop
     blanket
     blueman
@@ -27,6 +28,7 @@
     obs-studio
     obsidian
     pavucontrol
+    puddletag
     python3
     qbittorrent-enhanced
     rhythmbox
