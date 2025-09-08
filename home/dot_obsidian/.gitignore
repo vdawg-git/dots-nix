@@ -1,2 +1,8 @@
 workspace.json
 workspace-mobile.json
+plugins/**/data.json
+!plugins/obsidian-hider/data.json
+!plugins/obsidian-minimal-settings/data.json
+!plugins/obsidian-style-settings/data.json
+!plugins/quickadd/data.json
+!plugins/link-favicon/data.json
