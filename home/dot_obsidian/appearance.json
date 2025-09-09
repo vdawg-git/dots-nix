@@ -7,5 +7,7 @@
   "showViewHeader": true,
   "enabledCssSnippets": [
     "translucency"
-  ]
+  ],
+  "interfaceFontFamily": "Courier New",
+  "baseFontSize": 18
 }
