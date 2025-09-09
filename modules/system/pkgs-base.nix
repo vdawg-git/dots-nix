@@ -5,7 +5,7 @@
     blanket
     blueman
     brave
-    clapper
+    celluloid
     dotbot
     dragon-drop
     eog
