@@ -76,7 +76,7 @@ function __queryPathPartsWithMaybeFile
 
     set query_results_file
     for base_path in $query_results_file_base
-        set --append query_results_file (find -L "$base_path" -maxdepth 1 -name "*$last_argument*" -type f)
+        set --append query_results_file (find -L "$base_path" -maxdepth 5 -name "*$last_argument*" -type f)
     end
 
     set all_items $query_results_file $query_results_file_base (zoxide query -l $argv)
