@@ -25,6 +25,7 @@
     nerd-fonts.jetbrains-mono
     nwg-displays
     nwg-panel
+	mprocs
     obs-studio
     obsidian
     pavucontrol
