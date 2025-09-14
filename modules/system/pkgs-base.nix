@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   baseTools = with pkgs; [
     amberol
     bitwarden-desktop
@@ -9,13 +13,12 @@
     dotbot
     dragon-drop
     eog
-    fastfetch
     fsearch
     gcc # For Neovim Treesitter, so that it can create grammars
     git
     git-lfs
+    gnome-control-center
     gnome-system-monitor
-    grim
     imagemagick
     kitty
     mediainfo
@@ -23,9 +26,9 @@
     mpv
     nautilus
     nerd-fonts.jetbrains-mono
+    networkmanagerapplet
     nwg-displays
     nwg-panel
-	mprocs
     obs-studio
     obsidian
     pavucontrol
@@ -37,14 +40,11 @@
     swayosd
     switcheroo # File conversion
     telegram-desktop
-    tesseract
     vesktop
     vscode
-    wireguard-tools
   ];
 
   cliTools = with pkgs; [
-    gh
     atuin
     bat
     bitwarden-cli
@@ -53,15 +53,19 @@
     chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
     eza # Better ls (works with fish fifc)
+    fastfetch
     fd # Complete paths (works with fifc)
     file
     fnm
     fzf
+    gh
+    grim
     hurl # Easy endpoint testing
     jq
     kalker # calculator
     kew
     lazygit
+    mprocs
     playerctl
     playerctl
     pnpm-shell-completion
@@ -75,12 +79,16 @@
     superfile
     swappy
     tealdeer
+    tesseract
     tree
     vim
+    wireguard-tools
     wl-clipboard
     yt-dlp
     zip
     zoxide # Better cd
+
+    inputs.moo.packages.${pkgs.system}.default
   ];
 in {
   environment.systemPackages = baseTools ++ cliTools;

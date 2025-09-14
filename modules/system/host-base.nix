@@ -57,6 +57,8 @@
     };
   };
 
+  nix.settings.trusted-users = ["root" "vdawg"];
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Core system libraries
