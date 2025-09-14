@@ -76,10 +76,28 @@ function __queryPathPartsWithMaybeFile
 
     set query_results_file
     for base_path in $query_results_file_base
-        set --append query_results_file (find -L "$base_path" -maxdepth 5 -name "*$last_argument*" -type f)
+        set --append query_results_file (fd -L --max-depth=5 --type=file --glob  "*$last_argument*" "$base_path")
     end
 
-    set all_items $query_results_file $query_results_file_base (zoxide query -l $argv)
+	# Exclude dirs which are part of the files
+    set filtered_dirs
+	for base in $query_results_file_base $query_results_directory
+		set should_add true
+
+		for found_file in $query_results_file 
+			if string match --quiet "$base*" (dirname $found_file)
+				set should_add false
+				break
+			end
+		end
+
+		if test "$should_add" = true
+			set --append filtered_dirs $base
+		end
+	end
+
+
+    set all_items $query_results_file $filtered_dirs
     printf '%s\n' $all_items
 end
 
@@ -93,9 +111,6 @@ function cdn
 
     set results (__queryPathPartsWithMaybeFile $argv)
     set results_count (count $results)
-
-    echo results $results
-    echo rc $results_count
 
     if test $results_count -eq 0
         echo "No matches found"
