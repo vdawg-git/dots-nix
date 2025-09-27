@@ -1,7 +1,7 @@
 {
   "puddlestuff.functions_move": {
     "arguments": [
-      "/home/vdawg/Music/%__filename%"
+      "/home/vdawg/Music/%__filename_no_ext%"
     ],
     "fields": [
       "just nothing to do with this"
