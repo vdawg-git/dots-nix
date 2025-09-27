@@ -1,10 +1,9 @@
-{
-  pkgs = " ...}: {";
+{pkgs, ...}: {
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
 
     QT_QPA_PLATFORMTHEME = "qt6ct";
-    
+
     # To see debug messages for qt6 themeing
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
 

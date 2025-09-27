@@ -4,9 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-25.05";
+
     moo.url = "github:vdawg-git/moo";
     moo.inputs.nixpkgs.follows = "nixpkgs";
+
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
+
+    walker.url = "github:abenz1267/walker";
+    walker.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
