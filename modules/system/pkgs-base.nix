@@ -61,6 +61,7 @@
     gh
     grim
     hurl # Easy endpoint testing
+    inputs.moo.packages.${pkgs.system}.default
     jq
     kalker # calculator
     kew
@@ -87,11 +88,13 @@
     yt-dlp
     zip
     zoxide # Better cd
+  ];
 
-    inputs.moo.packages.${pkgs.system}.default
+  games = with pkgs; [
+    atlauncher
   ];
 in {
-  environment.systemPackages = baseTools ++ cliTools;
+  environment.systemPackages = baseTools ++ cliTools ++ games;
 
   programs.file-roller.enable = true;
   programs.firefox.enable = true;
