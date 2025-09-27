@@ -65,6 +65,7 @@
     jq
     kalker # calculator
     kew
+    killall
     lazygit
     mprocs
     playerctl
