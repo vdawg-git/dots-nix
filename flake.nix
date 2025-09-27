@@ -10,8 +10,8 @@
 
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
 
-    walker.url = "github:abenz1267/walker";
-    walker.inputs.nixpkgs.follows = "nixpkgs";
+    # walker.url = "github:abenz1267/walker";
+    # walker.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
