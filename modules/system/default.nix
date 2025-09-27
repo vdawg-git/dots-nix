@@ -1,6 +1,7 @@
 {
   imports = [
     # ./postgres.nix
+    ./audio-video-hardware.nix
     ./1password.nix
     ./autologin.nix
     ./bootloader.nix
