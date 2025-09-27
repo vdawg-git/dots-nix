@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooPlaylist.json
+
+name: Dark Energy Night Drive
+
+rules:
+  - any:
+      - artist:
+          includes:
+            - ozzie
+            - líue
+            - hucci
+      - all:
+          - genre:
+              - includes:
+                  - dark
+              - includes_not:
+                  - love
+          - genre:
+              - includes:
+                  - ambient

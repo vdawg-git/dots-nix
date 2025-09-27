@@ -1,6 +1,6 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooPlaylist.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooPlaylist.json
 
-name: Jazzy ౦０o ｡ (‾́。‾́ ) 
+name: Jazzy ౦０o ｡ (‾́。‾́ )
 
 rules:
   - any:

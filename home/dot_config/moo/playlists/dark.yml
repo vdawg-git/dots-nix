@@ -4,11 +4,4 @@ rules:
   - any:
       - genre:
           includes:
-            - chill
-            - deep
-            - world music
-            - hiphop beat
-            - piano
-            - classic
-            - ambient
-            - love
+            - dark

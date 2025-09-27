@@ -1,14 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooPlaylist.json
 
+name: Power ヽ(` ﾛ ´)ﾉﾞ
+
 rules:
   - any:
       - genre:
           includes:
-            - chill
-            - deep
-            - world music
-            - hiphop beat
-            - piano
-            - classic
-            - ambient
-            - love
+            - power
