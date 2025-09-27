@@ -18,5 +18,6 @@
     hyprsunset
     kitty
     swww
+    hyprland-qt-support
   ];
 }
