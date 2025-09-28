@@ -4,23 +4,24 @@
   lib,
   ...
 }: {
-  environment.systemPackages = with pkgs; [walker];
+  imports = [
+    inputs.walker.nixosModules.default
+  ];
 
-  # dunno, the flake just isnt working..
-  # imports = [
-  #   inputs.walker.nixosModules.default
-  # ];
+  programs.walker = {
+    enable = true;
+    runAsService = true;
+  };
 
-  # programs.walker = {
-  #   enable = true;
-  #   # Idk why this is not working
-  #   runAsService = true;
-  # };
+  services.elephant = {
+    enable = true;
+    installService = true;
+  };
 
   nix.settings = {
     substituters = [
       "https://walker-git.cachix.org"
-      "https://walker.cachix.org"
+      "https://github.com/abenz1267/walker"
     ];
     trusted-public-keys = [
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
