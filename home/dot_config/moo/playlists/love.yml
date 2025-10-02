@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooPlaylist.json
+
+name: Motions
+
+rules:
+  - any:
+      - genre:
+          includes:
+            - love
+      - artist:
+          includes:
+            - dj okawari

@@ -12,12 +12,10 @@ rules:
             - prezident
             - ocean wisdom
             - leaf dog
+  - all:
       - genre:
-          - includes:
-              - deutschrap
-              - hip-hop
-  - and:
-      - genre:
-          - includes_not:
-              - love
-              - chill
+          includes_not:
+            - love
+            - chill
+            - beat
+            - hip

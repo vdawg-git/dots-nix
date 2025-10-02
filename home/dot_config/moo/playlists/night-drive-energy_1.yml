@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooPlaylist.json
 
-name: Dark Energy Night Drive
+name: tmp
 
 rules:
   - any:
@@ -11,10 +11,10 @@ rules:
             - hucci
       - all:
           - genre:
-              - includes:
-                  - dark
-              - includes_not:
-                  - love
+              includes:
+                - dark
+              includes_not:
+                - love
           - genre:
-              - includes:
-                  - ambient
+              includes:
+                - ambient
