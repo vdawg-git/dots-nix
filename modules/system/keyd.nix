@@ -19,7 +19,7 @@
           leftalt = "layer(control)";
 
           # Nicer capslock
-          # When capslock is held hjkl keys becomes arrow keys
+          # When capslock is held hjkl keys become arrow keys
           capslock = "overload(arrow_layer, esc)";
 
           # MacOs arrow power ( Home / End ) - to be implemented
