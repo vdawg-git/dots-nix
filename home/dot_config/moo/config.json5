@@ -1,6 +1,8 @@
 {
-    $schema: 'https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/main/other/schemas/mooConfig.json',
+    $schema: 'https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooConfig.json',
     musicDirectories: ["~/Music"],
     watchDirectories: true,
     version: '0.1',
+	icons: {},
+	keybindings: []
 }
