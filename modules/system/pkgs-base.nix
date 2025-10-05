@@ -89,13 +89,10 @@
     yt-dlp
     zip
     zoxide # Better cd
-  ];
-
-  games = with pkgs; [
-    atlauncher
+    # inputs.vicinae.packages.${pkgs.system}.default
   ];
 in {
-  environment.systemPackages = baseTools ++ cliTools ++ games;
+  environment.systemPackages = baseTools ++ cliTools;
 
   programs.file-roller.enable = true;
   programs.firefox.enable = true;

@@ -12,6 +12,9 @@
 
     walker.url = "github:abenz1267/walker";
     walker.inputs.nixpkgs.follows = "nixpkgs";
+
+    # vicinae.url = "github:vicinaehq/vicinae";
+    # vicinae.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
