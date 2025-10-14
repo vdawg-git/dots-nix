@@ -4,5 +4,6 @@
     watchDirectories: true,
     version: '0.1',
 	icons: {},
-	keybindings: []
+	keybindings: [],
+	colors: {}
 }
