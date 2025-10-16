@@ -45,6 +45,7 @@
   ];
 
   cliTools = with pkgs; [
+    # inputs.vicinae.packages.${pkgs.system}.default
     atuin
     bat
     bitwarden-cli
@@ -68,7 +69,7 @@
     killall
     lazygit
     mprocs
-    playerctl
+    ni
     playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
@@ -78,7 +79,6 @@
     satty
     slurp
     starship # Fancy prompt
-    superfile
     swappy
     tealdeer
     tesseract
@@ -89,7 +89,6 @@
     yt-dlp
     zip
     zoxide # Better cd
-    # inputs.vicinae.packages.${pkgs.system}.default
   ];
 in {
   environment.systemPackages = baseTools ++ cliTools;
@@ -101,5 +100,14 @@ in {
   programs.yazi = {
     enable = true;
     settings = {};
+  };
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "kitty.desktop"
+      ];
+    };
   };
 }
