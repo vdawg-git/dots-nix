@@ -7,6 +7,7 @@
     ./bootloader.nix
     ./devstuff.nix
     ./docker.nix
+    ./env.nix
     ./external-hardware.nix
     ./fonts.nix
     ./host-base.nix

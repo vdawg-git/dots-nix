@@ -4,6 +4,7 @@
     loadInNixShell = true;
     direnvrcExtra = "";
     nix-direnv.enable = true;
+    silent = true;
   };
 
   environment.systemPackages = with pkgs; [
