@@ -10,12 +10,6 @@
 
   programs.walker = {
     enable = true;
-    # runAsService = true;
-  };
-
-  services.elephant = {
-    enable = true;
-    installService = true;
   };
 
   nix.settings = {
