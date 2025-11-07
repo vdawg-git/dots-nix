@@ -9,7 +9,6 @@
     blanket
     blueman
     brave
-    celluloid
     dotbot
     dragon-drop
     eog
