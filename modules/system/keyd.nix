@@ -44,11 +44,10 @@
           k = "up";
           l = "right";
           # Easier shift for selecting while in arrow mode
-          f = "shift";
+          f = "layer(shift)";
 
-          e = "home";
-          r = "end";
-          # TODO when space is held arrow keys go to start/end (home/end/page up/page down)
+          m = "home";
+          dot = "end";
         };
       };
     };
