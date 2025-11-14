@@ -4,7 +4,7 @@
 {
 	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 	"logo": {
-		"source": "~/.local/share/chezmoi/.other/assets/cowboy-bebop-logo.png",
+		"source": "~/dotfiles/assets/wallpaper/cowboy-bebop-logo.png",
 		"type": "kitty",
 		"height": 8,
 		"padding": {
