@@ -19,6 +19,12 @@
     ~/.gtkrc-2.0:
     ~/.gitconfig:
 
+    ~/.local/share/icons/bibata-modern-classic:
+      path: dot_local/share/icons/bibata-modern-classic
+      create: true
+
+    # Here we link some files not dirs (notice the glob property for that)
+
     # We only want the setting-files, not caches etc.
     ~/.config/vesktop:
       path: dot_config/vesktop/*
@@ -39,10 +45,6 @@
       glob: true
       create: true
 
-    ~/.local/share/icons/bibata-modern-classic:
-      path: dot_local/share/icons/bibata-modern-classic
-      create: true
-
 - create:
     - ~/Documents/obsidian
     - ~/Documents/sync
@@ -53,3 +55,5 @@
 - shell:
     # Needs to exist for the Hyprland config, but not synced as it changes all the time between devices
     - touch ~/.config/hypr/monitors.conf
+    # Quickshell fills this file with system dependent info
+    - touch ./dot_config/quickshell/.qmlls.ini
