@@ -1,6 +1,6 @@
 window-decoration = false
 adw-toolbar-style = flat
-gtk-tabs-location = hidden
+gtk-tabs-location = top
 background = 000000
 background-opacity = 1
 window-padding-x = 20
