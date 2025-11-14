@@ -4,6 +4,8 @@
   ...
 }: let
   baseTools = with pkgs; [
+	clapper
+	teams-for-linux
     amberol
     bitwarden-desktop
     blanket
@@ -61,7 +63,7 @@
     gh
     grim
     hurl # Easy endpoint testing
-    inputs.moo.packages.${pkgs.system}.default
+    inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
     kalker # calculator
     kew
