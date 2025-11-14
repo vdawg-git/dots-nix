@@ -4,13 +4,12 @@
   ...
 }: let
   baseTools = with pkgs; [
-	clapper
-	teams-for-linux
     amberol
     bitwarden-desktop
     blanket
     blueman
     brave
+    clapper
     dotbot
     dragon-drop
     eog
@@ -36,10 +35,12 @@
     puddletag
     python3
     qbittorrent-enhanced
+    quickshell
     rhythmbox
     swaynotificationcenter
     swayosd
     switcheroo # File conversion
+    teams-for-linux
     telegram-desktop
     vesktop
     vscode
