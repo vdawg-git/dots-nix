@@ -30,7 +30,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = lib.mkDefault false;
 
-
   users.mutableUsers = true;
   users.users = {
     vdawg = {
@@ -67,11 +66,8 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Speeds up build times. Fish enables this by default for some completions
-  documentation.man.generateCaches = false;
+  documentation.man.generateCaches = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

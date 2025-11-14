@@ -36,7 +36,7 @@
     python3
     qbittorrent-enhanced
     quickshell
-    rhythmbox
+    stablePkgs.rhythmbox
     swaynotificationcenter
     swayosd
     switcheroo # File conversion
@@ -47,7 +47,6 @@
   ];
 
   cliTools = with pkgs; [
-    # inputs.vicinae.packages.${pkgs.system}.default
     atuin
     bat
     bitwarden-cli
