@@ -1,17 +1,7 @@
-import Quickshell
 import QtQuick
- 
-PanelWindow {
-  anchors {
-    top: true
-    left: true
-    right: true
-  }
+import Quickshell
+import Quickshell.Io
 
-  implicitHeight: 30
-  
-  Text {
-    anchors.centerIn: parent
-    text: "hello world"
-  }
+Scope {
+    Bar {}
 }
