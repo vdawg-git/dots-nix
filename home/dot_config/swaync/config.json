@@ -1,5 +1,5 @@
 {
-	"$schema": "/etc/xdg/swaync/configSchema.json",
+	"$schema": "./configSchema.json",
 	"positionX": "right",
 	"positionY": "top",
 	"cssPriority": "user",
@@ -10,10 +10,10 @@
 	"control-center-margin-bottom": 0,
 	"control-center-margin-right": 0,
 	"control-center-margin-left": 0,
+	"control-center-exclusive-zone": false,
 	"relative-timestamps": true,
 
 	"notification-window-width": 400,
-	"notification-icon-size": 48,
 	"notification-body-image-height": 160,
 	"notification-body-image-width": 200,
 
@@ -41,14 +41,7 @@
 			"app-name": "Spotify"
 		}
 	},
-	"widgets": [
-		"label",
-		"buttons-grid",
-		"mpris",
-		"dnd",
-		"notifications",
-		"title"
-	],
+	"widgets": ["label", "mpris", "dnd", "notifications", "title"],
 	"widget-config": {
 		"title": {
 			"text": "Notifications",
@@ -63,8 +56,9 @@
 			"text": " "
 		},
 		"mpris": {
-			"image-size": 96,
-			"image-radius": 8
+			"autohide": true,
+			"show-album-art": "when-available",
+			"loop-carousel": false
 		},
 		"volume": {
 			"label": "󰕾",
@@ -87,10 +81,6 @@
 				{
 					"label": "󰂯",
 					"command": "blueman-manager"
-				},
-				{
-					"label": "󰏘",
-					"command": "nwg-look"
 				}
 			]
 		}
