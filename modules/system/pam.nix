@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
 
   services.dbus.packages = [pkgs.gnome-keyring pkgs.gcr];
 
@@ -42,4 +41,7 @@
       enableKwallet = false;
     };
   };
+
+  # Maybe this fixes the auto-login https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/10
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID"; # set the runtime directory
 }
