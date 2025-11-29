@@ -21,6 +21,6 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
-    ./walker.nix
+    # ./walker.nix
   ];
 }
