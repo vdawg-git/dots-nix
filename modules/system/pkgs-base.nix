@@ -13,6 +13,7 @@
     dotbot
     dragon-drop
     eog
+    file-roller
     fsearch
     gcc # For Neovim Treesitter, so that it can create grammars
     git
@@ -44,6 +45,10 @@
     telegram-desktop
     vesktop
     vscode
+    wl-kbptr
+    wlrctl
+    vicinae
+    steam
   ];
 
   cliTools = with pkgs; [
@@ -95,7 +100,6 @@
 in {
   environment.systemPackages = baseTools ++ cliTools;
 
-  programs.file-roller.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
