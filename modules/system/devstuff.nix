@@ -12,7 +12,9 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    corepack_latest
+    (
+      corepack.override {nodejs = pkgs.nodejs_latest;}
+    )
     bun
     direnv
   ];
