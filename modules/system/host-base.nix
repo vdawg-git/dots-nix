@@ -41,8 +41,6 @@
         "wheel"
       ];
       packages = with pkgs; [
-        # Just have a global NodeJs version for ease of use, too
-        nodePackages_latest.nodejs
       ];
     };
   };
@@ -65,6 +63,9 @@
       "flakes"
     ];
   };
+
+  # This makes language stuff be saved in default paths too
+  services.xserver.exportConfiguration = true;
 
   # Speeds up build times. Fish enables this by default for some completions
   documentation.man.generateCaches = true;

@@ -5,6 +5,7 @@
 }: let
   baseTools = with pkgs; [
     amberol
+    anki
     bitwarden-desktop
     blanket
     blueman
@@ -44,11 +45,10 @@
     teams-for-linux
     telegram-desktop
     vesktop
+    vicinae
     vscode
     wl-kbptr
     wlrctl
-    vicinae
-    steam
   ];
 
   cliTools = with pkgs; [

@@ -12,9 +12,9 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    (
-      corepack.override {nodejs = pkgs.nodejs_latest;}
-    )
+    # Just have a global NodeJs version for ease of use, too
+    nodePackages_latest.nodejs
+    corepack
     bun
     direnv
   ];

@@ -5,6 +5,4 @@
     version: '0.1',
 	icons: {},
 	keybindings: [],
-	colors: {},
-	quickEditTags: []
 }
