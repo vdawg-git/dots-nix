@@ -9,6 +9,7 @@ declare -A SYNC_DIRS=(
     ["/home/vdawg/Music"]="/music"
     ["/home/vdawg/Pictures/memes"]="/memes"
     ["/home/vdawg/z_bearbeiten"]="/z_bearbeiten"
+    ["/home/vdawg/.local/share/Anki2"]="/anki"
 )
 
 # === SCRIPT ===
