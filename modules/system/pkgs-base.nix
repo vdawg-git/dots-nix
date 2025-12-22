@@ -76,6 +76,7 @@
     lazygit
     mprocs
     ni
+    harlequin # SQL Tui. Postgres, SQLite etc
     playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
