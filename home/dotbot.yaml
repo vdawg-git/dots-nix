@@ -51,6 +51,7 @@
     - ~/Pictures/memes
     - ~/dev/playground
     - ~/z_bearbeiten
+    - ~/.local/share/Anki2
 
 - shell:
     # Needs to exist for the Hyprland config, but not synced as it changes all the time between devices
