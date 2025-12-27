@@ -15,14 +15,14 @@
     ./hyprland.nix
     ./keyboard.nix
     ./keyd.nix
+    ./mullvad.nix
     ./neovim.nix
     ./networking.nix
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
-    ./steam.nix
     ./theme.nix
-	./teamviewer.nix
+    ./teamviewer.nix
   ];
 }
