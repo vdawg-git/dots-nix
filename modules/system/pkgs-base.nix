@@ -4,9 +4,9 @@
   ...
 }: let
   baseTools = with pkgs; [
-	gum # fancy CLI tools
-	onlyoffice-desktopeditors
-	rustdesk-flutter
+    gum # fancy CLI tools
+    onlyoffice-desktopeditors
+    rustdesk-flutter
     amberol
     anki
     bitwarden-desktop
@@ -62,7 +62,7 @@
     atuin
     bat
     bitwarden-cli
-    broot # explore directory trees (for fifc)
+    broot # explore directory trees (works with fifc)
     btop
     chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
@@ -82,8 +82,9 @@
     kew
     killall
     lazygit
+    lnav # Nice (the best I found) log viewer
     mprocs
-    ni
+    ni # Unite all JS package managers commands - no more pnpm i in a bun project
     playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
@@ -101,7 +102,7 @@
     wireguard-tools
     wl-clipboard
     yt-dlp
-    zip
+    zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];
 in {
