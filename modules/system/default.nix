@@ -1,6 +1,7 @@
 {
   imports = [
     # ./postgres.nix
+    # ./walker.nix
     ./1password.nix
     ./audio-video-hardware.nix
     ./autologin.nix
@@ -20,7 +21,7 @@
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
+    ./steam.nix
     ./theme.nix
-    # ./walker.nix
   ];
 }
