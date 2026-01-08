@@ -21,6 +21,7 @@
     git-lfs
     gnome-control-center
     gnome-system-monitor
+    haruna # Video player
     imagemagick
     kitty
     mediainfo
