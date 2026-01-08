@@ -1,6 +1,6 @@
 {
   "panel": {
-    "numrows": "5"
+    "numrows": "6"
   },
   "0": {
     "tags": [
@@ -40,6 +40,14 @@
     ],
     "titles": [
       "&Albumartist"
+    ]
+  },
+  "5": {
+    "tags": [
+      "mood"
+    ],
+    "titles": [
+      "&Mood"
     ]
   }
 }
