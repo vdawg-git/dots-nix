@@ -31,3 +31,5 @@
 	required = true
 [safe]
 	directory = /opt/flutter
+[pull]
+	rebase = true
