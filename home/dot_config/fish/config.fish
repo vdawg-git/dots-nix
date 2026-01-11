@@ -40,7 +40,7 @@ source ~/.config/fish/themes/gruvbox_material.fish
 # Commands to run in interactive sessions can go here
 if status is-interactive
     source ~/.config/fish/aliases.fish
-    fish_vi_key_bindings
+    set -g fish_key_bindings fish_vi_key_bindings
     atuin init fish | source
     starship init fish | source # prompt
     zoxide init fish --cmd cd | source # folder auto jumping

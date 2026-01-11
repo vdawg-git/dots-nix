@@ -6,7 +6,7 @@ SETUVAR --export --path PATH:/home/vdawg/\x2ecargo/bin\x1e/usr/local/sbin\x1e/us
 SETUVAR --export SUDO_EDITOR:nvim
 SETUVAR --export TERM:kitty
 SETUVAR --export VISUAL:nvim
-SETUVAR __fish_initialized:3800
+SETUVAR __fish_initialized:4300
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_g_2D_plane_2F_pnpm_2D_shell_2D_completion_files:\x7e/\x2econfig/fish/conf\x2ed/pnpm\x2dshell\x2dcompletion\x2efish
 SETUVAR _fisher_gazorby_2F_fifc_files:\x7e/\x2econfig/fish/functions/_fifc\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_action\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_completion_group\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_expand_tilde\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_cmd\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_fn\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_opt\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_open_process\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_parse_complist\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_parse_pid\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_path_to_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_cmd\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_file_default\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_fn\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_opt\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_preview_process\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_source_directories\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_source_files\x2efish\x1e\x7e/\x2econfig/fish/functions/_fifc_test_version\x2efish\x1e\x7e/\x2econfig/fish/functions/fifc\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fifc\x2efish\x1e\x7e/\x2econfig/fish/completions/fifc\x2efish
@@ -17,16 +17,6 @@ SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR --export fifc_editor:nvim
 SETUVAR fifc_keybinding:\x18
 SETUVAR fifc_open_keybinding:ctrl\x2do
-SETUVAR fish_color_history_current:\x2d\x2dbold
-SETUVAR fish_color_host_remote:yellow
-SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
-SETUVAR fish_color_status:red
-SETUVAR fish_key_bindings:fish_vi_key_bindings
-SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:yellow\x1e\x2di
-SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
-SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/vdawg/\x2ecargo/bin\x1e/home/vdawg/\x2elocal/bin\x1e/home/vdawg/go/bin\x1e/home/vdawg/\x2elocal/share/pnpm\x1e/home/vdawg/\x2epub\x2dcache/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
