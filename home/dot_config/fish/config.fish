@@ -54,3 +54,11 @@ function fish_greeting
 end
 
 set fish_vi_force_cursor true
+
+# For global npm packages. Quite useful to get around some nix limitations
+# pnpm
+set -gx PNPM_HOME "/home/vdawg/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
