@@ -25,4 +25,17 @@
     nwg-look
     sassc # For the generation of the Colloid theme
   ];
+
+  # Gtk Theming
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "Colloid-Orange-Dark-Gruvbox";
+        icon-theme = "Colloid-Orange-Gruvbox ";
+        font-name = "Inter Regular 12";
+        document-font-name = "Inter Regular 12";
+        monospace-font-name = "Monaspace Neon";
+      };
+    }
+  ];
 }
