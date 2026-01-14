@@ -55,6 +55,10 @@ end
 
 set fish_vi_force_cursor true
 
+if test -f ~/.config/fish/env.fish
+    source ~/.config/fish/env.fish
+end
+
 # For global npm packages. Quite useful to get around some nix limitations
 # pnpm
 set -gx PNPM_HOME "/home/vdawg/.local/share/pnpm"
