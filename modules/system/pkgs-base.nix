@@ -11,9 +11,12 @@
     blueman
     brave
     clapper
+    claude-code
+    code-cursor-fhs
     dotbot
     dragon-drop
     eog
+    ffmpeg-headless
     file-roller
     fsearch
     gcc # For Neovim Treesitter, so that it can create grammars
