@@ -11,7 +11,7 @@
     if [ "$(tty)" = "/dev/tty1" ]; then
       dbus-update-activation-environment --systemd --all
 
-      ${lib.getExe' pkgs.hyprland "Hyprland"} # Use `exec Hyprland` to auto-restart on exit/crash instead
+      ${lib.getExe' pkgs.hyprland "start-hyprland"}
     fi
   '';
 
