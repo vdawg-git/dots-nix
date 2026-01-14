@@ -2,7 +2,7 @@
     "minimizeToTray": true,
     "discordBranch": "stable",
     "splashColor": "rgb(235, 219, 178)",
-    "splashBackground": "rgb(13, 9, 7)",
+    "splashBackground": "rgb(29, 32, 33)",
     "splashTheming": true,
     "spellCheckLanguages": [
         "en-US",
