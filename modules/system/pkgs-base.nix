@@ -12,7 +12,6 @@
     brave
     clapper
     claude-code
-    code-cursor-fhs
     dotbot
     dragon-drop
     eog
