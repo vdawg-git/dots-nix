@@ -1,6 +1,48 @@
 {
   "permissions": {
-    "deny": ["Bash(git commit *)"]
+    "allow": [
+		"Bash(find *)", 
+		"Bash(tree *)",
+		"Bash(grep *)",
+		"Bash(mkdir *)",
+		"Bash(cp *)",
+		"Bash(ls *)",
+		"Bash(cat *)",
+		"Bash(bat *)",
+
+		"Bash(gh pr view:*)",
+		"Bash(gh pr list:*)",
+		"Bash(gh pr diff:*)",
+		"Bash(gh pr checks:*)",
+		"Bash(gh pr status:*)",
+		"Bash(gh pr reviews:*)",
+		"Bash(gh pr files:*)",
+		"Bash(gh pr comment:*)",
+		"Bash(gh issue view:*)",
+		"Bash(gh issue list:*)",
+		"Bash(gh search:*)",
+		"Bash(gh workflow list:*)",
+		"Bash(gh workflow view:*)",
+		"Bash(gh release view:*)",
+		"Bash(gh api rate_limit:*)",
+
+		"Bash(pnpm types)",
+		"Bash(pnpm lint)",
+		"Bash(pnpm format)",
+		"Bash(pnpm build)",
+
+		"Bash(cargo *)"
+	],
+    "deny": [
+		"Bash(git commit *)",
+		"Bash(git pull *)",
+		"Bash(git push *)",
+		"Bash(gh release list:*)",
+		"Bash(gh pr create:*)",
+
+		"Bash(cargo publish*)",
+		"Bash(cargo logout*)"
+	]
   },
   "attribution": {
     "commit": "",
