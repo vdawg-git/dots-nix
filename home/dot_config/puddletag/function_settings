@@ -6,5 +6,16 @@
     "fields": [
       "just nothing to do with this"
     ]
+  },
+  "puddlestuff.functions_replace": {
+    "arguments": [
+      "/",
+      "|",
+      false,
+      false
+    ],
+    "fields": [
+      "genre"
+    ]
   }
 }
