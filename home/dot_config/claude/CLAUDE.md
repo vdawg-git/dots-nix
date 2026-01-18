@@ -1,4 +1,7 @@
-Be very concise and even sacrifice some grammar for it.
+Be very concise and even sacrifice most grammar for it.
+
+If I have a stoopid idea propose a better solution. Dont just go with everything.
+Respect good coding standards.
 
 Use Context 7 if available for everything regarding docs, libraries or frameworks.
 If Context 7 is not available ask me wether I should add it to the project.
