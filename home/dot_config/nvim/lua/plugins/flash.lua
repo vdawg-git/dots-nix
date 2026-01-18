@@ -1,3 +1,30 @@
+local function case_insensitive_pattern(str)
+	local pattern = ""
+	for i = 1, #str do
+		local char = str:sub(i, i)
+		local lower = char:lower()
+		local upper = char:upper()
+		if lower ~= upper then
+			-- It's a letter, make it case insensitive
+			pattern = pattern .. "[" .. lower .. upper .. "]"
+		else
+			-- Not a letter or needs escaping
+			if char:match("[%^%$%(%)%%%.%[%]%*%+%-%?]") then
+				pattern = pattern .. "%" .. char
+			else
+				pattern = pattern .. char
+			end
+		end
+	end
+	return pattern
+end
+
+defaults = {
+	search = {
+		mode = case_insensitive_pattern,
+	},
+}
+
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
@@ -5,7 +32,7 @@ return {
 	opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+      { "s", mode = { "n", "o", "x" }, function() require("flash").jump(defaults) end, desc = "Flash" },
       { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
