@@ -2,6 +2,8 @@
   "permissions": {
     "allow": [
 		"Bash(bat *)",
+		"Bash(dart run build_runner *)",
+		"Bash(flutter pub run build_runner *)",
 		"Bash(cargo *)",
 		"Bash(cat *)",
 		"Bash(cd *)",
