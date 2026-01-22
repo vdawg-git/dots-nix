@@ -99,7 +99,7 @@
     yt-dlp
     zip
     zoxide # Better cd
-    opencode
+    # opencode
   ];
 in {
   environment.systemPackages = baseTools ++ cliTools;
