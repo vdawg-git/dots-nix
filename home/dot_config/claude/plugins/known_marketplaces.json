@@ -6,5 +6,13 @@
     },
     "installLocation": "/home/vdawg/.claude/plugins/marketplaces/claude-plugins-official",
     "lastUpdated": "2026-01-17T23:33:19.427Z"
+  },
+  "planning-with-files": {
+    "source": {
+      "source": "github",
+      "repo": "OthmanAdi/planning-with-files"
+    },
+    "installLocation": "/home/vdawg/.claude/plugins/marketplaces/planning-with-files",
+    "lastUpdated": "2026-01-23T09:37:36.043Z"
   }
 }

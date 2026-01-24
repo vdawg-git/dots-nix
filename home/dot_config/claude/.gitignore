@@ -2,5 +2,4 @@
 !.gitignore
 !CLAUDE.md
 !settings.json
-!plugins/
-!plugins/**/*
+!plugins/known_marketplaces.json
