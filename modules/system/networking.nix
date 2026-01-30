@@ -1,6 +1,7 @@
 {
   # Enable networking
   networking.networkmanager.enable = true;
+  # networking.useNetworkd = false;
 
   programs.nm-applet.enable = true;
 
