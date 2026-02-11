@@ -33,3 +33,5 @@
 	directory = /opt/flutter
 [pull]
 	rebase = true
+[init]
+	defaultBranch = master
