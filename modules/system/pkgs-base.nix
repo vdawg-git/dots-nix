@@ -11,16 +11,18 @@
     blueman
     brave
     clapper
-    claude-code
+    claude-code-bin
     dotbot
     dragon-drop
     eog
     ffmpeg-headless
     file-roller
     fsearch
+	onlyoffice-desktopeditors
     gcc # For Neovim Treesitter, so that it can create grammars
     git
     git-lfs
+	gum # fancy CLI tools
     gnome-control-center
     gnome-system-monitor
     haruna # Video player
@@ -55,6 +57,7 @@
   ];
 
   cliTools = with pkgs; [
+    # opencode
     atuin
     bat
     bitwarden-cli
@@ -70,6 +73,7 @@
     fzf
     gh
     grim
+    harlequin # SQL Tui. Postgres, SQLite etc
     hurl # Easy endpoint testing
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
@@ -79,7 +83,6 @@
     lazygit
     mprocs
     ni
-    harlequin # SQL Tui. Postgres, SQLite etc
     playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
@@ -99,7 +102,6 @@
     yt-dlp
     zip
     zoxide # Better cd
-    # opencode
   ];
 in {
   environment.systemPackages = baseTools ++ cliTools;
