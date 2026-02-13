@@ -2,4 +2,5 @@
 !.gitignore
 !CLAUDE.md
 !settings.json
+!statusline.sh
 !plugins/known_marketplaces.json
