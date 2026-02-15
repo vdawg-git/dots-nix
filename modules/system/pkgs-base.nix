@@ -4,6 +4,9 @@
   ...
 }: let
   baseTools = with pkgs; [
+	gum # fancy CLI tools
+	onlyoffice-desktopeditors
+	rustdesk-flutter
     amberol
     anki
     bitwarden-desktop
@@ -18,11 +21,9 @@
     ffmpeg-headless
     file-roller
     fsearch
-	onlyoffice-desktopeditors
     gcc # For Neovim Treesitter, so that it can create grammars
     git
     git-lfs
-	gum # fancy CLI tools
     gnome-control-center
     gnome-system-monitor
     haruna # Video player

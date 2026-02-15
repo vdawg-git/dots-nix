@@ -23,5 +23,6 @@
     ./qt.nix
     ./steam.nix
     ./theme.nix
+	./teamviewer.nix
   ];
 }
