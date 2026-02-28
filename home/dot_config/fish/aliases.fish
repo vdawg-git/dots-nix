@@ -25,6 +25,7 @@ abbr frb flutter_rust_bridge_codegen
 abbr sepoku "systemctl poweroff"
 
 abbr jd "just dev"
+abbr j "just"
 
 # No need to install the whole Postgres package for that
 alias psql="nix shell nixpkgs#postgresql --command psql"
