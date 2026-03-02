@@ -1,13 +1,9 @@
 {
   imports = [
-    # ./postgres.nix
-    # ./walker.nix
-    # ./1password.nix
     ./audio-video-hardware.nix
     ./autologin.nix
     ./bootloader.nix
     ./devstuff.nix
-    ./docker.nix
     ./env.nix
     ./external-hardware.nix
     ./fonts.nix
@@ -23,6 +19,5 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
-    ./teamviewer.nix
   ];
 }
