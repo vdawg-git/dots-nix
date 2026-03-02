@@ -48,7 +48,6 @@
     swaynotificationcenter
     swayosd
     switcheroo # File conversion
-    teams-for-linux
     telegram-desktop
     vesktop
     vicinae
