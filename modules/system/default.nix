@@ -2,7 +2,7 @@
   imports = [
     # ./postgres.nix
     # ./walker.nix
-    ./1password.nix
+    # ./1password.nix
     ./audio-video-hardware.nix
     ./autologin.nix
     ./bootloader.nix
