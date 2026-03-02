@@ -17,7 +17,6 @@ SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR --export fifc_editor:nvim
 SETUVAR fifc_keybinding:\x18
 SETUVAR fifc_open_keybinding:ctrl\x2do
-SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_user_paths:/home/vdawg/\x2ecargo/bin\x1e/home/vdawg/\x2elocal/bin\x1e/home/vdawg/go/bin\x1e/home/vdawg/\x2elocal/share/pnpm\x1e/home/vdawg/\x2epub\x2dcache/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
