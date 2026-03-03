@@ -73,7 +73,7 @@
     fzf
     gh
     grim
-    harlequin # SQL Tui. Postgres, SQLite etc
+    # harlequin # SQL Tui. Postgres, SQLite etc
     hurl # Easy endpoint testing
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq

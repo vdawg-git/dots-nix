@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     # Just have a global NodeJs version for ease of use, too
     nodePackages_latest.nodejs
-    corepack
+    # corepack
     bun
     direnv
   ];
