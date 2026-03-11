@@ -11,4 +11,5 @@ Interview me if you need more infos.
 
 If a comment is about code-style or things which you should know, update the CLAUDE.md so that you dont do whatever the comment says again in the future.
 
+Do not delete the refactor comments fully, instead change them to "done-refactor" <short-explanation>
 

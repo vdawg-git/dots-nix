@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/home/vdawg/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-01-29T10:03:55.857Z"
+    "lastUpdated": "2026-03-11T18:53:42.167Z"
   },
   "planning-with-files": {
     "source": {
@@ -13,6 +13,6 @@
       "repo": "OthmanAdi/planning-with-files"
     },
     "installLocation": "/home/vdawg/.claude/plugins/marketplaces/planning-with-files",
-    "lastUpdated": "2026-01-23T09:37:36.043Z"
+    "lastUpdated": "2026-03-06T18:03:35.053Z"
   }
 }

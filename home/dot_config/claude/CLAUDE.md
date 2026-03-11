@@ -6,6 +6,10 @@ Furthermore, my code is not perfect. Critique it everytime I deviate from good p
 
 Readable code is the most important.
 
+# Tools
+
+Never use `npx`, use `bunx` instead.
+
 # Libraries
 
 Use Context 7 if available for everything regarding docs, libraries or frameworks.
