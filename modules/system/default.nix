@@ -19,5 +19,6 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
+    ./steam.nix
   ];
 }
