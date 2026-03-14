@@ -20,5 +20,6 @@
     ./qt.nix
     ./theme.nix
     ./steam.nix
+    ./wine.nix
   ];
 }
