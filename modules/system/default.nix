@@ -19,7 +19,6 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
-    ./steam.nix
-    ./wine.nix
+    ./windows-slop.nix
   ];
 }
