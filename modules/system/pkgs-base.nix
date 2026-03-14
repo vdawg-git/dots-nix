@@ -13,7 +13,6 @@
     blanket
     blueman
     brave
-    clapper
     claude-code-bin
     dotbot
     dragon-drop
