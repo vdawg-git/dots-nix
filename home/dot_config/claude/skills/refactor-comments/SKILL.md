@@ -13,3 +13,5 @@ If a comment is about code-style or things which you should know, update the CLA
 
 Do not delete the refactor comments fully, instead change them to "done-refactor" <short-explanation>
 
+If a comment is asking a question just answer it in the chat and resolve it later.
+If the question suggests a different way, explain your reasoning and interview me about it as maybe you should change it, but maybe not.
