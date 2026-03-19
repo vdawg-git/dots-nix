@@ -19,6 +19,5 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
-    ./windows-slop.nix
   ];
 }
