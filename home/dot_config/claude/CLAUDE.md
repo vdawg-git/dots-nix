@@ -22,7 +22,9 @@ Make them extremely concise.
 
 # Misc
 
-If the repo has an `architecture-decisions.md` update it after every plan or decision.
+If the repo has an `architecture-decisions.md` update it when a non-obvious architectural choice is made.
+Keep entries short. Focus on **why** when multiple approaches exist — document rejected alternatives briefly.
+Not a changelog; git handles that. Skip entries for self-explanatory patterns (e.g. "DI for testing").
 
 # Languages
 
