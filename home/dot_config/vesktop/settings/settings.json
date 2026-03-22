@@ -233,10 +233,6 @@
             "collapseDeleted": false,
             "inlineEdits": true
         },
-        "MessageTags": {
-            "enabled": false,
-            "clyde": true
-        },
         "MoreCommands": {
             "enabled": false
         },
@@ -699,6 +695,10 @@
         },
         "ExpressionCloner": {
             "enabled": false
+        },
+        "CustomCommands": {
+            "enabled": false,
+            "clyde": true
         }
     },
     "notifications": {
@@ -711,7 +711,11 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1752006679865
+        "settingsSyncVersion": 1774001939096
     },
-    "eagerPatches": false
+    "eagerPatches": false,
+    "uiElements": {
+        "chatBarButtons": {},
+        "messagePopoverButtons": {}
+    }
 }
