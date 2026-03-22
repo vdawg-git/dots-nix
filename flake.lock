@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773924991,
-        "narHash": "sha256-UemgLUAIsDEiiO9vAjIJ9YQ3HvJ6dujK1ngikOxDuJw=",
+        "lastModified": 1774193888,
+        "narHash": "sha256-In/UcwK99aujv6XDmsR04KwyiXU2C/BeMDGFG1BshZE=",
         "owner": "vdawg-git",
         "repo": "moo",
-        "rev": "a9e53e1e13e1f6db5ae598c9941c657006f251f7",
+        "rev": "fa9d83055c684049f28654d0ba36d1fb3e0257f3",
         "type": "github"
       },
       "original": {
