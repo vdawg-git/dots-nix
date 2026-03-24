@@ -115,17 +115,10 @@
       "Bash(gh issue close *)",
       "Bash(gh issue create *)",
       "Bash(gh pr close *)",
-      "Bash(gh pr create *)",
       "Bash(gh pr merge *)",
-      "Bash(gh pr ready *)",
       "Bash(gh release *)",
       "Bash(gh workflow run *)",
-      "Bash(git add *)",
       "Bash(git checkout *)",
-      "Bash(git commit *)",
-      "Bash(git pull *)",
-      "Bash(git push *)",
-      "Bash(git rebase *)",
       "Bash(git switch *)",
       "Bash(npm publish*)",
       "Bash(pip publish*)",
@@ -142,6 +135,6 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
-  "skipDangerousModePermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": false,
   "effortLevel": "high"
 }
