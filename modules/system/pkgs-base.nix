@@ -14,6 +14,8 @@
     blueman
     brave
     claude-code-bin
+    opencode
+    opencode-desktop
     dotbot
     dragon-drop
     eog

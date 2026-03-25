@@ -12,6 +12,9 @@
       path: dot_local/share/rhythmbox/playlists.xml
       create: true
 
+    ~/.agents:
+      path: dot_agents
+
     ~/Documents/obsidian/.obsidian/:
       path: dot_obsidian
       create: true
