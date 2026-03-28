@@ -20,6 +20,8 @@ If Context 7 is not available ask me wether I should add it to the project.
 At the end of each plan list all unresolved questions if any or anything which you might think would be good to know.
 Make them extremely concise.
 
+Also always load the `tdd` skill before doing anything.
+
 # Misc
 
 If the repo has an `architecture-decisions.md` update it when a non-obvious architectural choice is made.

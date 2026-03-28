@@ -15,6 +15,7 @@
       "Bash(bun install *)",
       "Bash(bun lint *)",
       "Bash(bun ls*)",
+      "Bash(bun pm *)",
       "Bash(bun remove *)",
       "Bash(bun run *)",
       "Bash(bun run eslint *)",
