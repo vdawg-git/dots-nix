@@ -58,9 +58,10 @@
   ];
 
   cliTools = with pkgs; [
-    # opencode
+    # harlequin # SQL Tui. Postgres, SQLite etc
     atuin
     bat
+    beads
     bitwarden-cli
     broot # explore directory trees (works with fifc)
     btop
@@ -74,7 +75,6 @@
     fzf
     gh
     grim
-    # harlequin # SQL Tui. Postgres, SQLite etc
     hurl # Easy endpoint testing
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
