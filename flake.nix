@@ -7,6 +7,9 @@
 
     moo.url = "github:vdawg-git/moo";
     moo.inputs.nixpkgs.follows = "nixpkgs";
+
+    beads-viewer.url = "github:Dicklesworthstone/beads_viewer";
+    beads-viewer.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

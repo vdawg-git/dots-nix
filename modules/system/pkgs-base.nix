@@ -18,6 +18,7 @@
     opencode-desktop
     dotbot
     dragon-drop
+    easyeffects
     eog
     ffmpeg-headless
     file-roller
@@ -76,6 +77,7 @@
     gh
     grim
     hurl # Easy endpoint testing
+    # inputs.beads-viewer.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
     kalker # calculator
