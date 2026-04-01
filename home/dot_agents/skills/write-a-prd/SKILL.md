@@ -1,6 +1,6 @@
 ---
 name: write-a-prd
-description: Create a PRD through user interview, codebase exploration, and module design, then submit as a GitHub issue. Use when user wants to write a PRD, create a product requirements document, or plan a new feature.
+description: Create a PRD through user interview, codebase exploration, and module design, then submit as an epic bead via `bd`. Use when user wants to write a PRD, create a product requirements document, or plan a new feature.
 ---
 
 This skill will be invoked when the user wants to create a PRD. You may skip steps if you don't consider them necessary.
@@ -17,7 +17,25 @@ A deep module (as opposed to a shallow module) is one which encapsulates a lot o
 
 Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. The PRD should be submitted as a GitHub issue.
+5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. Submit it as an epic bead:
+
+```sh
+# Write PRD content to a temp file, then create the epic
+cat <<'PRD_EOF' > /tmp/prd-body.md
+<filled-in template content>
+PRD_EOF
+
+EPIC_ID=$(bd create "PRD: <title>" \
+  --type epic \
+  --body-file /tmp/prd-body.md \
+  --acceptance "All child beads closed" \
+  -p 2 \
+  --silent)
+
+echo "Created PRD epic: $EPIC_ID"
+```
+
+Print the epic ID to the user so they can pass it to `/prd-to-beads`.
 
 <prd-template>
 
