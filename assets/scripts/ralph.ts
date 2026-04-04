@@ -14,16 +14,9 @@ import {
 import { mkdir, appendFile, readFile } from "node:fs/promises"
 import { existsSync } from "node:fs"
 import { join } from "node:path"
+import { it } from "node:test"
 
-let currentIssueId: string | null = null
-process.on("SIGINT", async () => {
-	if (currentIssueId) {
-		await $`br update ${currentIssueId} --status open`.quiet()
-	}
-	process.exit(130)
-})
-const MAX_RETRIES = 3
-const MAX_BATCH_CANDIDATES = 2
+const MAX_RETRIES = 25
 const REPO_ROOT = await $`git rev-parse --show-toplevel`
 	.text()
 	.then((s) => s.trim())
@@ -183,6 +176,11 @@ log.info(`Working on ${selectedSet.size} issue(s)`)
 
 let iterations = 0
 while (true) {
+	if (iterations >= MAX_RETRIES) {
+		log.error("Reached maximum retries. Exiting.")
+		break
+	}
+
 	let openIssues: Issue[]
 	try {
 		const result = await getWorkableIssues(selectedEpic.id)
@@ -194,9 +192,9 @@ while (true) {
 
 	if (openIssues.length === 0) break
 
-	await workOnEpic(selectedEpic, openIssues)
+	log.info(`Iteration ${iterations} starts...`)
 
-	currentIssueId = null
+	await workOnEpic(selectedEpic, openIssues)
 
 	iterations++
 	log.info(`Iteration ${iterations} complete.`)
@@ -207,18 +205,10 @@ outro("All tasks complete!")
 // --- Smart selection ---
 
 async function workOnEpic(epic: Epic["epic"], issues: Issue[]) {
-	for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-		const label = `Attempt ${attempt}/${MAX_RETRIES}`
-		spinner.start(label)
-		const prompt = await buildPrompt(epic, issues)
-		await runClaude(prompt, spinner)
-		spinner.stop(label)
-
-		log.message("Done :)")
-	}
+	spinner.start("Running Ralph...")
+	const prompt = await buildPrompt(epic, issues)
+	await runClaude(prompt)
 }
-
-// todo we shouldnt show blockers which are closed at all. Because I think we always show in the system prompt
 
 async function buildPrompt(
 	epic: Epic["epic"],
@@ -246,13 +236,15 @@ Previous work / step breakdown:
 ${memory || "(first attempt)"}
 
 Rules:
+- Always announce the current issue you're working on with its ID and title, and the reasoning behind it. Do that as early as possible.
 - Use \`br show <id>\` to read full issue details
 - ALWAYS work on only one issue, unless you have very good reasons to do otherwise. Remember, keep your context focused
-- Use TDD and planing. Clear your context after planning and before starting implementation and only use your plan
+- Use TDD and planing. Fully implement the issue with working code.
 - If the issue is large, break it into steps. Save your plan and progress to memory — you may continue in the next iteration
 - Close each completed issue with \`br close <id>\`
 - Do NOT init git, change remotes, or push
-- Add important findings for the next iteration of the loop to ${join(MEMORY_DIR, `${epic.id}.md`)}
+- Add important findings for the next iteration of the loop to ./ralph-memory/${epic.id}.md in the root of the repo.
+- If an issue mentions a dependency, check if the dependency is closed. If it is, *fully* ignore the dependency, otherwise work on it first.
 `
 }
 
@@ -274,10 +266,6 @@ async function fetchWith<T>(
 		cancel(errorMessage(error))
 		return null
 	}
-}
-
-async function bvTriage(): Promise<BvTriage> {
-	return $`bv --robot-triage`.json()
 }
 
 async function getEpics(): Promise<Epic[]> {
@@ -375,21 +363,13 @@ async function getWorkableIssues(
 	}
 
 	await resolveBlockers(issues)
+
+	// Remove blockers that are closed or otherwise not in the working set
+	for (const issue of issues.values()) {
+		issue.blockedBy = issue.blockedBy.filter((id) => issues.has(id))
+	}
+
 	return { issues: [...issues.values()], epicIssueIds }
-}
-
-async function isIssueClosed(issueId: string): Promise<boolean> {
-	const [issue]: [BrIssue] = await $`br show ${issueId} --json`.json()
-	return issue?.status === "closed"
-}
-
-async function claimIssue(issueId: string) {
-	await $`br update ${issueId} --status in_progress`.quiet()
-}
-
-async function resetIssue(issueId: string): Promise<void> {
-	log.warn(`Resetting ${issueId} to open`)
-	await $`br update ${issueId} --status open`.quiet()
 }
 
 // --- Memory ---
@@ -406,9 +386,34 @@ function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error)
 }
 
-async function runClaude(prompt: string, spin: SpinnerResult) {
+async function runClaude(prompt: string) {
 	const proc = Bun.spawn(
-		["claude", "-p", "-", "--output-format", "stream-json", "--verbose"],
+		[
+			"claude",
+			"-p",
+			"-",
+			"--output-format",
+			"stream-json",
+			"--verbose",
+			"--permission-mode",
+			"acceptEdits",
+			"--allowedTools",
+			"Edit",
+			"Write",
+			"Read",
+			"Grep",
+			"Glob",
+			"Bash(br *)",
+			"Bash(git status *)",
+			"Bash(git diff *)",
+			"Bash(git log *)",
+			"Bash(git add *)",
+			"Bash(bun *)",
+			"Bash(cargo *)",
+			"Bash(nix *)",
+			"Bash(ls *)",
+			"Bash(mkdir *)",
+		],
 		{ stdin: Buffer.from(prompt), stdout: "pipe", stderr: "inherit" },
 	)
 
@@ -432,10 +437,13 @@ async function runClaude(prompt: string, spin: SpinnerResult) {
 
 					for (const block of content) {
 						const prefix = agentMessages.length > 5 ? "...\n" : ""
-						const messageDisplay = prefix + agentMessages.slice(-5).join("\n")
+						const messageDisplay =
+							prefix + agentMessages.slice(-5).join("\n-----\n")
 
 						if (block.type === "tool_use") {
-							spinner.message(`${messageDisplay}\nTool: ${block.name} - `)
+							spinner.message(
+								`${messageDisplay}\nTool: ${JSON.stringify(block)}`,
+							)
 						} else if (block.type === "text") {
 							spinner.message(messageDisplay)
 							agentMessages.push(block.text)
