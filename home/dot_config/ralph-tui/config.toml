@@ -1,0 +1,4 @@
+[sandbox]
+enabled = true
+mode = "auto"
+network = true
