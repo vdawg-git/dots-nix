@@ -40,6 +40,8 @@
 			"Bash(do echo:*)",
 			"Bash(done *)",
 			"Bash(find *)",
+			"Bash(br *)",
+			"Bash(bv *)",
 			"Bash(flutter analyze *)",
 			"Bash(flutter build *)",
 			"Bash(flutter pub get *)",
@@ -119,6 +121,8 @@
 		"deny": [
 			"Bash(cargo logout *)",
 			"Bash(cargo publish *)",
+			"Bash(git push *)",
+			"Bash(git commit *)",
 			"Bash(gh pr close *)",
 			"Bash(gh pr merge *)",
 			"Bash(gh release *)",
@@ -138,6 +142,32 @@
 		"command": "~/.claude/statusline.sh",
 		"padding": 0
 	},
-	"skipDangerousModePermissionPrompt": false,
-	"effortLevel": "high"
+	"effortLevel": "high",
+	"skipDangerousModePermissionPrompt": true,
+	"sandbox": {
+		"enabled": true,
+		"autoAllowBashIfSandboxed": true,
+		"allowUnsandboxedCommands": false,
+		"network": {
+			"allowLocalBinding": true
+		},
+		"filesystem": {
+			"allowWrite": [
+				"/tmp/",
+				"~/.bun",
+				"~/.claude",
+				"~/.npm",
+				"~/.local/share/pnpm",
+				"~/.cache"
+			],
+			"allowRead": [
+				"/tmp/",
+				"~/.bun",
+				"~/.claude",
+				"~/.npm",
+				"~/.local/share/pnpm",
+				"~/.cache"
+			]
+		}
+	}
 }

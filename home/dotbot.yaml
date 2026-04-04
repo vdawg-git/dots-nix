@@ -62,4 +62,4 @@
     # Quickshell fills this file with system dependent info
     - touch ./dot_config/quickshell/.qmlls.ini
     # Claude is an ahole (see logo) and wants to be directly in the home-dir
-    - ln -s "$(realpath dot_config/claude)" ~/.claude
+    - ln -sfn "$(realpath dot_config/claude)" ~/.claude
