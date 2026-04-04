@@ -4,18 +4,14 @@
   ...
 }: let
   baseTools = with pkgs; [
-    gum # fancy CLI tools
-    onlyoffice-desktopeditors
-    rustdesk-flutter
     amberol
     anki
     bitwarden-desktop
     blanket
     blueman
     brave
+    bubblewrap
     claude-code-bin
-    opencode
-    opencode-desktop
     dotbot
     dragon-drop
     easyeffects
@@ -28,6 +24,7 @@
     git-lfs
     gnome-control-center
     gnome-system-monitor
+    gum # fancy CLI tools
     haruna # Video player
     imagemagick
     kitty
@@ -41,6 +38,9 @@
     nwg-panel
     obs-studio
     obsidian
+    onlyoffice-desktopeditors
+    opencode
+    opencode-desktop
     pavucontrol
     puddletag
     python3
@@ -62,9 +62,8 @@
     # harlequin # SQL Tui. Postgres, SQLite etc
     atuin
     bat
-    beads
     bitwarden-cli
-    broot # explore directory trees (works with fifc)
+    # broot # explore directory trees (works with fifc)
     btop
     chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
