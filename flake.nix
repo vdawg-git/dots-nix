@@ -10,6 +10,9 @@
 
     beads-viewer.url = "github:Dicklesworthstone/beads_viewer";
     beads-viewer.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -72,6 +75,8 @@
           ./hosts/swordfish/host.nix
           ./modules/system
           ./modules/system/bluetooth.nix
+          inputs.nix-index-database.nixosModules.default
+
           {nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";}
         ];
       };
