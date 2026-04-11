@@ -2,10 +2,12 @@
   # See https://nixos.wiki/wiki/Docker
   virtualisation.docker.enable = true;
 
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  # virtualisation.docker.rootless = {
+  #   enable = true;
+  #   setSocketVariable = true;
+  # };
+
+  users.users.vdawg.extraGroups = [ "docker" ];
 
   virtualisation.docker.daemon.settings = {
     userland-proxy = true;
