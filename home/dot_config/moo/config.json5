@@ -1,9 +1,13 @@
 {
-    $schema: 'https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooConfig.json',
-    musicDirectories: ["~/Music"],
-    watchDirectories: true,
-    version: '0.1',
+	$schema: "https://raw.githubusercontent.com/vdawg-git/moo/refs/heads/master/other/schemas/mooConfig.json",
+	musicDirectories: ["~/Music"],
+	watchDirectories: true,
+	version: "0.1",
 	icons: {},
 	keybindings: [],
-	quickEdit: {}
+	quickEdit: {},
+	showUntaggedGenreList: true,
+	showUntaggedMoodList: true,
+	showUntaggedMoodPlaybar: true,
+	showUntaggedGenrePlaybar: true,
 }
