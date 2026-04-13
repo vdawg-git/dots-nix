@@ -4,14 +4,14 @@
     manix # Easy NixOS docs searcher
     any-nix-shell # Use Fish after going into a shell
 
-    # comma # Run anything instantly with `, some-app`
+    comma # Run anything instantly with `, some-app`
   ];
 
-  # We now use https://github.com/nix-community/nix-index-database
   # Idk why, but this failed
-  # programs.command-not-found.enable = false;
+  programs.command-not-found.enable = false;
   # And this works hopefully
-  # programs.nix-index.enable = true;
+  programs.nix-index.enable = true;
+
 
   programs.nh = {
     enable = true;
