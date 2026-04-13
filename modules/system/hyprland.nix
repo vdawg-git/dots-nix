@@ -2,7 +2,6 @@
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -12,12 +11,12 @@
 
   environment.systemPackages = with pkgs; [
     hyprcursor
+    hyprpaper
     hypridle
     hyprlock
     hyprpicker
     hyprsunset
     kitty
-    swww
     hyprland-qt-support
   ];
 }
