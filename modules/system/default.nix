@@ -13,7 +13,6 @@
     ./docker.nix
     ./keyboard.nix
     ./keyd.nix
-    ./mullvad.nix
     ./neovim.nix
     ./networking.nix
     ./nixx.nix
