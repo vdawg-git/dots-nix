@@ -14,6 +14,7 @@
     ./keyboard.nix
     ./keyd.nix
     ./neovim.nix
+    ./disks.nix
     ./networking.nix
     ./nixx.nix
     ./pam.nix
