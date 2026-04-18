@@ -24,10 +24,12 @@
     git-lfs
     gnome-control-center
     gnome-system-monitor
+    gron # Make JSON grepable
     gum # fancy CLI tools
     haruna # Video player
     imagemagick
     kitty
+    lemmeknow # Identify strings and files
     mediainfo
     megacmd
     mpv

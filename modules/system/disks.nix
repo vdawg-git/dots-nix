@@ -1,6 +1,8 @@
-{pkgs, ...}: {
-  programs.partition-manager = {
-    enable = true;
-    package = lib.mkPackageOption pkgs ["kdePackages" "partitionmanager"];
-  };
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  # KDE Partition Manager
+  programs.partition-manager.enable = true;
 }

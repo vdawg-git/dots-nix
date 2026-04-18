@@ -9,7 +9,6 @@
     ./fonts.nix
     ./host-base.nix
     ./hyprland.nix
-    # ./steam.nix
     ./docker.nix
     ./keyboard.nix
     ./keyd.nix
