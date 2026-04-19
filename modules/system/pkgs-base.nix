@@ -6,6 +6,7 @@
   baseTools = with pkgs; [
     amberol
     anki
+    beans
     bitwarden-desktop
     blanket
     blueman
