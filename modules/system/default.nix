@@ -4,21 +4,22 @@
     ./autologin.nix
     ./bootloader.nix
     ./devstuff.nix
+    ./disks.nix
+    ./docker.nix
     ./env.nix
     ./external-hardware.nix
     ./fonts.nix
     ./host-base.nix
     ./hyprland.nix
-    ./docker.nix
     ./keyboard.nix
     ./keyd.nix
     ./neovim.nix
-    ./disks.nix
     ./networking.nix
     ./nixx.nix
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
+    ./thumbnails
   ];
 }
