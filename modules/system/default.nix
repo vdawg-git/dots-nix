@@ -20,6 +20,6 @@
     ./pkgs-base.nix
     ./qt.nix
     ./theme.nix
-    ./thumbnails
+    ./thumbnails/thumbnails.nix
   ];
 }
