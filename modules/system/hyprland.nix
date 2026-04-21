@@ -11,12 +11,13 @@
 
   environment.systemPackages = with pkgs; [
     hyprcursor
-    hyprpaper
+    hyprdynamicmonitors
     hypridle
+    hyprland-qt-support
     hyprlock
+    hyprpaper
     hyprpicker
     hyprsunset
     kitty
-    hyprland-qt-support
   ];
 }
