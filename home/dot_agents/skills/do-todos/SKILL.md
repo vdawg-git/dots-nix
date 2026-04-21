@@ -1,5 +1,5 @@
 ---
-name: todos
+name: do-todos
 description: Find comments starting  with todo and applies what they say
 disable-modal-invocation: true
 ---
