@@ -1,0 +1,34 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_ADP0"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_ADP0"
+
+
+[profiles.Greece-laptop]
+config_file = "/home/vdawg/.config/hyprdynamicmonitors/hyprconfigs/Greece-laptop.go.tmpl"
+config_file_type = "template"
+[profiles.Greece-laptop.conditions]
+
+[[profiles.Greece-laptop.conditions.required_monitors]]
+description = "LG Display 0x06EA"
+monitor_tag = "monitor0"
+
+[[profiles.Greece-laptop.conditions.required_monitors]]
+description = "LG Electronics LG HDR 4K 102NTKFG7893"
+monitor_tag = "monitor1"
+
+
+[profiles.swordfish-only]
+config_file = "/home/vdawg/.config/hyprdynamicmonitors/hyprconfigs/swordfish-only.go.tmpl"
+config_file_type = "template"
+[profiles.swordfish-only.conditions]
+
+[[profiles.swordfish-only.conditions.required_monitors]]
+description = "LG Display 0x06EA"
+monitor_tag = "monitor0"

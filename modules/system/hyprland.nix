@@ -20,4 +20,7 @@
     hyprsunset
     kitty
   ];
+
+  # For hyprdynamicmonitors 
+  services.upower.enable = true;
 }

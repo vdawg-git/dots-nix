@@ -19,6 +19,7 @@
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
+    ./steam.nix
     ./theme.nix
     ./thumbnails/thumbnails.nix
   ];
