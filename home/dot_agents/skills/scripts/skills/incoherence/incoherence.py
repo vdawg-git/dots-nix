@@ -229,7 +229,7 @@ STEPS = {
             "",
             "AGENT PROMPT:",
             f"  DIMENSION: {{letter}} - {{name}}. DESCRIPTION: {{from_catalog}}",
-            f'  Start: <invoke working-dir=".claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 4 --thoughts \\"Dimension: {{{{letter}}}}\\"" />',
+            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 4 --thoughts \\"Dimension: {{{{letter}}}}\\"" />',
         ],
         "next": "After all agents complete, invoke step 8 with combined findings"
     },
@@ -314,7 +314,7 @@ STEPS = {
             f"  CANDIDATE: {{id}} at {{location}} | DIMENSION: {{letter}} - {{name}}",
             f"  Claimed: {{summary}}",
             f"  Workflow: step 10 (explore) -> step 11 (format)",
-            f'  Start: <invoke working-dir=".claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 10 --thoughts \\"Verifying: {{{{id}}}}\\"" />',
+            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 10 --thoughts \\"Verifying: {{{{id}}}}\\"" />',
         ],
         "next": "After all agents complete, invoke step 12 with all verdicts"
     },
@@ -458,7 +458,7 @@ STEPS = {
             f"  TARGET: {{file}} | ISSUES: {{ids}}",
             f"  Per issue: type, severity, sources, analysis, resolution_text",
             f"  Workflow: step 18 (apply) -> step 19 (format)",
-            f'  Start: <invoke working-dir=".claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 18 --thoughts \\"FILE: {{{{file}}}}\\"" />',
+            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 18 --thoughts \\"FILE: {{{{file}}}}\\"" />',
             "",
             "Launch ALL wave agents in SINGLE message.",
         ],
