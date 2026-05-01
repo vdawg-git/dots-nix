@@ -15,6 +15,9 @@
     ~/.agents:
       path: dot_agents
 
+    ~/.pi:
+      path: dot_pi
+
     ~/Documents/obsidian/.obsidian/:
       path: dot_obsidian
       create: true
