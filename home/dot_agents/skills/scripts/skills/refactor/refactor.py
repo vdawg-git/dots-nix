@@ -1046,7 +1046,7 @@ Present the report directly to the user. The report should be immediately action
 # =============================================================================
 
 
-def format_step_1_output(n: int, info: dict, mode_filter: str, scope: str | None = None) -> str:
+def format_step_1_output(n: int, info: dict, mode_filter: str, scope: str | None = None, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 1: Mode selection output.
 
     Three outputs from this step:
@@ -1142,13 +1142,15 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
     # Shell escape scope to prevent injection
     scope_escaped = shlex.quote(scope) if scope else ""
     scope_arg = f" --scope {scope_escaped}" if scope else ""
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
 
     invoke_after = f"""<invoke_after>
   <if_custom>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}" />
+    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}{output_arg}{signal_arg}" />
   </if_custom>
   <if_not_custom>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}" />
+    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}{output_arg}{signal_arg}" />
   </if_not_custom>
 </invoke_after>"""
     parts.append(invoke_after)
@@ -1156,7 +1158,7 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
     return "\n".join(parts)
 
 
-def format_step_2_dispatch(n: int, info: dict, mode_filter: str, scope: str | None = None) -> str:
+def format_step_2_dispatch(n: int, info: dict, mode_filter: str, scope: str | None = None, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 2 for non-custom modes: Random sampling + dispatch.
 
     Skips step 3 (verification) via direct jump to step 4 (which is triage for non-custom).
@@ -1196,12 +1198,14 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
 
     # Non-custom: jump to step 4 (triage), skipping step 3 (verification)
     scope_arg = f" --scope {shlex.quote(scope)}" if scope else ""
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode {mode_filter}{scope_arg}")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode {mode_filter}{scope_arg}{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_2_custom(info: dict, scope: str | None = None) -> str:
+def format_step_2_custom(info: dict, scope: str | None = None, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 2 for custom mode: LLM category selection.
 
     Embeds full category file content for LLM to select relevant ones
@@ -1260,12 +1264,14 @@ def format_step_2_custom(info: dict, scope: str | None = None) -> str:
 
     # Next step: verification (step 3)
     scope_arg = f" --scope {shlex.quote(scope)}" if scope else ""
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_3_verification(info: dict, scope: str | None = None, retry: int = 0) -> str:
+def format_step_3_verification(info: dict, scope: str | None = None, retry: int = 0, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 3: Category verification (custom mode only).
 
     Catches category selection errors before expensive dispatch.
@@ -1320,26 +1326,28 @@ def format_step_3_verification(info: dict, scope: str | None = None, retry: int 
 
     # Conditional branching: retry loopback vs proceed to dispatch
     scope_arg = f" --scope {shlex.quote(scope)}" if scope else ""
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
     if retry < 1:
         # Still have retry budget
         invoke_after = f"""<invoke_after>
   <if_revise>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg} --retry 1" />
+    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg} --retry 1" />
   </if_revise>
   <if_pass>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}" />
+    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}" />
   </if_pass>
 </invoke_after>"""
     else:
         # Retry budget exhausted - proceed regardless
-        invoke_after = render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}"))
+        invoke_after = render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}"))
 
     parts.append(invoke_after)
 
     return "\n".join(parts)
 
 
-def format_step_4_dispatch_custom(info: dict, scope: str | None = None) -> str:
+def format_step_4_dispatch_custom(info: dict, scope: str | None = None, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 4 for custom mode: Dispatch with verified categories.
 
     Uses categories selected and verified in steps 2-3.
@@ -1391,12 +1399,14 @@ def format_step_4_dispatch_custom(info: dict, scope: str | None = None) -> str:
     parts.append("")
 
     # Next step: Triage (step 5 in custom mode)
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 5")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 5{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_4_triage(info: dict) -> str:
+def format_step_4_triage(info: dict, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 4 for non-custom modes: Triage (dispatch already happened in step 2)."""
     parts = []
 
@@ -1405,16 +1415,26 @@ def format_step_4_triage(info: dict) -> str:
 
     # Use the triage actions from STEPS[5]
     actions = list(STEPS[5].get("actions", []))
+
+    if output:
+        actions = actions + [
+            "",
+            f"WRITE current triage findings to {output} using the Write tool.",
+            "This preserves partial results in case the pipeline does not complete.",
+        ]
+
     parts.append(render_current_action(CurrentActionNode(actions)))
     parts.append("")
 
     # Non-custom: step 4 (triage) -> step 6 (cluster), skipping step 5
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 6")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 6{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_5_triage(info: dict) -> str:
+def format_step_5_triage(info: dict, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 5: Triage output (custom mode path)."""
     parts = []
 
@@ -1422,31 +1442,50 @@ def format_step_5_triage(info: dict) -> str:
     parts.append("")
 
     actions = list(info.get("actions", []))
+
+    if output:
+        actions = actions + [
+            "",
+            f"WRITE current triage findings to {output} using the Write tool.",
+            "This preserves partial results in case the pipeline does not complete.",
+        ]
+
     parts.append(render_current_action(CurrentActionNode(actions)))
     parts.append("")
 
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 6")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 6{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_6_cluster(info: dict) -> str:
+def format_step_6_cluster(info: dict, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 6: Cluster output."""
     parts = []
 
     parts.append(render_step_header(StepHeaderNode(title=info["title"], script="refactor", step=6)))
     parts.append("")
 
-    actions = [format_cluster_prompt()]
+    cluster_prompt = format_cluster_prompt()
+    if output:
+        cluster_prompt = cluster_prompt + f"""
+
+WRITE the clustered issues JSON to {output} using the Write tool.
+This preserves partial results in case the pipeline does not complete."""
+
+    actions = [cluster_prompt]
     parts.append(render_current_action(CurrentActionNode(actions)))
     parts.append("")
 
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 7")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 7{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_7_contextualize(info: dict) -> str:
+def format_step_7_contextualize(info: dict, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 7: Contextualize output."""
     parts = []
 
@@ -1457,19 +1496,33 @@ def format_step_7_contextualize(info: dict) -> str:
     parts.append(render_current_action(CurrentActionNode(actions)))
     parts.append("")
 
-    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 8")))
+    output_arg = f" --output {shlex.quote(output)}" if output else ""
+    signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
+    parts.append(render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 8{output_arg}{signal_arg}")))
 
     return "\n".join(parts)
 
 
-def format_step_8_synthesize(info: dict) -> str:
+def format_step_8_synthesize(info: dict, output: str | None = None, signal: str | None = None) -> str:
     """Format Step 8: Synthesize output (terminal step)."""
     parts = []
 
     parts.append(render_step_header(StepHeaderNode(title=info["title"], script="refactor", step=8)))
     parts.append("")
 
-    actions = [format_synthesize_prompt()]
+    synthesize_prompt = format_synthesize_prompt()
+    if output:
+        synthesize_prompt = synthesize_prompt + f"""
+
+After generating the report, WRITE the complete report to {output} using the Write tool."""
+
+    if signal:
+        synthesize_prompt = synthesize_prompt + f"""
+
+After completing all output, emit the following text verbatim on its own line:
+{signal}"""
+
+    actions = [synthesize_prompt]
     parts.append(render_current_action(CurrentActionNode(actions)))
     parts.append("")
 
@@ -1488,7 +1541,9 @@ def format_output(
     n: int = DEFAULT_CATEGORY_COUNT,
     mode_filter: str = "both",
     scope: str | None = None,
-    retry: int = 0
+    retry: int = 0,
+    output: str | None = None,
+    signal: str | None = None,
 ) -> str:
     """Format output for display. Dispatches based on step and mode.
 
@@ -1505,46 +1560,46 @@ def format_output(
 
     # Step 1: Mode selection (same for all modes, but needs scope)
     if step == 1:
-        return format_step_1_output(n, info, mode_filter, scope)
+        return format_step_1_output(n, info, mode_filter, scope, output, signal)
 
     # Step 2: Mode-dependent
     # Custom: Category selection from embedded files
     # Non-custom: Random sampling and immediate dispatch
     if step == 2:
         if mode_filter == "custom":
-            return format_step_2_custom(info, scope)
+            return format_step_2_custom(info, scope, output, signal)
         else:
-            return format_step_2_dispatch(n, info, mode_filter, scope)
+            return format_step_2_dispatch(n, info, mode_filter, scope, output, signal)
 
     # Step 3: Verification (custom mode only)
     # Non-custom mode jumps from step 2 directly to step 4
     if step == 3:
-        return format_step_3_verification(info, scope, retry)
+        return format_step_3_verification(info, scope, retry, output, signal)
 
     # Step 4: Semantically different per mode
     # Custom: Dispatch with verified categories
     # Non-custom: Triage (dispatch already happened in step 2)
     if step == 4:
         if mode_filter == "custom":
-            return format_step_4_dispatch_custom(info, scope)
+            return format_step_4_dispatch_custom(info, scope, output, signal)
         else:
-            return format_step_4_triage(info)
+            return format_step_4_triage(info, output, signal)
 
     # Step 5: Triage (custom mode path only)
     # Non-custom mode already did triage at step 4, jumps to step 6
     if step == 5:
-        return format_step_5_triage(info)
+        return format_step_5_triage(info, output, signal)
 
     # Steps 6-8: Mode-agnostic
     if step == 6:
-        return format_step_6_cluster(info)
+        return format_step_6_cluster(info, output, signal)
     if step == 7:
-        return format_step_7_contextualize(info)
+        return format_step_7_contextualize(info, output, signal)
     if step == 8:
-        return format_step_8_synthesize(info)
+        return format_step_8_synthesize(info, output, signal)
 
     # Fallback
-    return format_step_8_synthesize(info)
+    return format_step_8_synthesize(info, output, signal)
 
 
 def main(
@@ -1553,6 +1608,8 @@ def main(
     mode: str = None,
     scope: str = None,
     retry: int = None,
+    output: str = None,
+    signal: str = None,
 ):
     """Entry point with parameter annotations for testing framework.
 
@@ -1583,6 +1640,14 @@ def main(
     parser.add_argument("--retry", type=int, default=0,
                        help=argparse.SUPPRESS)
 
+    # Output path: step 8 writes final report here; intermediate steps write partial results
+    parser.add_argument("--output", type=str, default=None,
+                       help="Path where the final report (and partial results) should be written.")
+
+    # Signal: literal text emitted verbatim by step 8 after completing the report
+    parser.add_argument("--signal", type=str, default=None,
+                       help="Text to emit verbatim after step 8 completes the report.")
+
     args = parser.parse_args()
 
     if args.step < 1:
@@ -1592,7 +1657,7 @@ def main(
     if args.retry > 1:
         sys.exit("ERROR: --retry cannot exceed 1 (max one verification retry)")
 
-    print(format_output(args.step, args.n, args.mode, args.scope, args.retry))
+    print(format_output(args.step, args.n, args.mode, args.scope, args.retry, args.output, args.signal))
 
 
 if __name__ == "__main__":

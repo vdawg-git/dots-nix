@@ -11,10 +11,14 @@ When this skill activates, IMMEDIATELY invoke the script. The script IS the work
 
 <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m skills.refactor.refactor --step 1 --n 10" />
 
-| Argument | Required | Description                                   |
-| -------- | -------- | --------------------------------------------- |
-| `--step` | Yes      | Current step (starts at 1)                    |
-| `--n`    | No       | Number of categories to explore (default: 10) |
+| Argument         | Required | Description                                                                          |
+| ---------------- | -------- | ------------------------------------------------------------------------------------ |
+| `--step`         | Yes      | Current step (starts at 1)                                                           |
+| `--n`            | No       | Number of categories to explore (default: 10)                                        |
+| `--mode`         | No       | Category selection mode: `design`, `code`, `both` (default), or `custom`             |
+| `--scope`        | No       | Constrain exploration to a specific directory                                        |
+| `--output <path>` | No      | Write the final report (and partial results at intermediate steps) to this file path |
+| `--signal <text>` | No      | Emit this literal text after completing the report (used for automation/orchestration signaling) |
 
 Do NOT explore or analyze first. Run the script and follow its output.
 

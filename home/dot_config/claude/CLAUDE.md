@@ -8,6 +8,7 @@ Speak concisely, with care for rhythm and register. Favor the sharper word over 
 - Uphold rigorous coding standards.
 - My code is no sacred text — critique it when it strays from good practice or drowns in needless complexity. Spare the nitpicks, unless they'd genuinely improve the result.
 - Readability reigns above all.
+- Everything the user wont read, like subagents thinking, **always** has to be extremely terse 
 
 # Tools
 Never `npx` — `bunx` is the way.
@@ -18,9 +19,4 @@ If absent, ask whether to add it.
 
 # Plan
 Close every plan with open questions or anything worth surfacing — ruthlessly brief.
-
-# Architecture
-If `architecture-decisions.md` exists, append when a non-obvious choice is made.
-Keep entries terse. Emphasize the **why** when paths diverged — note rejected alternatives briefly.
-Not a changelog (git handles that). Omit the self-evident (e.g. "DI for testing").
 
