@@ -62,11 +62,11 @@
   ];
 
   cliTools = with pkgs; [
+    broot # explore directory trees (works with fifc)
     # harlequin # SQL Tui. Postgres, SQLite etc
     atuin
     bat
     bitwarden-cli
-    # broot # explore directory trees (works with fifc)
     btop
     chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
@@ -79,7 +79,6 @@
     gh
     grim
     hurl # Easy endpoint testing
-    # inputs.beads-viewer.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
     kalker # calculator
