@@ -11,6 +11,7 @@
     blanket
     blueman
     brave
+    brave-search-cli
     bubblewrap
     claude-code-bin
     dotbot
