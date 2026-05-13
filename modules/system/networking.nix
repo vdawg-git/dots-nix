@@ -1,22 +1,25 @@
 {
   # Enable networking
+  networking.enableIPv6 = false;
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
   # networking.useNetworkd = false;
 
   programs.nm-applet.enable = true;
 
-  # Use Cloudflare DNS
+  # Prefer DHCP-provided DNS so captive/ISP/router-specific networks work.
   services.resolved = {
     enable = true;
     settings.Resolve = {
       DNS = ["1.1.1.3#cloudflare-dns.com" "1.0.0.1#cloudflare-dns.com"];
       FallbackDNS = ["9.9.9.9#dns.quad9.net"];
-      DNSOverTLS = "yes";
-      DNSSEC = "yes";
-      Domains = ["~."];
+      DNSOverTLS = "opportunistic";
+      DNSSEC = "allow-downgrade";
       Cache = "yes";
     };
   };
+
+  services.timesyncd.enable = true;
 
   networking.firewall = {
     enable = true;
@@ -48,5 +51,10 @@
 
     "net.ipv4.tcp_fastopen" = 3;
     "net.core.netdev_max_backlog" = 4096;
+
+    # Disable IPv6 everywhere; Starlink/router IPv6 was flapping badly.
+    "net.ipv6.conf.all.disable_ipv6" = 1;
+    "net.ipv6.conf.default.disable_ipv6" = 1;
+    "net.ipv6.conf.lo.disable_ipv6" = 1;
   };
 }
