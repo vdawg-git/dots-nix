@@ -13,7 +13,7 @@
     brave
     brave-search-cli
     bubblewrap
-    claude-code-bin
+    codex
     dotbot
     dragon-drop
     easyeffects
@@ -43,8 +43,6 @@
     obs-studio
     obsidian
     onlyoffice-desktopeditors
-    opencode
-    opencode-desktop
     pavucontrol
     puddletag
     python3
@@ -81,8 +79,8 @@
     grim
     hurl # Easy endpoint testing
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
-    kalker # calculator
     kew
     killall
     lazygit
@@ -102,7 +100,6 @@
     tealdeer
     tesseract
     tree
-    vim
     wireguard-tools
     wl-clipboard
     yt-dlp
@@ -112,7 +109,7 @@
 in {
   environment.systemPackages = baseTools ++ cliTools;
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.fish.enable = true;
 
   programs.yazi = {
