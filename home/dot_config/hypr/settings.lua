@@ -1,0 +1,150 @@
+-- Hyprland 0.55+ Lua syntax: https://wiki.hypr.land/Configuring/Basics/Variables/
+
+hl.config({
+	input = {
+		kb_layout = "us,gr",
+		kb_options = "compose:ralt",
+		natural_scroll = true,
+		float_switch_override_focus = 2,
+
+		repeat_rate = 50,
+		repeat_delay = 250,
+
+		follow_mouse = 1,
+		accel_profile = "flat",
+		sensitivity = 0.0,
+
+		touchpad = {
+			natural_scroll = true,
+			clickfinger_behavior = true,
+			disable_while_typing = true,
+		},
+	},
+
+	general = {
+		layout = "dwindle",
+		gaps_in = 3,
+		gaps_out = 6,
+		gaps_workspaces = 20,
+		border_size = 1,
+		["col.active_border"] = {
+			colors = {
+				"rgba(212,190,152,0.70)",
+				"rgba(212,190,152,0.30)",
+			},
+			angle = 40,
+		},
+		["col.inactive_border"] = "rgba(168,153,132,0.06)",
+		resize_on_border = true,
+
+		snap = {
+			enabled = true,
+			window_gap = 4,
+			monitor_gap = 5,
+			respect_gaps = true,
+		},
+	},
+
+	decoration = {
+		rounding = 16,
+		rounding_power = 4,
+
+		dim_inactive = false,
+		dim_special = 0.2,
+		dim_strength = 0.06,
+
+		border_part_of_window = false,
+
+		blur = {
+			enabled = true,
+			size = 10,
+			passes = 3,
+			new_optimizations = true,
+			xray = false,
+			contrast = 2,
+			brightness = 0.80,
+			noise = 0.6,
+			vibrancy = 1,
+			vibrancy_darkness = 0.2,
+			special = false,
+			popups = true,
+			popups_ignorealpha = 0.6,
+		},
+
+		shadow = {
+			enabled = true,
+			range = 120,
+			scale = 0.95,
+			render_power = 80,
+			offset = { 0, 4 },
+			color = "rgba(000000FC)",
+			color_inactive = "rgba(00000050)",
+		},
+	},
+
+	animations = {
+		enabled = true,
+		workspace_wraparound = false,
+	},
+
+	dwindle = {
+		pseudotile = true,
+		preserve_split = true,
+		special_scale_factor = 0.8,
+	},
+
+	binds = {
+		workspace_back_and_forth = false,
+		allow_workspace_cycles = true,
+	},
+
+	ecosystem = {
+		no_donation_nag = true,
+	},
+
+	misc = {
+		disable_splash_rendering = true,
+		force_default_wallpaper = 0,
+		disable_hyprland_logo = true,
+		focus_on_activate = false,
+		animate_manual_resizes = true,
+		close_special_on_empty = true,
+		enable_swallow = false,
+		swallow_regex = "^(kitty)$",
+	},
+})
+
+-- More space if there is only one tiled window.
+hl.workspace_rule({ workspace = "w[t1]", gaps_out = 24 })
+
+-- Animation curves
+
+hl.curve("linear", 0, 0, 1, 1)
+hl.curve("md3_standard", 0.2, 0, 0, 1)
+hl.curve("md3_decel", 0.05, 0.7, 0.1, 1)
+hl.curve("md3_accel", 0.3, 0, 0.8, 0.15)
+hl.curve("overshot", 0.05, 0.9, 0.1, 1.1)
+hl.curve("crazyshot", 0.1, 1.5, 0.76, 0.92)
+hl.curve("hyprnostretch", 0.05, 0.9, 0.1, 1.0)
+hl.curve("menu_decel", 0.1, 1, 0, 1)
+hl.curve("menu_accel", 0.38, 0.04, 1, 0.07)
+hl.curve("easeInOutCirc", 0.85, 0, 0.15, 1)
+hl.curve("easeOutCirc", 0, 0.55, 0.45, 1)
+hl.curve("easeOutExpo", 0.16, 1, 0.3, 1)
+hl.curve("softAcDecel", 0.26, 0.26, 0.15, 1)
+hl.curve("md2", 0.4, 0, 0.2, 1)
+
+-- Animation configs
+
+hl.animation("windows", true, 3, "md3_decel", "popin 60%")
+hl.animation("windowsIn", true, 3, "md3_decel", "popin 60%")
+hl.animation("windowsOut", true, 1.2, "md3_accel", "popin 60%")
+hl.animation("border", false, 0.4, "default")
+hl.animation("fade", true, 3, "md3_decel")
+hl.animation("layersIn", true, 4, "menu_decel", "slide")
+hl.animation("layersOut", true, 1.2, "menu_accel")
+hl.animation("fadeLayersIn", true, 2, "menu_decel")
+hl.animation("fadeLayersOut", true, 0.5, "menu_accel")
+hl.animation("workspaces", true, 4, "menu_decel", "slide")
+hl.animation("specialWorkspaceIn", true, 4, "md3_decel", "slidevert")
+hl.animation("specialWorkspaceOut", true, 1.2, "md3_decel", "slidevert")

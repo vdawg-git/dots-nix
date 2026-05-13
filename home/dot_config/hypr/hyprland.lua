@@ -1,0 +1,12 @@
+require("variables")
+require("env")
+require("application-style")
+require("startup")
+require("lid-close")
+require("monitors")
+
+require("settings")
+require("rules")
+require("binds")
+require("workspaces")
+require("wlkbptr")

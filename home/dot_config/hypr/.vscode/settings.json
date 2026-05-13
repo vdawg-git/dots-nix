@@ -1,0 +1,9 @@
+{
+  "Lua.workspace.library": [
+    "./stubs"
+  ],
+  "Lua.diagnostics.globals": [
+    "hl"
+  ],
+
+}
