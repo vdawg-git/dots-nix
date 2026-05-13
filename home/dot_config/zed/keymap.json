@@ -1,0 +1,48 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-enter": "editor::ShowCompletions",
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-space": "editor::ShowCompletions",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == helix_normal",
+    "bindings": {
+      "m x {": ["workspace::SendKeystrokes", "m a { m s"],
+      "m x (": ["workspace::SendKeystrokes", "m a ( m s"],
+      "m x [": ["workspace::SendKeystrokes", "m a [ m s"],
+      "m x \"": ["workspace::SendKeystrokes", "x y p p"],
+    },
+  },
+]

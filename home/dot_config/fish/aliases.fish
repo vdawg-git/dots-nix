@@ -4,6 +4,8 @@ abbr nrb "pnpm build"
 abbr icat "kitty +kitten icat"
 abbr c. "code ."
 abbr n. "nvim ."
+abbr z. "zeditor ."
+abbr hx. "zeditor ."
 abbr h. "nvim ~/.config/hypr"
 
 abbr mvd "mullvad disconnect"
