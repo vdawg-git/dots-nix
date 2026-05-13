@@ -1,0 +1,28 @@
+
+[keys.normal]
+g = { a = "code_action" } # Maps `ga` to show possible code actions
+"ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
+
+[keys.normal.m.S."{"]
+"{" = "@ma{ms{"
+"[" = "@ma{ms["
+"(" = "@ma{ms("
+'"' = '@ma{ms"'
+"'" = "@ma{ms'"
+"`" = "@ma{ms`"
+
+[keys.normal.m.S."("]
+"{" = "@ma(ms{"
+"[" = "@ma(ms["
+"(" = "@ma(ms("
+'"' = '@ma(ms"'
+"'" = "@ma(ms'"
+"`" = "@ma(ms`"
+
+[keys.normal.m.S."["]
+"{" = "@ma[ms{"
+"[" = "@ma[ms["
+"(" = "@ma[ms("
+'"' = '@ma[ms"'
+"'" = "@ma[ms'"
+"`" = "@ma[ms`"
