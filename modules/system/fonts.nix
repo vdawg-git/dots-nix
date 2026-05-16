@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   fonts.packages = with pkgs; [
     monaspace
-    jetbrains-mono
     stablePkgs.google-fonts
   ];
 
