@@ -1,12 +1,24 @@
 {
-  "lastChangelogVersion": "0.71.1",
-  "defaultProvider": "kimi-coding",
-  "defaultModel": "kimi-for-coding",
-  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "off",
   "quietStartup": true,
   "collapseChangelog": true,
-  "editorPaddingX": 2,
+  "editorPaddingX": 0,
   "steeringMode": "all",
   "followUpMode": "all",
-  "theme": "gruvbox-material"
+  "theme": "gruvbox-material",
+  "npmCommand": [
+    "bun"
+  ],
+  "packages": [
+    "npm:pi-rtk-optimizer",
+    "git:github.com/elpapi42/pi-fork",
+    "npm:pi-observational-memory",
+    "git:github.com/elpapi42/pi-minimal-subagent"
+  ],
+  "terminal": {
+    "showTerminalProgress": true
+  }
 }
