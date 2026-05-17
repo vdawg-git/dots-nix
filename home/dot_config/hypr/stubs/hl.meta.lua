@@ -545,7 +545,7 @@ local __HL_DeviceSpec = {}
 ---@field xray? boolean
 local __HL_LayerRuleSpec = {}
 
----@class HL.MonitorSpec
+---@class (exact) HL.MonitorSpec
 ---@field bitdepth? integer|boolean
 ---@field cm? string
 ---@field disabled? boolean

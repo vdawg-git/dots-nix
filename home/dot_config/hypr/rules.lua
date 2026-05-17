@@ -49,6 +49,149 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	name = "authentication-required-dialogs",
+	match = {
+		title = "^Authentication Required$",
+	},
+	float = true,
+	center = true,
+})
+
+hl.window_rule({
+	name = "polkit-authentication-dialogs",
+	match = {
+		class = "^(xfce-polkit|mate-polkit|polkit-mate-authentication-agent-1)$",
+		title = "^(Authentication required|Authentication Required)$",
+	},
+	float = true,
+	center = true,
+	size = { "(monitor_w*0.35)", "(monitor_h*0.35)" },
+})
+
+hl.window_rule({
+	name = "steam-child-windows",
+	match = {
+		class = "^[Ss]team$",
+		title = "negative:^([Ss]team)$",
+	},
+	float = true,
+})
+
+
+
+hl.window_rule({
+	name = "floating-video-players",
+	match = {
+		class = "^(mpv|com.github.rafostar.Clapper)$",
+	},
+	float = true,
+})
+
+
+hl.window_rule({
+	name = "fullscreen-idle-inhibit",
+	match = {
+		fullscreen = true,
+	},
+	idle_inhibit = "fullscreen",
+})
+
+-- App-specific dialog polish
+
+hl.window_rule({
+	name = "pavucontrol-centered",
+	match = {
+		class = "^(org.pulseaudio.pavucontrol|pavucontrol)$",
+	},
+	float = true,
+	center = true,
+	pin = true,
+	size = { "700", "600" },
+})
+
+hl.window_rule({
+	name = "blueman-manager-sized",
+	match = {
+		class = "^blueman-manager$",
+	},
+	float = true,
+	center = true,
+	size = { "800", "600" },
+})
+
+hl.window_rule({
+	name = "nwg-look",
+	match = {
+		class = "^nwg-look$",
+	},
+	float = true,
+	center = true,
+	size = { "700", "600" },
+})
+
+hl.window_rule({
+	name = "nwg-displays-sized",
+	match = {
+		class = "^nwg-displays$",
+	},
+	float = true,
+	center = true,
+	size = { "900", "600" },
+})
+
+hl.window_rule({
+	name = "missioncenter",
+	match = {
+		class = "^io.missioncenter.MissionCenter$",
+	},
+	float = true,
+	center = true,
+	pin = true,
+	size = { "900", "600" },
+})
+
+hl.window_rule({
+	name = "gnome-calculator",
+	match = {
+		class = "^org.gnome.Calculator$",
+	},
+	float = true,
+	center = true,
+	size = { "700", "600" },
+})
+
+hl.window_rule({
+	name = "hyprland-share-picker",
+	match = {
+		class = "^hyprland-share-picker$",
+	},
+	float = true,
+	center = true,
+	pin = true,
+	size = { "600", "400" },
+})
+
+hl.window_rule({
+	name = "easyeffects",
+	match = {
+		class = "^com.github.wwmm.easyeffects$",
+	},
+	float = true,
+	center = true,
+	size = { "(monitor_w*0.6)", "(monitor_h*0.65)" },
+})
+
+hl.window_rule({
+	name = "hyprpwcenter",
+	match = {
+		class = "^hyprpwcenter$",
+	},
+	float = true,
+	center = true,
+	size = { "(monitor_w*0.6)", "(monitor_h*0.6)" },
+})
+
 -- Picture-in-Picture
 
 hl.window_rule({
@@ -82,6 +225,35 @@ hl.window_rule({
 		title = "^(Bitwarden)$",
 	},
 	float = true,
+	center = true,
+	no_screen_share = true,
+})
+
+hl.window_rule({
+	name = "bitwarden-private-class",
+	match = {
+		class = "^(Bitwarden|bitwarden)$",
+	},
+	float = true,
+	center = true,
+	no_screen_share = true,
+})
+
+hl.window_rule({
+	name = "keepassxc-private",
+	match = {
+		class = "^(org.keepassxc.KeePassXC|KeePassXC|keepassxc)$",
+	},
+	no_screen_share = true,
+})
+
+hl.window_rule({
+	name = "seahorse-private",
+	match = {
+		class = "^(seahorse|org.gnome.seahorse.Application)$",
+	},
+	float = true,
+	center = true,
 	no_screen_share = true,
 })
 

@@ -6,7 +6,7 @@ export { createAutoSessionNameExtension as default };
 
 const CUSTOM_TYPE = "auto-session-name";
 const EXTENSION_VERSION = 1;
-const TURN_INTERVAL = 12;
+const TURN_INTERVAL = 6;
 const TITLE_MAX_LENGTH = 32;
 const TITLE_MAX_WORDS = 6;
 const GENERATION_TIMEOUT_MS = 8000;

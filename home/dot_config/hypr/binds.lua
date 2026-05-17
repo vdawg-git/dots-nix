@@ -36,18 +36,20 @@ hl.bind(
 
 hl.bind(
 	mod .. " + ALT + C",
-	hl.dsp.exec_cmd(
-		[[grim -g "$(slurp)" -t ppm - | tesseract -l ces+ger - - | wl-copy && notify-send "Copied text: " "\"$(wl-paste)\""]]
-	),
+	hl.dsp.exec_cmd("~/.config/hypr/scripts/ocr-region.sh"),
 	{ description = "OCR selected region" }
 )
 
 hl.bind(
-	mod .. " + ALT + C",
-	hl.dsp.exec_cmd(
-		[[grim -g "$(slurp)" - | tesseract -l deu - - | wl-copy && notify-send "Copied text: " "\"$(wl-paste)\""]]
-	),
+	mod .. " + ALT + SHIFT + C",
+	hl.dsp.exec_cmd("~/.config/hypr/scripts/ocr-region.sh deu"),
 	{ description = "OCR selected region in German" }
+)
+
+hl.bind(
+	mod .. " + ALT + H",
+	hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-hyprsunset.sh"),
+	{ description = "Toggle Hyprsunset" }
 )
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume raise"), { locked = true })
