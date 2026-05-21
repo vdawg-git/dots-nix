@@ -1,0 +1,13 @@
+{
+  "name": "extensions",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  }
+}

@@ -15,15 +15,14 @@
     ~/.agents:
       path: dot_agents
 
-    ~/.pi:
-      path: dot_pi
+    ~/:
+      path: dot/.*
+      glob: true
+      create: true
 
     ~/Documents/obsidian/.obsidian/:
       path: dot_obsidian
       create: true
-
-    ~/.gtkrc-2.0:
-    ~/.gitconfig:
 
     ~/.local/share/icons/bibata-modern-classic:
       path: dot_local/share/icons/bibata-modern-classic

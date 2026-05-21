@@ -11,11 +11,11 @@ documentation work directly.
 
 ## Documentation Conventions
 
-For authoritative CLAUDE.md and README.md format specification:
+Before editing docs, read the authoritative format specification with Pi `read`:
 
-<file working-dir=".claude" uri="conventions/documentation.md" />
+`~/.agents/conventions/documentation.md`
 
-The conventions/ directory contains all universal documentation standards.
+The conventions directory contains universal documentation standards.
 
 ## Scope Resolution
 
@@ -36,7 +36,7 @@ For REPOSITORY-WIDE scope, perform a full audit. For narrower scopes, operate on
 Map directories requiring CLAUDE.md verification:
 
 ```bash
-# Find all directories (excluding .git, node_modules, __pycache__, etc.)
+# Run with Pi `bash` from repository root.
 find . -type d \( -name .git -o -name node_modules -o -name __pycache__ -o -name .venv -o -name target -o -name dist -o -name build \) -prune -o -type d -print
 ```
 

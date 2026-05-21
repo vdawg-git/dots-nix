@@ -2,7 +2,7 @@
   "lastChangelogVersion": "0.74.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "off",
+  "defaultThinkingLevel": "medium",
   "quietStartup": true,
   "collapseChangelog": true,
   "editorPaddingX": 0,
@@ -16,7 +16,8 @@
     "npm:pi-rtk-optimizer",
     "git:github.com/elpapi42/pi-fork",
     "npm:pi-observational-memory",
-    "git:github.com/elpapi42/pi-minimal-subagent"
+    "git:github.com/elpapi42/pi-minimal-subagent",
+    "npm:pi-smart-fetch"
   ],
   "terminal": {
     "showTerminalProgress": true
