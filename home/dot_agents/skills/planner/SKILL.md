@@ -10,5 +10,5 @@ script IS the workflow.
 
 | Mode      | Intent                             | Command                                                                                                          |
 | --------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| planning  | "plan", "design", "architect"      | `<invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m skills.planner.orchestrator.planner --step 1" />`  |
-| execution | "execute", "implement", "run plan" | `<invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m skills.planner.orchestrator.executor --step 1" />` |
+| planning  | "plan", "design", "architect"      | Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.planner.orchestrator.planner --step 1`  |
+| execution | "execute", "implement", "run plan" | Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.planner.orchestrator.executor --step 1` |

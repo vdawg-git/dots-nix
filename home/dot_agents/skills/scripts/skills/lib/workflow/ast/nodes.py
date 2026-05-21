@@ -109,7 +109,7 @@ class CurrentActionNode:
 class InvokeAfterNode:
     """Invoke command for workflow step continuation.
 
-    Constructs the <invoke_after> element containing the next step command.
+    Constructs the continuation directive containing the next step command.
     The working_dir defaults to the skills scripts directory, centralizing
     the path hardcoded in 47+ locations.
 
@@ -124,7 +124,7 @@ class InvokeAfterNode:
     cmd: str | None = None
     if_pass: str | None = None
     if_fail: str | None = None
-    working_dir: str = ".claude/skills/scripts"
+    working_dir: str = "~/.agents/skills/scripts"
 
     def __post_init__(self):
         if self.cmd is None and (self.if_pass is None or self.if_fail is None):

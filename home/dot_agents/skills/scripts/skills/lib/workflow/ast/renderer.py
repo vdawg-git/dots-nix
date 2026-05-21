@@ -85,12 +85,19 @@ class XMLRenderer:
         Renderer assumes valid node, focuses solely on XML generation.
         """
         if node.cmd is not None:
-            invoke = f'<invoke working-dir="{node.working_dir}" cmd="{node.cmd}" />'
-            return f"<invoke_after>\n{invoke}\n</invoke_after>"
+            return (
+                "NEXT STEP:\n"
+                f"    Working directory: {node.working_dir}\n"
+                f"    Command: {node.cmd}\n\n"
+                "Execute this command now."
+            )
         else:
-            if_pass_invoke = f'<invoke working-dir="{node.working_dir}" cmd="{node.if_pass}" />'
-            if_fail_invoke = f'<invoke working-dir="{node.working_dir}" cmd="{node.if_fail}" />'
-            return f"<invoke_after>\n  <if_pass>\n    {if_pass_invoke}\n  </if_pass>\n  <if_fail>\n    {if_fail_invoke}\n  </if_fail>\n</invoke_after>"
+            return (
+                "NEXT STEP (execute exactly one):\n"
+                f"    Working directory: {node.working_dir}\n"
+                f"    ALL agents returned PASS  ->  {node.if_pass}\n"
+                f"    ANY agent returned FAIL   ->  {node.if_fail}"
+            )
 
     def _render_node(self, node: Node) -> str:
         """Dispatch node to appropriate render method."""

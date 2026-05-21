@@ -638,7 +638,7 @@ UNDERSTAND_ECOSYSTEM_INSTRUCTIONS = (
     "</example>\n"
     "\n"
     "<example type='CORRECT'>\n"
-    "  Sub-agent: 'Execute step 1. <invoke cmd=\"...--step 1\" />'\n"
+    "  Sub-agent: 'Execute step 1. Run with `bash`: python3 -m ... --step 1'\n"
     "  WHY: Sub-agent needs only its step instructions.\n"
     "</example>\n"
     "<example type='INCORRECT'>\n"

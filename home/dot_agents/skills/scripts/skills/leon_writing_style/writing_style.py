@@ -1064,7 +1064,7 @@ def format_output(step: int, guidance: dict, thoughts: str) -> str:
         parts.append("""<xml_format_mandate>
 CRITICAL: All script outputs use XML format. You MUST:
 1. Execute the action in <current_action>
-2. When complete, invoke the exact command in <invoke_after>
+2. When complete, run the exact NEXT STEP command with `bash`
 3. DO NOT modify commands. DO NOT skip steps.
 </xml_format_mandate>""")
         parts.append("")

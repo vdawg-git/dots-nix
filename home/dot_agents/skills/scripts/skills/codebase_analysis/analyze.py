@@ -209,7 +209,7 @@ def build_survey_body() -> str:
     invoke_cmd = f'python3 -m {SUBAGENT_MODULE_PATH} --step 1'
 
     dispatch_text = roster_dispatch(
-        agent_type="general-purpose",
+        agent_type="developer",
         agents=SURVEY_DISPATCH_AGENTS,
         command=invoke_cmd,
         shared_context=DISPATCH_CONTEXT,

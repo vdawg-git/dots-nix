@@ -8,7 +8,6 @@ Three dispatch patterns:
 - roster_dispatch: Parallel agents, shared context + unique tasks, fixed command
 """
 
-from pathlib import Path
 from string import Template
 
 
@@ -16,8 +15,7 @@ from string import Template
 # CONFIGURATION
 # ============================================================================
 
-# subagent.py -> prompts -> workflow -> lib -> skills -> scripts
-SKILLS_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
+SKILLS_DIR = "~/.agents/skills/scripts"
 
 
 # ============================================================================
@@ -25,22 +23,19 @@ SKILLS_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
 # ============================================================================
 # Building block templates used by multiple dispatch patterns
 
-TASK_TOOL_INSTRUCTION = """\
-ACTION: Use the Task tool to spawn this agent.
+SUBAGENT_TOOL_INSTRUCTION = """\
+ACTION: Use the `subagent` tool to spawn this agent.
 
-Task tool parameters:
-  - subagent_type: {agent_type}
-  - model: {model_param}
-  - prompt: Include the task and invoke command below
-  - run_in_background: NEVER set this. Always omit or set false.
-    Background agents return full session transcripts via TaskOutput,
-    flooding the orchestrator context window. Foreground agents return
-    only the agent's final text response."""
+subagent parameters:
+  - agent: {agent_name}
+  - task: Include the task and invoke command below
+
+Note: requested role `{agent_type}` maps to Pi agent `{agent_name}`. Model selection is handled by the agent definition; ignore requested model `{model_param}`."""
 
 SUB_AGENT_INVOKE = """\
-MANDATORY INVOKE BLOCK - Copy VERBATIM into the agent's prompt:
+MANDATORY INVOKE BLOCK - Copy VERBATIM into the agent's task:
 ================================================================================
-FIRST ACTION REQUIRED: Run this command via Bash tool before any other response.
+FIRST ACTION REQUIRED: Run this command via `bash` before any other response.
 Do NOT skip. Do NOT produce analysis first. Execute this command IMMEDIATELY.
 
 Working directory: {working_dir}
@@ -52,13 +47,13 @@ The subagent needs "FIRST ACTION REQUIRED" to know it must run the command."""
 PARALLEL_CONSTRAINT = """\
 PARALLEL EXECUTION (MANDATORY):
     You MUST dispatch ALL {count} agents in ONE assistant message.
-    Send exactly {count} Task tool calls together.
+    Send exactly {count} `subagent` tool calls together.
 
     CORRECT:
-        [ONE message with Task call 1, Task call 2, ... Task call N]
+        [ONE message with subagent call 1, subagent call 2, ... subagent call N]
 
     WRONG:
-        [Message with Task call 1] -> [wait] -> [Message with Task call 2]
+        [Message with subagent call 1] -> [wait] -> [Message with subagent call 2]
 
     FORBIDDEN: Waiting for any agent before dispatching the next."""
 
@@ -90,13 +85,12 @@ DISPATCH {count} PARALLEL AGENTS
 
 {parallel_block}
 
-For EACH agent below, use Task tool with:
-  - subagent_type: {agent_type}
-  - model: {model_display}
-  - prompt: Task description + MANDATORY INVOKE BLOCK (copy exactly as shown)
+For EACH agent below, use the `subagent` tool with:
+  - agent: {agent_name}
+  - task: Task description + MANDATORY INVOKE BLOCK (copy exactly as shown)
 
 PROMPT CONSTRUCTION RULES:
-  - The MANDATORY INVOKE BLOCK must appear VERBATIM in each prompt
+  - The MANDATORY INVOKE BLOCK must appear VERBATIM in each task
   - DO NOT reduce it to just "Working directory: X / Command: Y"
   - The subagent needs "FIRST ACTION REQUIRED" to execute the command
 
@@ -119,13 +113,12 @@ DISPATCH {count} PARALLEL AGENTS
 
 {parallel_block}
 
-For EACH agent below, use Task tool with:
-  - subagent_type: {agent_type}
-  - model: {model_display}
-  - prompt: Shared context + agent's unique task + MANDATORY INVOKE BLOCK (copy exactly)
+For EACH agent below, use the `subagent` tool with:
+  - agent: {agent_name}
+  - task: Shared context + agent's unique task + MANDATORY INVOKE BLOCK (copy exactly)
 
 PROMPT CONSTRUCTION RULES:
-  - The MANDATORY INVOKE BLOCK must appear VERBATIM in each prompt
+  - The MANDATORY INVOKE BLOCK must appear VERBATIM in each task
   - DO NOT reduce it to just "Working directory: X / Command: Y"
   - The subagent needs "FIRST ACTION REQUIRED" to execute the command
 
@@ -147,10 +140,23 @@ Unique Task: {task}
 
 # --- Building block functions -----------------------------------------------
 
-def task_tool_instruction(agent_type: str, model: str | None) -> str:
-    """Tell main agent how to spawn sub-agent via Task tool."""
-    model_param = model if model else "omit (use default)"
-    return TASK_TOOL_INSTRUCTION.format(agent_type=agent_type, model_param=model_param)
+def pi_agent_name(agent_type: str) -> str:
+    """Map Claude-style agent roles to configured Pi agents."""
+    return {
+        "general-purpose": "developer",
+        "Explore": "developer",
+        "explore": "developer",
+    }.get(agent_type, agent_type)
+
+
+def subagent_tool_instruction(agent_type: str, model: str | None) -> str:
+    """Tell main agent how to spawn sub-agent via Pi subagent tool."""
+    model_param = model if model else "default"
+    return SUBAGENT_TOOL_INSTRUCTION.format(
+        agent_type=agent_type,
+        agent_name=pi_agent_name(agent_type),
+        model_param=model_param,
+    )
 
 
 def sub_agent_invoke(cmd: str) -> str:
@@ -174,7 +180,7 @@ def subagent_dispatch(
     """Generate prompt for single sub-agent dispatch.
 
     Args:
-        agent_type: Task tool subagent_type (e.g., "general-purpose", "Explore")
+        agent_type: requested agent role (e.g., "general-purpose", "Explore")
         command: Shell command sub-agent must run after spawning
         prompt: Optional task description for sub-agent
         model: Optional model override ("haiku", "sonnet", "opus")
@@ -185,7 +191,7 @@ def subagent_dispatch(
     task_section = prompt if prompt else "(No additional task - agent follows invoke command)"
 
     return SUBAGENT_TEMPLATE.format(
-        task_tool_block=task_tool_instruction(agent_type, model),
+        task_tool_block=subagent_tool_instruction(agent_type, model),
         task_section=task_section,
         invoke_block=sub_agent_invoke(command),
     )
@@ -205,7 +211,7 @@ def template_dispatch(
     before the LLM sees the prompt (expansion happens here, not at runtime).
 
     Args:
-        agent_type: Task tool subagent_type for all agents
+        agent_type: requested agent role for all agents
         template: Prompt template with $var placeholders
         targets: List of dicts, each providing variable bindings for one agent
         command: Command template with $var placeholders
@@ -240,6 +246,7 @@ def template_dispatch(
     return TEMPLATE_DISPATCH_TEMPLATE.format(
         count=count,
         agent_type=agent_type,
+        agent_name=pi_agent_name(agent_type),
         model_display=model_display,
         parallel_block=parallel_constraint(count),
         instruction_section=instruction_section,
@@ -261,7 +268,7 @@ def roster_dispatch(
     Use when agents have fundamentally different roles (MIMD pattern).
 
     Args:
-        agent_type: Task tool subagent_type for all agents
+        agent_type: requested agent role for all agents
         agents: List of unique task descriptions, one per agent
         command: Fixed command all agents run (same for all)
         shared_context: Optional context included in every agent's prompt
@@ -287,6 +294,7 @@ def roster_dispatch(
     return ROSTER_DISPATCH_TEMPLATE.format(
         count=count,
         agent_type=agent_type,
+        agent_name=pi_agent_name(agent_type),
         model_display=model_display,
         parallel_block=parallel_constraint(count),
         instruction_section=instruction_section,
@@ -297,9 +305,10 @@ def roster_dispatch(
 
 __all__ = [
     # Building blocks
-    "task_tool_instruction",
+    "subagent_tool_instruction",
     "sub_agent_invoke",
     "parallel_constraint",
+    "pi_agent_name",
     # Dispatch templates
     "subagent_dispatch",
     "template_dispatch",

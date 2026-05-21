@@ -8,7 +8,7 @@ SubagentDispatchNode: Single agent dispatch
 
     Example:
         node = SubagentDispatchNode(
-            agent_type="general-purpose",
+            agent_type="developer",
             command='python3 -m skills.dev --step 1',
         )
 
@@ -19,7 +19,7 @@ TemplateDispatchNode: Parallel dispatch with parameterized template
 
     Example:
         node = TemplateDispatchNode(
-            agent_type="general-purpose",
+            agent_type="developer",
             template="Explore $category_name in $mode mode...",
             targets=(
                 {"category_name": "Naming", "mode": "design"},
@@ -37,7 +37,7 @@ RosterDispatchNode: Parallel dispatch with unique prompts
 
     Example:
         node = RosterDispatchNode(
-            agent_type="general-purpose",
+            agent_type="developer",
             shared_context="Question: How should we design X?\\nDomain: ...",
             agents=(
                 "Analyze from skeptic perspective: assume obvious answer is wrong",
@@ -65,7 +65,7 @@ class SubagentDispatchNode:
     Use for sequential single-agent workflows (planner -> developer -> QR).
     The orchestrator controls sequencing; each dispatch launches one agent.
     """
-    agent_type: str              # "general-purpose", "Explore", etc.
+    agent_type: str              # Pi agent name, e.g. "developer"
     command: str                 # invoke command for step 1
     prompt: str = ""             # optional context; empty = no <prompt> element
     model: str | None = None     # "haiku", "sonnet", "opus"

@@ -1,8 +1,6 @@
 require("variables")
 require("env")
-require("application-style")
 require("startup")
-require("lid-close")
 require("monitors")
 
 require("settings")

@@ -174,7 +174,7 @@ def format_incoherence_output(step, phase, agent_type, guidance):
         parts.append("""<xml_format_mandate>
 CRITICAL: All script outputs use XML format. You MUST:
 1. Execute the action in <current_action>
-2. When complete, invoke the exact command in <invoke_after>
+2. When complete, run the exact NEXT STEP command with `bash`
 3. DO NOT modify commands. DO NOT skip steps.
 </xml_format_mandate>""")
         parts.append("")
@@ -183,7 +183,7 @@ CRITICAL: All script outputs use XML format. You MUST:
     parts.append("")
 
     next_text = guidance.get("next", "")
-    if step >= total or "COMPLETE" in next_text.upper():
+    if step >= len(STEPS) or "COMPLETE" in next_text.upper():
         parts.append("WORKFLOW COMPLETE - Present report to user.")
     else:
         next_cmd = f'python3 -m skills.incoherence.incoherence --step-number {step + 1}'
@@ -229,7 +229,7 @@ STEPS = {
             "",
             "AGENT PROMPT:",
             f"  DIMENSION: {{letter}} - {{name}}. DESCRIPTION: {{from_catalog}}",
-            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 4 --thoughts \\"Dimension: {{{{letter}}}}\\"" />',
+            f'  Start: Run with `bash` from `~/.agents/skills/scripts`: python3 -m {MODULE_PATH} --step-number 4 --thoughts "Dimension: {{{{letter}}}}"',
         ],
         "next": "After all agents complete, invoke step 8 with combined findings"
     },
@@ -307,14 +307,14 @@ STEPS = {
         "actions": [
             "DEEP-DIVE DISPATCH",
             "",
-            "Launch sonnet agents (subagent_type='general-purpose', model='sonnet').",
+            "Launch Pi `subagent` calls using agent `developer`.",
             "Launch ALL in SINGLE message (no self-limiting).",
             "",
             "AGENT PROMPT:",
             f"  CANDIDATE: {{id}} at {{location}} | DIMENSION: {{letter}} - {{name}}",
             f"  Claimed: {{summary}}",
             f"  Workflow: step 10 (explore) -> step 11 (format)",
-            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 10 --thoughts \\"Verifying: {{{{id}}}}\\"" />',
+            f'  Start: Run with `bash` from `~/.agents/skills/scripts`: python3 -m {MODULE_PATH} --step-number 10 --thoughts "Verifying: {{{{id}}}}"',
         ],
         "next": "After all agents complete, invoke step 12 with all verdicts"
     },
@@ -458,7 +458,7 @@ STEPS = {
             f"  TARGET: {{file}} | ISSUES: {{ids}}",
             f"  Per issue: type, severity, sources, analysis, resolution_text",
             f"  Workflow: step 18 (apply) -> step 19 (format)",
-            f'  Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step-number 18 --thoughts \\"FILE: {{{{file}}}}\\"" />',
+            f'  Start: Run with `bash` from `~/.agents/skills/scripts`: python3 -m {MODULE_PATH} --step-number 18 --thoughts "FILE: {{{{file}}}}"',
             "",
             "Launch ALL wave agents in SINGLE message.",
         ],
@@ -647,6 +647,7 @@ def main(
     """
     parser = argparse.ArgumentParser(description="Incoherence Detector")
     parser.add_argument("--step-number", type=int, required=True)
+    parser.add_argument("--thoughts", type=str, default=None, help=argparse.SUPPRESS)
     args = parser.parse_args()
 
     guidance = get_step_guidance(args.step_number, WORKFLOW.total_steps)

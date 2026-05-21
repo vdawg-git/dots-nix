@@ -1,4 +1,4 @@
-# Autostart Hyprland at login
+# Autostart Hyrland at login
 # if status --is-interactive
 #   if test -z "$DISPLAY" -a $XDG_VTNR = 1
 # 	echo "Fish: Autostarting Hyprland from fish config.."
@@ -28,8 +28,9 @@ set -gx VISUAL nvim
 set -Ux MANPAGER "nvim +Man!"
 # set -Ux MANWIDTH "999"
 set -Ux fifc_editor nvim
-# ctrl-x for fzf
-set -U fifc_keybinding \cx
+set -U fifc_case_insensitive true
+set -U fifc_show_hidden true
+
 
 set -gx TERM kitty
 set -Ux TERM kitty
@@ -47,6 +48,8 @@ if status is-interactive
     any-nix-shell fish --info-right | source
     direnv hook fish | source
 
+    set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense'
+    carapace _carapace | source
 end
 
 function fish_greeting

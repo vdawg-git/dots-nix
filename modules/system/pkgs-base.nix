@@ -61,14 +61,17 @@
   ];
 
   cliTools = with pkgs; [
-    broot # explore directory trees (works with fifc)
     # harlequin # SQL Tui. Postgres, SQLite etc
+    # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
     atuin
     bat
     bitwarden-cli
+    broot # explore directory trees (works with fifc)
     btop
+    carapace # Fancy shell completions
     chafa # preview images, gif , pdf etc (works with fifc)
     delta # Git differ
+    dust
     eza # Better ls (works with fish fifc)
     fastfetch
     fd # Complete paths (works with fifc)
@@ -76,10 +79,10 @@
     fnm
     fzf
     gh
+    glow
     grim
     hurl # Easy endpoint testing
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
     kew
     killall

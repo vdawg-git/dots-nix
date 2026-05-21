@@ -515,7 +515,7 @@ DISPATCH_CONTEXT = (
     "- KEY ANALOGIES from Step 4\n"
     "- Their specific task definition from Step 8\n"
     "\n"
-    "AGENT PROMPT STRUCTURE (use for each agent's Task tool prompt):\n"
+    "AGENT PROMPT STRUCTURE (use for each Pi `subagent` task):\n"
     "\n"
     "Explore this question from the assigned perspective.\n"
     "\n"
@@ -750,7 +750,7 @@ SYNTHESIS_QUICK_INSTRUCTIONS = (
 REFINEMENT_INSTRUCTIONS = (
     "ITERATION {iteration} OF {max_iter}\n"
     "\n"
-    "RULE 0 (MANDATORY): Follow the invoke_after command. Do NOT skip\n"
+    "RULE 0 (MANDATORY): Follow the NEXT STEP command. Do NOT skip\n"
     "to step 14 unless confidence is CERTAIN or this is iteration 5.\n"
     "\n"
     "Critically evaluate the current synthesis.\n"
@@ -818,7 +818,7 @@ REFINEMENT_INSTRUCTIONS = (
     "  Provide specific justification for confidence level.\n"
     "\n"
     "<iteration_gate>\n"
-    "CRITICAL: You MUST follow the invoke_after command exactly.\n"
+    "CRITICAL: You MUST follow the NEXT STEP command exactly.\n"
     "\n"
     "EXIT CONDITIONS (both required to proceed to step 14):\n"
     "  1. Confidence = CERTAIN, OR\n"
@@ -881,12 +881,12 @@ def build_dispatch_body() -> str:
     invoke_cmd = f'python3 -m {SUBAGENT_MODULE_PATH} --step 1'
 
     dispatch_text = roster_dispatch(
-        agent_type="general-purpose",
+        agent_type="developer",
         agents=DISPATCH_AGENTS,
         command=invoke_cmd,
         shared_context=DISPATCH_CONTEXT,
         model="sonnet",
-        instruction="Launch ALL sub-agents from FINAL SUB-AGENT DEFINITIONS (Step 8). Use a SINGLE message with multiple Task tool calls.",
+        instruction="Launch ALL sub-agents from FINAL SUB-AGENT DEFINITIONS (Step 8). Use a SINGLE message with multiple `subagent` tool calls.",
     )
 
     return dispatch_text

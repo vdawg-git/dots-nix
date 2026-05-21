@@ -62,7 +62,7 @@ def _build_execution_constraint(count: int) -> str:
     lines = [
         '  <execution_constraint type="MANDATORY_PARALLEL">',
         f"    You MUST dispatch ALL {count} agents in ONE assistant message.",
-        "    Your message must contain exactly N Task tool calls, issued together.",
+        "    Your message must contain exactly N `subagent` tool calls, issued together.",
         "",
         "    CORRECT (single message, multiple tools):",
         "      [You send ONE message containing Task call 1, Task call 2, ... Task call N]",
@@ -93,7 +93,7 @@ def _build_model_selection(model: str | None) -> str:
     if model is None:
         lines = [
             "  <model_selection>",
-            "    Use DEFAULT model (omit model parameter from Task tool).",
+            "    Use DEFAULT model from the selected Pi agent definition.",
             "    Do NOT carry forward model selections from previous steps.",
             "  </model_selection>",
         ]
@@ -133,7 +133,7 @@ def render_subagent_dispatch(node: SubagentDispatchNode) -> str:
     if node.model:
         lines.append(f'  <model>{node.model}</model>')
     else:
-        lines.append('  <model>DEFAULT (omit model parameter from Task tool)</model>')
+        lines.append('  <model>DEFAULT (Pi agent definition)</model>')
 
     if node.prompt:
         lines.append("  <prompt>")
@@ -142,8 +142,9 @@ def render_subagent_dispatch(node: SubagentDispatchNode) -> str:
         lines.append("  </prompt>")
 
     # Wrap invoke in directive to signal immediate execution
-    lines.append('  <directive action="IMMEDIATELY invoke">')
-    lines.append(f'    <invoke working-dir="~/.claude/skills/scripts" cmd="{node.command}" />')
+    lines.append('  <directive action="IMMEDIATELY run via bash">')
+    lines.append('    Working directory: ~/.agents/skills/scripts')
+    lines.append(f'    Command: {node.command}')
     lines.append('  </directive>')
 
     lines.append("</subagent_dispatch>")
@@ -198,7 +199,10 @@ def render_template_dispatch(node: TemplateDispatchNode) -> str:
                 lines.append(f"        {prompt_line}" if prompt_line else "")
             lines.append("      </prompt>")
 
-        lines.append(f'      <invoke working-dir="~/.claude/skills/scripts" cmd="{e["command"]}" />')
+        lines.append('      <run_via_bash>')
+        lines.append('        Working directory: ~/.agents/skills/scripts')
+        lines.append(f'        Command: {e["command"]}')
+        lines.append('      </run_via_bash>')
         lines.append("    </agent>")
     lines.append("  </agents>")
 
@@ -257,7 +261,10 @@ def render_roster_dispatch(node: RosterDispatchNode) -> str:
         for task_line in agent_prompt.split("\n"):
             lines.append(f"        {task_line}" if task_line else "")
         lines.append("      </task>")
-        lines.append(f'      <invoke working-dir="~/.claude/skills/scripts" cmd="{node.command}" />')
+        lines.append('      <run_via_bash>')
+        lines.append('        Working directory: ~/.agents/skills/scripts')
+        lines.append(f'        Command: {node.command}')
+        lines.append('      </run_via_bash>')
         lines.append("    </agent>")
     lines.append("  </agents>")
 

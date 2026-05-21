@@ -1,13 +1,13 @@
 # workflow/
 
-Workflow orchestration framework: types, discovery, and AST-based XML generation.
+Workflow orchestration framework: types, discovery, and AST-based prompt generation.
 
 ## Architecture
 
 Skills use CLI-based step invocation. The workflow flow is:
 
 ```
-main() -> format_output() -> print() -> LLM reads -> follows <invoke_after>
+main() -> format_output() -> print() -> LLM reads -> follows NEXT STEP
 ```
 
 Workflow/StepDef are metadata containers for introspection. The execution engine
@@ -28,7 +28,7 @@ Workflow/StepDef are metadata containers for introspection. The execution engine
 
 | Directory     | What                            | When to read                   |
 | ------------- | ------------------------------- | ------------------------------ |
-| `ast/`        | AST nodes, builder, renderer    | XML generation for step output |
+| `ast/`        | AST nodes, builder, renderer    | Prompt generation for step output |
 | `formatters/` | Re-exports from ast/ for compat | Use ast/ directly instead      |
 
 ## Test

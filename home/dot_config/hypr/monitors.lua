@@ -12,7 +12,6 @@ local setups = {
 			position = "auto",
 			scale = 1.6,
 		},
-
 		{
 			output = "desc:LG Display 0x06EA",
 			mode = "2560x1600@60.0",
@@ -165,7 +164,7 @@ local function applyPreferredSetup()
 	end
 end
 
-local applyTimer = hl.timer(applyPreferredSetup, { timeout = 500, type = "oneshot" })
+local applyTimer = hl.timer(applyPreferredSetup, { timeout = 50, type = "oneshot" })
 applyTimer:set_enabled(false)
 
 local function scheduleApplyPreferredSetup()

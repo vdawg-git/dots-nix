@@ -142,7 +142,7 @@ def get_step_guidance(
                 "",
                 "WORKFLOW:",
                 "  1. Compose diff text following format above",
-                "  2. Bash tool: python3 -m skills.planner.cli.plan set-change ... --diff $'...'",
+                "  2. Run with `bash`: python3 -m skills.planner.cli.plan set-change ... --diff $'...'", 
                 "",
                 "STOP CHECK: If you are about to use Edit on a source file, STOP.",
                 "That means you are implementing, not planning. Return to step 1.",

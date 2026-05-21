@@ -229,18 +229,19 @@ def build_explore_dispatch(n: int = DEFAULT_CATEGORY_COUNT, mode_filter: str = "
 CATEGORY: $name
 MODE: $mode
 
-Start: <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m """ + EXPLORE_MODULE_PATH + """ --step 1 --category $ref --mode $mode""" + scope_arg + """" />"""
+Start by running this with `bash` from `~/.agents/skills/scripts`:
+python3 -m """ + EXPLORE_MODULE_PATH + """ --step 1 --category $ref --mode $mode""" + scope_arg + """"""
 
     # Command template (also has $var placeholders)
-    command = f'<invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $ref --mode $mode{scope_arg}" />'
+    command = f"python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $ref --mode $mode{scope_arg}"
 
     node = TemplateDispatchNode(
-        agent_type="general-purpose",
+        agent_type="developer",
         template=template,
         targets=targets,
         command=command,
         model="haiku",
-        instruction=f"Launch {len(selected)} general-purpose sub-agents for code smell exploration.",
+        instruction=f"Launch {len(selected)} developer sub-agents for code smell exploration.",
     )
 
     return render_template_dispatch(node)
@@ -1063,11 +1064,10 @@ def format_step_1_output(n: int, info: dict, mode_filter: str, scope: str | None
 CRITICAL: All script outputs use XML format. You MUST:
 
 1. Execute the action in <current_action>
-2. When complete, invoke the exact command in <invoke_after>
-3. The <next> block re-states the command -- execute it
-4. For branching <invoke_after>, choose based on outcome:
-   - <if_custom>: Use when mode is CUSTOM
-   - <if_not_custom>: Use when mode is design/code/both
+2. When complete, run the exact NEXT STEP command with `bash`
+3. For branching NEXT STEP blocks, choose based on outcome:
+   - if custom: Use when mode is CUSTOM
+   - if not custom: Use when mode is design/code/both
 
 DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
 </xml_format_mandate>"""
@@ -1145,14 +1145,11 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
     output_arg = f" --output {shlex.quote(output)}" if output else ""
     signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
 
-    invoke_after = f"""<invoke_after>
-  <if_custom>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}{output_arg}{signal_arg}" />
-  </if_custom>
-  <if_not_custom>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}{output_arg}{signal_arg}" />
-  </if_not_custom>
-</invoke_after>"""
+    invoke_after = f"""NEXT STEP (choose exactly one; run with `bash` from `~/.agents/skills/scripts`):
+  if custom:
+    python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}{output_arg}{signal_arg}
+  if not custom:
+    python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}{output_arg}{signal_arg}"""
     parts.append(invoke_after)
 
     return "\n".join(parts)
@@ -1172,7 +1169,7 @@ def format_step_2_dispatch(n: int, info: dict, mode_filter: str, scope: str | No
 CRITICAL: All script outputs use XML format. You MUST:
 
 1. Execute the action in <current_action>
-2. When complete, invoke the exact command in <invoke_after>
+2. When complete, run the exact NEXT STEP command with `bash`
 
 DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
 </xml_format_mandate>"""
@@ -1330,14 +1327,11 @@ def format_step_3_verification(info: dict, scope: str | None = None, retry: int 
     signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
     if retry < 1:
         # Still have retry budget
-        invoke_after = f"""<invoke_after>
-  <if_revise>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg} --retry 1" />
-  </if_revise>
-  <if_pass>
-    <invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}" />
-  </if_pass>
-</invoke_after>"""
+        invoke_after = f"""NEXT STEP (choose exactly one; run with `bash` from `~/.agents/skills/scripts`):
+  if revise:
+    python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg} --retry 1
+  if pass:
+    python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}"""
     else:
         # Retry budget exhausted - proceed regardless
         invoke_after = render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}"))
@@ -1359,22 +1353,22 @@ def format_step_4_dispatch_custom(info: dict, scope: str | None = None, output: 
 
     scope_display = scope or "entire codebase"
     scope_arg = f" --scope {shlex.quote(scope)}" if scope else ""
-    invoke_cmd = f'<invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $CATEGORY_REF --mode code{scope_arg}" />'
+    invoke_cmd = f'Run with `bash` from `~/.agents/skills/scripts`: python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $CATEGORY_REF --mode code{scope_arg}'
 
     actions = [
         "DISPATCH explore agents for verified categories.",
         "",
         "Using the <verified_categories> from Step 3:",
         "",
-        '<parallel_dispatch agent="Explore" count="N">',
+        '<parallel_dispatch agent="developer" count="N">',
         "  <instruction>",
-        "    Launch one general-purpose sub-agent per verified category.",
+        "    Launch one developer sub-agent per verified category.",
         "  </instruction>",
         "",
         '  <execution_constraint type="MANDATORY_PARALLEL">',
         "    You MUST dispatch ALL agents in ONE assistant message.",
         "    FORBIDDEN: Waiting for any agent before dispatching the next.",
-        '    FORBIDDEN: Using "Explore" subagent_type. Use "general-purpose".',
+        '    Use Pi `subagent` calls. For exploration, use agent `developer`.',
         "  </execution_constraint>",
         "",
         "  <model_selection>",

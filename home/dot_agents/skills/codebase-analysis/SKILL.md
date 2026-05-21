@@ -11,4 +11,4 @@ When this skill activates, IMMEDIATELY invoke the script. The script IS the work
 
 Invoke:
 
-<invoke working-dir="~/.claude/skills/scripts" cmd="python3 -m skills.codebase_analysis.analyze --step 1" />
+Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.codebase_analysis.analyze --step 1`.

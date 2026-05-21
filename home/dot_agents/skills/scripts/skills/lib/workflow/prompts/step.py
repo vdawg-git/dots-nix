@@ -3,12 +3,7 @@
 format_step() is the sole assembler. invoke_after logic is internal.
 """
 
-from pathlib import Path
-
-# SKILLS_DIR calculation matches subagent.py pattern: both modules are in
-# skills/lib/workflow/prompts/, so .parent.parent.parent.parent.parent
-# traverses: prompts/ -> workflow/ -> lib/ -> skills/ -> scripts/
-SKILLS_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
+SKILLS_DIR = "~/.agents/skills/scripts"
 
 
 def format_step(body: str, next_cmd: str = "", title: str = "",

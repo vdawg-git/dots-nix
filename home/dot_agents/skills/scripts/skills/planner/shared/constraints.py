@@ -7,7 +7,7 @@ Constants for static constraints, functions for parameterized output.
 ORCHESTRATOR_CONSTRAINT = (
     "You are the ORCHESTRATOR. You delegate, you never implement.\n"
     "Your agents are highly capable. Trust them with ANY issue.\n"
-    "PROHIBITED: Read, Edit, Write tools. REQUIRED: Task tool dispatch only."
+    "PROHIBITED: Read, Edit, Write tools. REQUIRED: Pi `subagent` dispatch only."
 )
 
 ORCHESTRATOR_CONSTRAINT_EXTENDED = (

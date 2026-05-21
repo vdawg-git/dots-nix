@@ -1,7 +1,8 @@
 local vars = require("variables")
 local mod = vars.main_mod
 
-hl.bind(mod .. " + Q", hl.dsp.window.kill(), { description = "Kill active window" })
+hl.bind(mod .. " + Q", hl.dsp.window.close(), { description = "Close active window" })
+hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.kill(), { description = "Kill active window" })
 hl.bind(mod .. " + W", hl.dsp.window.float(), { description = "Toggle floating" })
 hl.bind(mod .. " + return", hl.dsp.window.fullscreen(), { description = "Toggle fullscreen" })
 
