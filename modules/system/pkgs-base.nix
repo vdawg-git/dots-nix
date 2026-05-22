@@ -38,7 +38,6 @@
     nautilus
     nerd-fonts.jetbrains-mono
     networkmanagerapplet
-    nwg-displays
     nwg-panel
     obs-studio
     obsidian
