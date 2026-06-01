@@ -1,13 +1,31 @@
 {
-  "name": "extensions",
+  "name": "pi-extensions",
   "private": true,
-  "devDependencies": {
-    "@types/node": "latest"
+  "type": "module",
+  "workspaces": {
+    "packages": [],
+    "catalog": {
+      "@earendil-works/pi-agent-core": "0.74.0",
+      "@earendil-works/pi-ai": "0.74.0",
+      "@earendil-works/pi-coding-agent": "0.74.0",
+      "@earendil-works/pi-tui": "0.74.0",
+      "@types/node": "^24.3.0",
+      "typescript": "^5.7.3",
+      "typebox": "^1.1.38"
+    }
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "scripts": {
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "typebox": "^1.1.38"
+    "@earendil-works/pi-agent-core": "catalog:",
+    "@earendil-works/pi-ai": "catalog:",
+    "@earendil-works/pi-coding-agent": "catalog:",
+    "@earendil-works/pi-tui": "catalog:",
+    "typebox": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
   }
 }

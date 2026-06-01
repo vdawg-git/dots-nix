@@ -141,7 +141,7 @@ function createStatusLine(options: StatusLineOptions): string {
 /** Derive stable non-grey identity color from the session name. */
 function getSessionColor(sessionName: string): SessionColor {
 	const hash = Array.from(sessionName).reduce((value, character) => (value * 31 + character.charCodeAt(0)) >>> 0, 0);
-	const color = SESSION_COLORS[hash % SESSION_COLORS.length];
+	const color = SESSION_COLORS[hash % SESSION_COLORS.length] ?? "accent";
 
 	return color;
 }

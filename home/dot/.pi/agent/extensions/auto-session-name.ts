@@ -77,6 +77,10 @@ function createAutoSessionNameExtension(pi: ExtensionAPI): void {
 			return;
 		}
 
+		if (!hasPersistentSession(context)) {
+			return;
+		}
+
 		if (state.running) {
 			return;
 		}
@@ -397,6 +401,12 @@ function getBranchMessages(entries: readonly SessionEntry[]): readonly AgentMess
 	const messages = entries.filter(isSessionMessageEntry).map((entry) => entry.message);
 
 	return messages;
+}
+
+function hasPersistentSession(context: ExtensionContext): boolean {
+	const hasSessionFile = context.sessionManager.getSessionFile() !== undefined;
+
+	return hasSessionFile;
 }
 
 function isSessionMessageEntry(entry: SessionEntry): entry is Extract<SessionEntry, { type: "message" }> {
