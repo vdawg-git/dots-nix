@@ -4,6 +4,8 @@
 local rules = require("helper.rules")
 local windowRules, layerRules, rx = rules.windowRules, rules.layerRules, rules.rx
 
+
+
 windowRules({
 	-- Floats
 
@@ -44,6 +46,7 @@ windowRules({
 		},
 		float = true,
 	},
+
 	{
 		name = "codium-add-folder-dialog",
 		match = {
@@ -52,22 +55,26 @@ windowRules({
 		},
 		float = true,
 	},
+
 	{
 		name = "authentication-required-dialogs",
-		match = {
-			title = "Authentication Required",
+		any = {
+			title = rx( "(?i:Authentication Required)" ),
 		},
 		float = true,
 		center = true,
+		pin = true
 	},
 	{
 		name = "polkit-authentication-dialogs",
-		match = {
-			class = { "xfce-polkit", "mate-polkit", "polkit-mate-authentication-agent-1" },
+		any = {
+			class = { "xfce-polkit", "mate-polkit", "polkit-mate-authentication-agent-1", "gcr-prompter" },
 			title = "Authentication required",
 		},
 		float = true,
 		center = true,
+		pin = true,
+		no_screen_share = true,
 		size = { "(monitor_w*0.35)", "(monitor_h*0.35)" },
 	},
 	{

@@ -6,8 +6,4 @@
 	icons: {},
 	keybindings: [],
 	quickEdit: {},
-	showUntaggedGenreList: true,
-	showUntaggedMoodList: true,
-	showUntaggedMoodPlaybar: true,
-	showUntaggedGenrePlaybar: true,
 }

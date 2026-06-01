@@ -6,34 +6,21 @@
   baseTools = with pkgs; [
     amberol
     anki
-    beans
     bitwarden-desktop
     blanket
     blueman
     brave
-    brave-search-cli
-    bubblewrap
-    codex
-    dotbot
     dragon-drop
     easyeffects
     eog
-    ffmpeg-headless
     file-roller
     fsearch
-    gcc # For Neovim Treesitter, so that it can create grammars
-    git
-    git-lfs
     gnome-control-center
     gnome-system-monitor
-    gron # Make JSON grepable
-    gum # fancy CLI tools
     haruna # Video player
-    imagemagick
     kitty
     lemmeknow # Identify strings and files
-    mediainfo
-    megacmd
+    mangayomi
     mpv
     nautilus
     nerd-fonts.jetbrains-mono
@@ -55,8 +42,6 @@
     vesktop
     vicinae
     vscode
-    wl-kbptr
-    wlrctl
   ];
 
   cliTools = with pkgs; [
@@ -64,29 +49,42 @@
     # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
     atuin
     bat
+    beans
     bitwarden-cli
+    brave-search-cli
     broot # explore directory trees (works with fifc)
     btop
     carapace # Fancy shell completions
     chafa # preview images, gif , pdf etc (works with fifc)
+    codex
     delta # Git differ
+    dotbot
     dust
     eza # Better ls (works with fish fifc)
     fastfetch
     fd # Complete paths (works with fifc)
+    ffmpeg-headless
     file
     fnm
     fzf
+    gcc # For Neovim Treesitter, so that it can create grammars
     gh
+    git
+    git-lfs
     glow
     grim
+    gron # Make JSON grepable
+    gum # fancy CLI tools
     hurl # Easy endpoint testing
+    imagemagick
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
     kew
     killall
     lazygit
     lnav # Nice (the best I found) log viewer
+    mediainfo
+    megacmd
     mprocs
     ni # Unite all JS package managers commands - no more pnpm i in a bun project
     playerctl
@@ -104,6 +102,8 @@
     tree
     wireguard-tools
     wl-clipboard
+    wl-kbptr
+    wlrctl
     yt-dlp
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
