@@ -17,6 +17,7 @@ from skills.lib.workflow.ast.dispatch import (
     TemplateDispatchNode,
     RosterDispatchNode,
 )
+from skills.lib.workflow.prompts.step import self_contained_command
 
 
 def _extract_template_vars(s: str) -> list[str]:
@@ -144,7 +145,7 @@ def render_subagent_dispatch(node: SubagentDispatchNode) -> str:
     # Wrap invoke in directive to signal immediate execution
     lines.append('  <directive action="IMMEDIATELY run via bash">')
     lines.append('    Working directory: ~/.agents/skills/scripts')
-    lines.append(f'    Command: {node.command}')
+    lines.append(f'    Command: {self_contained_command(node.command)}')
     lines.append('  </directive>')
 
     lines.append("</subagent_dispatch>")
@@ -201,7 +202,7 @@ def render_template_dispatch(node: TemplateDispatchNode) -> str:
 
         lines.append('      <run_via_bash>')
         lines.append('        Working directory: ~/.agents/skills/scripts')
-        lines.append(f'        Command: {e["command"]}')
+        lines.append(f'        Command: {self_contained_command(e["command"])}')
         lines.append('      </run_via_bash>')
         lines.append("    </agent>")
     lines.append("  </agents>")
@@ -263,7 +264,7 @@ def render_roster_dispatch(node: RosterDispatchNode) -> str:
         lines.append("      </task>")
         lines.append('      <run_via_bash>')
         lines.append('        Working directory: ~/.agents/skills/scripts')
-        lines.append(f'        Command: {node.command}')
+        lines.append(f'        Command: {self_contained_command(node.command)}')
         lines.append('      </run_via_bash>')
         lines.append("    </agent>")
     lines.append("  </agents>")

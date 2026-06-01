@@ -125,7 +125,7 @@ STEPS = {
             "Before QR code review, run post-implementation QA.",
             "",
             "1. DISPATCH QA decomposition:",
-            "   python3 -m skills.planner.qa.decompose --step 1",
+            "   cd ~/.agents/skills/scripts && python3 -m skills.planner.qa.decompose --step 1",
             "   Context: PLAN_FILE, MODIFIED_FILES, STATE_DIR (if available)",
             "   Phase: post-implementation",
             "",

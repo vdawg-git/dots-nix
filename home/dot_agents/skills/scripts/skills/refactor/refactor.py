@@ -32,6 +32,7 @@ from skills.lib.workflow.ast import (
     render_step_header, render_current_action, render_invoke_after,
 )
 from skills.lib.workflow.types import FlatCommand
+from skills.lib.workflow.prompts.step import self_contained_command
 
 
 class DocumentAvailability(Enum):
@@ -1145,11 +1146,13 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
     output_arg = f" --output {shlex.quote(output)}" if output else ""
     signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
 
-    invoke_after = f"""NEXT STEP (choose exactly one; run with `bash` from `~/.agents/skills/scripts`):
+    custom_cmd = self_contained_command(f"python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}{output_arg}{signal_arg}")
+    default_cmd = self_contained_command(f"python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}{output_arg}{signal_arg}")
+    invoke_after = f"""NEXT STEP (choose exactly one; run with `bash`):
   if custom:
-    python3 -m {MODULE_PATH} --step 2 --mode custom{scope_arg}{output_arg}{signal_arg}
+    {custom_cmd}
   if not custom:
-    python3 -m {MODULE_PATH} --step 2 --n {n} --mode $MODE{scope_arg}{output_arg}{signal_arg}"""
+    {default_cmd}"""
     parts.append(invoke_after)
 
     return "\n".join(parts)
@@ -1327,11 +1330,13 @@ def format_step_3_verification(info: dict, scope: str | None = None, retry: int 
     signal_arg = f" --signal {shlex.quote(signal)}" if signal else ""
     if retry < 1:
         # Still have retry budget
-        invoke_after = f"""NEXT STEP (choose exactly one; run with `bash` from `~/.agents/skills/scripts`):
+        revise_cmd = self_contained_command(f"python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg} --retry 1")
+        pass_cmd = self_contained_command(f"python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}")
+        invoke_after = f"""NEXT STEP (choose exactly one; run with `bash`):
   if revise:
-    python3 -m {MODULE_PATH} --step 3 --mode custom{scope_arg}{output_arg}{signal_arg} --retry 1
+    {revise_cmd}
   if pass:
-    python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}"""
+    {pass_cmd}"""
     else:
         # Retry budget exhausted - proceed regardless
         invoke_after = render_invoke_after(InvokeAfterNode(cmd=f"python3 -m {MODULE_PATH} --step 4 --mode custom{scope_arg}{output_arg}{signal_arg}"))
@@ -1353,7 +1358,7 @@ def format_step_4_dispatch_custom(info: dict, scope: str | None = None, output: 
 
     scope_display = scope or "entire codebase"
     scope_arg = f" --scope {shlex.quote(scope)}" if scope else ""
-    invoke_cmd = f'Run with `bash` from `~/.agents/skills/scripts`: python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $CATEGORY_REF --mode code{scope_arg}'
+    invoke_cmd = f'Run with `bash`: {self_contained_command(f"python3 -m {EXPLORE_MODULE_PATH} --step 1 --category $CATEGORY_REF --mode code{scope_arg}")}'
 
     actions = [
         "DISPATCH explore agents for verified categories.",

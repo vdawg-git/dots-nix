@@ -1,6 +1,7 @@
 ---
 name: decision-critic
 description: Invoke IMMEDIATELY via python script to stress-test decisions and reasoning. Do NOT analyze first - the script orchestrates the critique workflow.
+disable-model-invocation: true
 ---
 
 # Decision Critic
@@ -10,7 +11,7 @@ workflow.
 
 ## Invocation
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.decision_critic.decision_critic --step 1 --decision '<decision text>'`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.decision_critic.decision_critic --step 1 --decision '<decision text>'`.
 
 | Argument     | Required | Description                             |
 | ------------ | -------- | --------------------------------------- |

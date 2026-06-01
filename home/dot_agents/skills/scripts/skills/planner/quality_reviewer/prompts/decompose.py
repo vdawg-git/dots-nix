@@ -69,7 +69,7 @@ def format_assign_cmd(state_dir: str, phase: str, prefix: str) -> str:
     WHY CLI: Group assignments use the qr CLI tool for state mutation.
     """
     return f"""OUTPUT:
-  python3 -m skills.planner.cli.qr --state-dir {state_dir} --qr-phase {phase} \\
+  cd ~/.agents/skills/scripts && python3 -m skills.planner.cli.qr --state-dir {state_dir} --qr-phase {phase} \\
     assign-group <item_id> --group-id {prefix}<name>"""
 
 
@@ -406,7 +406,7 @@ def step_9_structural_grouping(state_dir: str, phase: str, module_path: str) -> 
             "   - Set group_id = 'umbrella'",
             "",
             f"Execute via CLI:",
-            f"  python3 -m skills.planner.cli.qr --state-dir {state_dir} --qr-phase {phase} \\",
+            f"  cd ~/.agents/skills/scripts && python3 -m skills.planner.cli.qr --state-dir {state_dir} --qr-phase {phase} \\",
             "    assign-group <item_id> --group-id <group_id>",
         ],
         "next": f"python3 -m {module_path} --step 10 --state-dir {state_dir}",

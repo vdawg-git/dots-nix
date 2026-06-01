@@ -1,6 +1,7 @@
 ---
 name: refactor
 description: Invoke IMMEDIATELY via python script when user requests refactoring analysis, technical debt review, or code quality improvement. Do NOT explore first - the script orchestrates exploration.
+disable-model-invocation: true
 ---
 
 # Refactor
@@ -9,7 +10,7 @@ When this skill activates, IMMEDIATELY invoke the script. The script IS the work
 
 ## Invocation
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.refactor.refactor --step 1 --n 10`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.refactor.refactor --step 1 --n 10`.
 
 | Argument         | Required | Description                                                                          |
 | ---------------- | -------- | ------------------------------------------------------------------------------------ |

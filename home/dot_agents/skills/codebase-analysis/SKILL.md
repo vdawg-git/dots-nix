@@ -1,6 +1,7 @@
 ---
 name: codebase-analysis
 description: Invoke IMMEDIATELY via python script when user requests codebase understanding, architecture comprehension, or repository orientation. Do NOT explore first - the script orchestrates exploration.
+disable-model-invocation: true
 ---
 
 # Codebase Analysis
@@ -11,4 +12,4 @@ When this skill activates, IMMEDIATELY invoke the script. The script IS the work
 
 Invoke:
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.codebase_analysis.analyze --step 1`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.codebase_analysis.analyze --step 1`.

@@ -8,6 +8,7 @@ from skills.lib.workflow.ast.nodes import (
     Node, Document, TextNode, CodeNode, ElementNode, FileContentNode,
     StepHeaderNode, CurrentActionNode, InvokeAfterNode
 )
+from skills.lib.workflow.prompts.step import self_contained_command
 
 
 class Renderer(Protocol):
@@ -88,15 +89,15 @@ class XMLRenderer:
             return (
                 "NEXT STEP:\n"
                 f"    Working directory: {node.working_dir}\n"
-                f"    Command: {node.cmd}\n\n"
+                f"    Command: {self_contained_command(node.cmd, node.working_dir)}\n\n"
                 "Execute this command now."
             )
         else:
             return (
                 "NEXT STEP (execute exactly one):\n"
                 f"    Working directory: {node.working_dir}\n"
-                f"    ALL agents returned PASS  ->  {node.if_pass}\n"
-                f"    ANY agent returned FAIL   ->  {node.if_fail}"
+                f"    ALL agents returned PASS  ->  {self_contained_command(node.if_pass, node.working_dir)}\n"
+                f"    ANY agent returned FAIL   ->  {self_contained_command(node.if_fail, node.working_dir)}"
             )
 
     def _render_node(self, node: Node) -> str:

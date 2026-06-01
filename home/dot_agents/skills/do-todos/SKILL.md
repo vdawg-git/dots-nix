@@ -1,7 +1,7 @@
 ---
 name: do-todos
 description: Find comments starting  with todo and applies what they say
-disable-modal-invocation: true
+disable-model-invocation: true
 ---
 
 Find all code comments which start with "Todo" (case-insensitive) and create a plan on how to process them.

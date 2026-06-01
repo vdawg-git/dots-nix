@@ -1,6 +1,7 @@
 ---
 name: prd-to-beads
 description: Break a PRD into independently-grabbable beads using tracer-bullet vertical slices. Use when user wants to convert a PRD to beads, create implementation tickets, or break down a PRD into work items.
+disable-model-invocation: true
 ---
 
 # PRD to Beads

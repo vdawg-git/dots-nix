@@ -10,6 +10,8 @@ Three dispatch patterns:
 
 from string import Template
 
+from skills.lib.workflow.prompts.step import self_contained_command
+
 
 # ============================================================================
 # CONFIGURATION
@@ -161,7 +163,10 @@ def subagent_tool_instruction(agent_type: str, model: str | None) -> str:
 
 def sub_agent_invoke(cmd: str) -> str:
     """Tell sub-agent what command to run after spawning."""
-    return SUB_AGENT_INVOKE.format(working_dir=SKILLS_DIR, cmd=cmd)
+    return SUB_AGENT_INVOKE.format(
+        working_dir=SKILLS_DIR,
+        cmd=self_contained_command(cmd),
+    )
 
 
 def parallel_constraint(count: int) -> str:

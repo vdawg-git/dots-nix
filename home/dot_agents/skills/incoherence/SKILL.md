@@ -1,6 +1,7 @@
 ---
 name: incoherence
 description: Detect and resolve incoherence in documentation, code, specs vs implementation.
+disable-model-invocation: true
 ---
 
 # Incoherence Detector
@@ -10,7 +11,7 @@ workflow.
 
 ## Invocation
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.incoherence.incoherence --step-number 1 --thoughts '<context>'`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.incoherence.incoherence --step-number 1 --thoughts '<context>'`.
 
 | Argument        | Required | Description                               |
 | --------------- | -------- | ----------------------------------------- |

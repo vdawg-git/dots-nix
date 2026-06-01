@@ -1,6 +1,7 @@
 ---
 name: prompt-engineer
 description: Invoke IMMEDIATELY via python script when user requests prompt optimization. Do NOT analyze first - invoke this skill immediately.
+disable-model-invocation: true
 ---
 
 # Prompt Engineer
@@ -12,11 +13,11 @@ workflow.
 
 Start with step 1 (triage) to determine scope:
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.prompt_engineer.optimize --step 1`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.prompt_engineer.optimize --step 1`.
 
 Then continue with determined scope:
 
-Run with `bash` from `~/.agents/skills/scripts`: `python3 -m skills.prompt_engineer.optimize --step 2 --scope <scope>`.
+Run with `bash`: `cd ~/.agents/skills/scripts && python3 -m skills.prompt_engineer.optimize --step 2 --scope <scope>`.
 
 | Argument  | Required | Description                                   |
 | --------- | -------- | --------------------------------------------- |
