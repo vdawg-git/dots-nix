@@ -105,6 +105,7 @@
     wl-kbptr
     wlrctl
     yt-dlp
+    zed-editor-fhs
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];
