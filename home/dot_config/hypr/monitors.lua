@@ -28,6 +28,16 @@ local setups = {
 			scale = 1.6,
 		},
 	},
+
+
+	{
+		{
+			output = "desc:LG Electronics LG HDR 4K 102NTKFG7893",
+			mode = "preferred",
+			position = "auto",
+			scale = 1.5,
+		},
+	},
 }
 
 ---@type MonitorSetup

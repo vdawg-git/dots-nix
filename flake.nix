@@ -88,6 +88,18 @@
           {nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";}
         ];
       };
+
+      yf19 = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        pkgs = pkgsForEach."x86_64-linux";
+        modules = [
+          ./hosts/yf19/host.nix
+          ./modules/system
+          {nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";}
+        ];
+      };
     };
   };
 
