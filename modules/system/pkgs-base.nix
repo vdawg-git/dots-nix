@@ -93,6 +93,7 @@
     rclone
     ripgrep # rg, faster grep
     rsync
+    rtk
     satty
     slurp
     starship # Fancy prompt
