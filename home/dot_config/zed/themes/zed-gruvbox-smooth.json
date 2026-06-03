@@ -589,7 +589,7 @@
             "color": "#89b482"
           }
         },
-        "terminal.background": "#32302f",
+        "terminal.background": "transparent",
         "terminal.foreground": "#d4be98",
         "terminal.bright_foreground": "#d4be98",
         "terminal.dim_foreground": "#32302f",
