@@ -46,7 +46,9 @@ end
 ---@param s string
 ---@return string
 local function escapeRegex(s)
-	return tostring(s):gsub("([%^%$%(%)%%%.%[%]%*%+%-%?%{%}%|])", "%%%1")
+	return tostring(s):gsub("([%^%$%(%)%%%.%[%]%*%+%-%?%{%}%|])", function(char)
+		return "\\" .. char
+	end)
 end
 
 ---@param s string

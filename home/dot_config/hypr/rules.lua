@@ -68,14 +68,13 @@ windowRules({
 	{
 		name = "polkit-authentication-dialogs",
 		any = {
-			class = { "xfce-polkit", "mate-polkit", "polkit-mate-authentication-agent-1", "gcr-prompter" },
+			class = { "xfce-polkit", "mate-polkit", "polkit-mate-authentication-agent-1", "gcr-prompter"  },
 			title = "Authentication required",
 		},
 		float = true,
 		center = true,
 		pin = true,
 		no_screen_share = true,
-		size = { "(monitor_w*0.35)", "(monitor_h*0.35)" },
 	},
 	{
 		name = "steam-child-windows",
@@ -251,16 +250,7 @@ windowRules({
 		pin = true,
 		stay_focused = true,
 		no_screen_share = true,
-	},
-	{
-		name = "gcr-prompter-private",
-		match = {
-			class = "gcr-prompter",
-		},
-		no_screen_share = true,
-		pin = true,
-		stay_focused = true,
-	},
+	}
 
 })
 
