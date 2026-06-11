@@ -845,9 +845,15 @@ Rendered format:
     <group id="component-auth" items="qa-001,qa-002,qa-003">Auth component checks</group>
     <group id="umbrella" items="qa-010,qa-011">Cross-cutting checks</group>
   </groups>
-  <template>
-    <invoke cmd="python3 -m skills.planner.quality_reviewer.{phase}_qr_verify --step 1 --state-dir {state_dir} --qr-items $GROUP_ITEMS" />
-  </template>
+  <agents>
+    <agent index="1">
+      <task>Verify assigned QR items.</task>
+      <run_via_bash>
+        Working directory: ~/.agents/skills/scripts
+        Command: python3 -m skills.planner.quality_reviewer.{phase}_qr_verify --step 1 --state-dir {state_dir} --qr-items $GROUP_ITEMS
+      </run_via_bash>
+    </agent>
+  </agents>
 </parallel_dispatch>
 ```
 
