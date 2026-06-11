@@ -5,15 +5,66 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
+		lazy = false,
 		build = ":TSUpdate",
-	},
-	{
-		"RRethy/nvim-treesitter-textsubjects",
-		dependencies = { "nvim-treesitter" },
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = { "nvim-treesitter" },
+		config = function()
+			-- For https://github.com/luckasRanarison/tree-sitter-hypr
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			parser_config.hypr = {
+				install_info = {
+					url = "https://github.com/luckasRanarison/tree-sitter-hypr",
+					files = { "src/parser.c" },
+					branch = "master",
+				},
+				filetype = "hypr",
+			}
+
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "vimdoc", "javascript", "typescript", "lua", "svelte" },
+				sync_install = false,
+				auto_install = true,
+
+				highlight = {
+					enable = vim.g.vscode == nil or not vim.g.vscode,
+				},
+
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["ia"] = "@parameter.inner",
+							["aa"] = "@parameter.outer",
+						},
+						include_surrounding_whitespace = true,
+					},
+					move = {
+						enable = true,
+						goto_next_start = {
+							["]m"] = "@function.outer",
+						},
+						goto_previous_start = {
+							["[m"] = "@function.outer",
+						},
+					},
+				},
+
+				endwise = {
+					enable = true,
+				},
+
+				textsubjects = {
+					enable = true,
+					prev_selection = ",",
+					keymaps = {
+						["."] = "textsubjects-smart",
+						[";"] = "textsubjects-container-outer",
+						["i;"] = "textsubjects-container-inner",
+					},
+				},
+			})
+		end,
 	},
 	{
 		"nat-418/boole.nvim",
