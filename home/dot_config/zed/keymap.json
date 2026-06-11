@@ -56,4 +56,34 @@
       "s": "vim::HelixJumpToWord",
     },
   },
+  {
+    "context": "GitDiff > Editor",
+    "bindings": {
+      "g a": "git::StageAll"
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "unbind": {
+      "ctrl-space": "git::StageAll"
+    }
+  },
+  {
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
+    "bindings": {
+      "g a": "git::StageAll"
+    }
+  },
+  {
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
+    "unbind": {
+      "shift-x": "git::StageAll"
+    }
+  },
+  {
+    "context": "(vim_mode ) && !menu",
+    "bindings": {
+      "alt-o": "editor::SelectLargerSyntaxNode"
+    }
+  }
 ]

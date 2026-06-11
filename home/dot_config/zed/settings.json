@@ -60,7 +60,7 @@
 	},
 	"ui_font_weight": 450.0,
 	"icon_theme": {
-		"mode": "light",
+		"mode": "dark",
 		"light": "Catppuccin Frappé",
 		"dark": "Warm Charmed Icons"
 	},
@@ -128,10 +128,14 @@
 	"soft_wrap": "editor_width",
 	"tab_size": 2,
 	"ui_font_size": 16.0,
-	"buffer_font_size": 18.0,
+	"buffer_font_size": 20.0,
 	"toolbar": { "selections_menu": false },
 
-	"theme": "Gruvbox Smooth Hard",
+	"theme": {
+		"mode": "dark",
+		"light": "One Light",
+		"dark": "Gruvbox Smooth Hard"
+	},
 
 	"vim": {
 		"use_smartcase_find": true,
