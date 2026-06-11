@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -o pipefail
+
 git clone git@github.com:vinceliuice/Colloid-icon-theme.git /tmp/icon-theme
 cd /tmp/icon-theme &&  ./install.sh --bold --scheme gruvbox
 

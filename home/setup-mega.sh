@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o pipefail
 
 # === CONFIG ===
 # Those dirs get created by dotbot automatically
