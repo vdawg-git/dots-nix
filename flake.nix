@@ -5,8 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    zed.url = "github:zed-industries/zed/";
-
     moo.url = "github:vdawg-git/moo";
     moo.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -27,11 +25,13 @@
         import nixpkgs {
           localSystem.system = system;
           config.allowUnfree = true;
+          config.permittedInsecurePackages = ["electron-39.8.10"];
           overlays = [
             (final: prev: {
               stablePkgs = import stable {
                 localSystem.system = final.stdenv.hostPlatform.system;
                 config.allowUnfree = true;
+                config.permittedInsecurePackages = ["electron-39.8.10"];
               };
             })
           ];

@@ -5,7 +5,7 @@
     ./bootloader.nix
     ./devstuff.nix
     ./disks.nix
-    ./docker.nix
+    # ./docker.nix
     ./env.nix
     ./external-hardware.nix
     ./fonts.nix
@@ -19,6 +19,7 @@
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
+    # ./steam.nix
     ./theme.nix
     ./thumbnails/thumbnails.nix
   ];

@@ -47,6 +47,7 @@
   cliTools = with pkgs; [
     # harlequin # SQL Tui. Postgres, SQLite etc
     # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # zed-editor-fhs
     atuin
     bat
     beans
@@ -87,6 +88,7 @@
     megacmd
     mprocs
     ni # Unite all JS package managers commands - no more pnpm i in a bun project
+    nodejs-slim
     playerctl
     pnpm-shell-completion
     procs # Complete processes and preview their tree (for fifc)
@@ -106,7 +108,6 @@
     wl-kbptr
     wlrctl
     yt-dlp
-    zed-editor-fhs
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];
