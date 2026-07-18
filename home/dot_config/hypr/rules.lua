@@ -55,16 +55,6 @@ windowRules({
 		},
 		float = true,
 	},
-
-	{
-		name = "authentication-required-dialogs",
-		any = {
-			title = rx( "(?i:Authentication Required)" ),
-		},
-		float = true,
-		center = true,
-		pin = true
-	},
 	{
 		name = "polkit-authentication-dialogs",
 		any = {
@@ -74,6 +64,7 @@ windowRules({
 		float = true,
 		center = true,
 		pin = true,
+		stay_focused = true,
 		no_screen_share = true,
 	},
 	{
@@ -340,5 +331,3 @@ layerRules({
 	},
 
 })
-
-
