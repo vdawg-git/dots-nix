@@ -7,138 +7,145 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"semantic_tokens": "combined",
-	"search": {
-		"button": false
-	},
-	"git_panel": {
-		"dock": "right",
-		"button": false
-	},
-	"collaboration_panel": {
-		"dock": "right",
-		"button": false
-	},
-	"outline_panel": {
-		"dock": "right",
-		"button": false
-	},
-	"agent_servers": {
-		"codex-acp": {
-			"type": "registry"
-		}
-	},
-	"colorize_brackets": true,
-	"scrollbar": {
-		"show": "auto",
-		"diagnostics": "none"
-	},
-	"auto_update": false,
-	"project_panel": {
-		"dock": "right",
-		"button": false,
-		"diagnostic_badges": true,
-		"entry_spacing": "comfortable",
-		"hide_root": true,
-		"scrollbar": { "show": "auto" }
-	},
-	"debugger": {
-		"button": false
-	},
-	"status_bar": {
-		"active_language_button": false,
-		"show_active_file": false
-	},
-	"bottom_dock_layout": "contained",
-	"title_bar": {
-		"show_user_picture": false,
-		"show_sign_in": true,
-		"show_branch_status_icon": false
-	},
-	"file_finder": {
-		"modal_max_width": "xlarge"
-	},
-	"ui_font_weight": 450.0,
-	"icon_theme": {
-		"mode": "dark",
-		"light": "Catppuccin Frappé",
-		"dark": "Warm Charmed Icons"
-	},
-	"cli_default_open_behavior": "existing_window",
-	"session": {
-		"trust_all_worktrees": true
-	},
-	"vim_mode": true,
-	"terminal": {
-		"button": false,
-		"env": {},
-		"font_size": 14.0,
-		"copy_on_select": true
-	},
-	"telemetry": {
-		"diagnostics": true,
-		"metrics": true
-	},
-	"git": {
-		"inline_blame": {
-			"enabled": false
-		}
-	},
-	"base_keymap": "VSCode",
-	"agent": {
-		"dock": "left",
-		"enabled": false,
-		"button": false,
-		"favorite_models": [],
-		"model_parameters": []
-	},
-	"tab_bar": {
-		"show_nav_history_buttons": true,
-		"show": false
-	},
-	"sticky_scroll": {
-		"enabled": true
-	},
-	"gutter": {
-		"line_numbers": false
-	},
-	"minimap": {
-		"show": "never"
-	},
-	"cursor_blink": true,
-	"buffer_font_fallbacks": [
-		"Monaspace Neon NF",
-		"JetBrainsMono Nerd Font Mono",
-		"monospace"
-	],
-	"buffer_font_family": "Monaspace Neon NF",
-	"file_types": {
-		"javascript": ["*.cjs "],
-		"svelte": ["*.svx"],
-		"css": ["css"],
-		"postcss": ["*.css"]
-	},
-	"auto_indent_on_paste": true,
-	"linked_edits": true,
-	"use_on_type_format": true,
-	"show_whitespaces": "none",
-	"indent_guides": {
-		"enabled": true
-	},
-	"soft_wrap": "editor_width",
-	"tab_size": 2,
-	"ui_font_size": 16.0,
-	"buffer_font_size": 20.0,
-	"toolbar": { "selections_menu": false },
+  "ui_font_family": "Monaspace Neon NF",
+  "semantic_tokens": "combined",
+  "search": {
+    "button": false,
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "right",
+    "button": false,
+  },
+  "collaboration_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "outline_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
+  "colorize_brackets": true,
+  "scrollbar": {
+    "show": "auto",
+    "diagnostics": "none",
+  },
+  "auto_update": false,
+  "project_panel": {
+    "dock": "right",
+    "button": false,
+    "diagnostic_badges": true,
+    "entry_spacing": "comfortable",
+    "hide_root": true,
+    "scrollbar": { "show": "auto" },
+  },
+  "debugger": {
+    "button": false,
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "show_active_file": false,
+  },
+  "bottom_dock_layout": "contained",
+  "title_bar": {
+    "show_user_picture": false,
+    "show_sign_in": true,
+    "show_branch_status_icon": false,
+  },
+  "file_finder": {
+    "modal_max_width": "xlarge",
+  },
+  "ui_font_weight": 450.0,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Frappé",
+    "dark": "Warm Charmed Icons",
+  },
+  "cli_default_open_behavior": "existing_window",
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "terminal": {
+    "button": false,
+    "env": {},
+    "font_size": 14.0,
+    "copy_on_select": true,
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "base_keymap": "VSCode",
+  "agent": {
+    "dock": "left",
+    "enabled": false,
+    "button": false,
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true,
+    "show": false,
+  },
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "gutter": {
+    "line_numbers": false,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "cursor_blink": true,
+  "buffer_font_fallbacks": [
+    "Monaspace Neon NF",
+    "JetBrainsMono Nerd Font Mono",
+    "monospace",
+  ],
+  "buffer_font_family": "Monaspace Neon NF",
+  "file_types": {
+    "javascript": ["*.cjs "],
+    "svelte": ["*.svx"],
+    "css": ["css"],
+    "postcss": ["*.css"],
+  },
+  "auto_indent_on_paste": true,
+  "linked_edits": true,
+  "use_on_type_format": true,
+  "show_whitespaces": "none",
+  "indent_guides": {
+    "enabled": true,
+  },
+  "soft_wrap": "editor_width",
+  "tab_size": 2,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 20.0,
+  "toolbar": {
+    "selections_menu": false,
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "agent_review": true,
+  },
 
-	"theme": {
-		"mode": "dark",
-		"light": "One Light",
-		"dark": "Gruvbox Smooth Hard"
-	},
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Gruvbox Smooth Hard",
+  },
 
-	"vim": {
-		"use_smartcase_find": true,
-		"use_system_clipboard": "on_yank"
-	}
+  "vim": {
+    "use_smartcase_find": true,
+    "use_system_clipboard": "on_yank",
+  },
 }

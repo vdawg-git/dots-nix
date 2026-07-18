@@ -31,15 +31,6 @@
       "ctrl-i": "editor::ShowCompletions",
     },
   },
-
-  {
-    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
-    "bindings": {
-      // mini.ai plugin behavior
-      "q": "vim::MiniQuotes",
-      "b": "vim::MiniBrackets",
-    },
-  },
   {
     "context": "VimControl && !menu && vim_mode != operator",
     "bindings": {
@@ -59,31 +50,80 @@
   {
     "context": "GitDiff > Editor",
     "bindings": {
-      "g a": "git::StageAll"
-    }
+      "g a": "git::StageAll",
+    },
   },
   {
     "context": "GitDiff > Editor",
     "unbind": {
-      "ctrl-space": "git::StageAll"
-    }
+      "ctrl-space": "git::StageAll",
+    },
   },
   {
     "context": "GitPanel && ChangesList && !GitBranchSelector",
     "bindings": {
-      "g a": "git::StageAll"
-    }
+      "g a": "git::StageAll",
+    },
   },
   {
     "context": "GitPanel && ChangesList && !GitBranchSelector",
     "unbind": {
-      "shift-x": "git::StageAll"
-    }
+      "shift-x": "git::StageAll",
+    },
   },
   {
     "context": "(vim_mode ) && !menu",
     "bindings": {
-      "alt-o": "editor::SelectLargerSyntaxNode"
-    }
-  }
+      "alt-o": "editor::SelectLargerSyntaxNode",
+    },
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      "q": "vim::MiniQuotes",
+      "b": "vim::MiniBrackets",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-alt-b": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-b": "vim::PageUp",
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-b": ["vim::Literal", ["ctrl-b", "\u0002"]],
+    },
+  },
 ]
