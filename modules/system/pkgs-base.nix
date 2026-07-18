@@ -51,6 +51,7 @@
     atuin
     bat
     beans
+	  ctx7
     bitwarden-cli
     brave-search-cli
     broot # explore directory trees (works with fifc)
