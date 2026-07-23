@@ -14,6 +14,7 @@ Only DEEPEN iterates based on confidence. Other steps execute once and advance.
 import argparse
 import sys
 
+from skills.lib.workflow.constants import PROJECT_DOCS_GUIDANCE
 from skills.lib.workflow.prompts import format_step, roster_dispatch
 
 
@@ -34,6 +35,8 @@ TOTAL_STEPS = 4
 # --- STEP 1: SCOPE -----------------------------------------------------------
 
 SCOPE_INSTRUCTIONS = (
+    PROJECT_DOCS_GUIDANCE + "\n"
+    "\n"
     "PARSE user intent:\n"
     "  - What codebase(s) are we analyzing?\n"
     "  - What is the user trying to understand?\n"
@@ -74,6 +77,8 @@ SURVEY_DISPATCH_AGENTS = [
 
 SURVEY_DISPATCH_GUIDANCE = (
     "DISPATCH GUIDANCE:\n"
+    "\n"
+    "Each dispatched agent must ground findings in the project documentation contract.\n"
     "\n"
     "Single codebase, focused scope:\n"
     "  - One Explore agent with specific focus\n"
@@ -182,8 +187,11 @@ SYNTHESIZE_INSTRUCTIONS = (
     "## Decisions\n"
     "[Technology choices, framework selections, architectural decisions]\n"
     "\n"
-    "## Context\n"
-    "[Purpose, constraints, trade-offs, evolution]\n"
+    "## Domain Context\n"
+    "[Relevant CONTEXT.md vocabulary, constraints, and term ambiguities]\n"
+    "\n"
+    "## Decision Context\n"
+    "[Relevant ADRs and settled trade-offs, or 'No ADRs found']\n"
     "\n"
     "Ensure:\n"
     "  - Summary addresses user's original intent\n"

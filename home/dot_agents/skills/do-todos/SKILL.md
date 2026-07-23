@@ -10,7 +10,7 @@ Interview me if you need more infos.
 *AFTER* you created a plan start subagents which work on the different steps.
 Load the `tdd` skill too.
 
-If a comment is about code-style or things which you should know, update the CLAUDE.md or agents.md so that you dont do whatever the comment says again in the future.
+If a comment is about code-style or things which you should know, update the AGENTS.md or agents.md so that you dont do whatever the comment says again in the future.
 
 Do not delete the todo comments fully, instead change them to "done-todo" 
 

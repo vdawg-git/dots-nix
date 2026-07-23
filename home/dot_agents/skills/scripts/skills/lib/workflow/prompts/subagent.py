@@ -143,7 +143,7 @@ Unique Task: {task}
 # --- Building block functions -----------------------------------------------
 
 def pi_agent_name(agent_type: str) -> str:
-    """Map Claude-style agent roles to configured Pi agents."""
+    """Map legacy/requested agent roles to configured Pi agents."""
     return {
         "general-purpose": "developer",
         "Explore": "developer",

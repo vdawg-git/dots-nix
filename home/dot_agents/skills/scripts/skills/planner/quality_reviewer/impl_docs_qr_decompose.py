@@ -2,7 +2,7 @@
 """QR decomposition for impl-docs phase.
 
 Scope: Post-implementation documentation.
-  - CLAUDE.md format (tabular index)
+  - AGENTS.md format (tabular index)
   - IK proximity audit (docs adjacent to code)
   - Temporal contamination in comments
   - README.md creation criteria
@@ -22,7 +22,7 @@ Read plan.json from STATE_DIR:
   cat $STATE_DIR/plan.json | jq '.'
 
 Also read documentation files in modified directories:
-  - CLAUDE.md files
+  - AGENTS.md files
   - README.md files
   - Comments in source files
 
@@ -31,7 +31,7 @@ SCOPE: Post-implementation documentation quality.
 Focus on:
   - invisible_knowledge section (was it transferred?)
   - Modified directory list (need docs?)
-  - CLAUDE.md format compliance
+  - AGENTS.md format compliance
   - README.md presence where required
 
 OUT OF SCOPE:
@@ -41,7 +41,7 @@ OUT OF SCOPE:
 
 STEP_2_CONCERNS = """\
 Brainstorm concerns specific to POST-IMPL DOCUMENTATION:
-  - CLAUDE.md missing or wrong format (tabular index required)
+  - AGENTS.md missing or wrong format (tabular index required)
   - IK not at best location (should be adjacent to code)
   - Temporal contamination in comments
   - README.md missing where required
@@ -55,7 +55,7 @@ For impl-docs, enumerate DOCUMENTATION ARTIFACTS:
 
 DIRECTORIES:
   - Each directory with modified files (directory path)
-  - CLAUDE.md exists? Format correct?
+  - AGENTS.md exists? Format correct?
   - README.md exists where required?
 
 INVISIBLE KNOWLEDGE:
@@ -76,7 +76,7 @@ SEVERITY ASSIGNMENT (per conventions/severity.md, impl-docs scope):
     - BASELINE_REFERENCE: comment references removed code
 
   SHOULD (iterations 1-4):
-    - CLAUDE.md format violations
+    - AGENTS.md format violations
     - README.md missing where scope warrants
     - WHY-not-WHAT violations
 
@@ -87,7 +87,7 @@ SEVERITY ASSIGNMENT (per conventions/severity.md, impl-docs scope):
 
 COMPONENT_EXAMPLES = """\
   - A modified directory
-  - A CLAUDE.md file
+  - A AGENTS.md file
   - A README.md file"""
 
 

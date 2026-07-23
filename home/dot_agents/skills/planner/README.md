@@ -60,7 +60,7 @@ After planning completes and context clears (`/clear`), execution proceeds:
 | Milestone Execution    | Delegate to agents, run tests; repeat until all complete        |
 | Post-Implementation QR | Quality review of implemented code                              |
 | Issue Resolution       | (conditional) Present issues, collect decisions, delegate fixes |
-| Documentation          | Technical writer updates CLAUDE.md/README.md                    |
+| Documentation          | Technical writer updates AGENTS.md/README.md                    |
 | Retrospective          | Present execution summary                                       |
 
 I designed the coordinator to never write code directly -- it delegates to

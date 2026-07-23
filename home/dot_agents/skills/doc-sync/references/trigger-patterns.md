@@ -1,6 +1,6 @@
 # Trigger Patterns Reference
 
-Examples of well-formed triggers for CLAUDE.md index table entries.
+Examples of well-formed triggers for AGENTS.md index table entries.
 
 ## Column Formula
 

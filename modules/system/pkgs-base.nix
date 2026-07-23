@@ -46,8 +46,7 @@
 
   cliTools = with pkgs; [
     # harlequin # SQL Tui. Postgres, SQLite etc
-    # inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # zed-editor-fhs
+    zed-editor-fhs
     atuin
     bat
     beans

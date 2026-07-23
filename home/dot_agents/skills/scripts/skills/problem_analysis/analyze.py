@@ -16,6 +16,7 @@ is identified with supporting evidence. Solution discovery is downstream.
 import argparse
 import sys
 
+from skills.lib.workflow.constants import PROJECT_DOCS_GUIDANCE
 from skills.lib.workflow.prompts import format_step
 
 
@@ -35,6 +36,8 @@ TOTAL_STEPS = 5
 # --- STEP 1: GATE -----------------------------------------------------------
 
 GATE_INSTRUCTIONS = (
+    PROJECT_DOCS_GUIDANCE + "\n"
+    "\n"
     "CHECK FOR MULTIPLE PROBLEMS:\n"
     "  Scan input for signs of multiple distinct issues:\n"
     "  - Multiple symptoms described ('X AND Y')\n"
@@ -128,6 +131,7 @@ INVESTIGATE_INSTRUCTIONS = (
     "  - Examine an unexplored aspect of the problem\n"
     "\n"
     "EXAMINE specific code, configuration, or documentation.\n"
+    "  Include relevant CONTEXT.md vocabulary and ADR constraints.\n"
     "  Note exact files and line numbers. This creates an audit trail.\n"
     "\n"
     "ASSESS findings:\n"

@@ -16,6 +16,7 @@ to "the focus area" -- the agent knows what it is from its prompt context.
 import argparse
 import sys
 
+from skills.lib.workflow.constants import PROJECT_DOCS_GUIDANCE
 from skills.lib.workflow.prompts import format_step
 
 
@@ -34,14 +35,17 @@ TOTAL_STEPS = 4
 # --- STEP 1: ORIENT ---------------------------------------------------------
 
 ORIENT_INSTRUCTIONS = (
+    PROJECT_DOCS_GUIDANCE + "\n"
+    "\n"
     "ORIENT - Identify entry points for your focus area.\n"
     "\n"
     "Your focus area was specified in your launching prompt.\n"
     "\n"
     "ACTIONS:\n"
-    "  1. Glob for patterns matching focus area keywords\n"
-    "  2. Identify 3-8 candidate files as entry points\n"
-    "  3. Note language/framework indicators\n"
+    "  1. Read relevant CONTEXT.md / ADR files first when present\n"
+    "  2. Glob for patterns matching focus area keywords and domain terms\n"
+    "  3. Identify 3-8 candidate files as entry points\n"
+    "  4. Note language/framework indicators\n"
     "\n"
     "EDGE CASE: If glob returns 0 matches, output empty entry points and proceed.\n"
     "\n"
@@ -131,8 +135,11 @@ REPORT_INSTRUCTIONS = (
     "Flows:\n"
     "  [Data/request flow through the system, or \"Data flow not traced\"]\n"
     "\n"
+    "Domain Context:\n"
+    "  [CONTEXT.md terms used, or \"No CONTEXT.md found\"]\n"
+    "\n"
     "Decisions:\n"
-    "  [Technology/design choices with rationale, or \"No explicit design decisions found\"]\n"
+    "  [Technology/design choices and ADRs, or \"No explicit design decisions found\"]\n"
     "\n"
     "Gaps:\n"
     "  [Areas that remain unclear, or \"Focus area may not exist in codebase\"]\n"

@@ -6,6 +6,20 @@ formatters can use them without creating a dependency on planner.
 
 
 # =============================================================================
+# Project Documentation Contract
+# =============================================================================
+
+PROJECT_DOCS_GUIDANCE = (
+    "PROJECT DOCUMENTATION CONTRACT:\n"
+    "  - Read `CONTEXT-MAP.md` if present; it points to context-specific `CONTEXT.md` files.\n"
+    "  - Otherwise read root `CONTEXT.md` if present. Use those domain terms; avoid drift.\n"
+    "  - Read relevant ADRs under `docs/adr/` and context-local `docs/adr/` before judging design.\n"
+    "  - Do not create glossary or ADR files unless the workflow is explicitly updating the domain model.\n"
+    "  - If terminology is fuzzy, surface it and suggest invoking `domain-modeling` / `ubiquitous-language`.\n"
+)
+
+
+# =============================================================================
 # HITL Constants
 # =============================================================================
 

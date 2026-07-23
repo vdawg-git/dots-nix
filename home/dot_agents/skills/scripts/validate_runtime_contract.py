@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 TEXT_GLOBS = [
-    "CLAUDE.md",
+    "AGENTS.md",
     "*/SKILL.md",
     "scripts/skills/**/*.py",
 ]
@@ -19,6 +19,23 @@ IGNORED_PARTS = {
     "__pycache__",
     "cc-history",  # Intentionally documents Claude Code history files and Task tool records.
     "papers",      # Research corpus, not executable guidance.
+    # Matt Pocock prompt-only skills are upstream-owned; do not police them here.
+    "codebase-design",
+    "code-review",
+    "diagnosing-bugs",
+    "domain-modeling",
+    "grilling",
+    "grill-with-docs",
+    "handoff",
+    "improve-codebase-architecture",
+    "prototype",
+    "research",
+    "resolving-merge-conflicts",
+    "setup-matt-pocock-skills",
+    "tdd",
+    "teach",
+    "ubiquitous-language",
+    "writing-great-skills",
 }
 
 GENERATED_COMMANDS = [
@@ -51,7 +68,17 @@ def iter_files() -> list[Path]:
 
 def collect_line_errors(label: str, text: str) -> list[str]:
     errors: list[str] = []
+    in_forbidden_list = False
     for lineno, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        if label == "AGENTS.md":
+            if stripped == "### Forbidden in executable guidance":
+                in_forbidden_list = True
+                continue
+            if in_forbidden_list and stripped.startswith("## "):
+                in_forbidden_list = False
+            if in_forbidden_list:
+                continue
         for pattern, hint in FORBIDDEN_PATTERNS:
             if pattern.search(line):
                 errors.append(f"{label}:{lineno}: {hint}: {line.strip()}")

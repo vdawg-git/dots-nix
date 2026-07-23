@@ -50,7 +50,7 @@ hl.config({
 		rounding_power = 4,
 
 		dim_inactive = false,
-		dim_special = 0.2,
+		dim_special = 0.5,
 		dim_strength = 0.06,
 
 		border_part_of_window = false,

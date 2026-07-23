@@ -154,7 +154,7 @@ def build_survey_exploring_body() -> str:
     dispatch_text = roster_dispatch(
         agent_type="Explore",
         agents=SURVEY_DISPATCH_AGENTS,
-        command="Use Task tool with subagent_type='Explore'",
+        command="Use subagent tool with agent/task parameters",
         shared_context=SURVEY_DISPATCH_CONTEXT,
         model="haiku",
     )
@@ -331,7 +331,7 @@ def build_survey_exploring_body() -> str:
     dispatch_text = roster_dispatch(
         agent_type="Explore",
         agents=SURVEY_DISPATCH_AGENTS,
-        command="Use Task tool with subagent_type='Explore'",
+        command="Use subagent tool with agent/task parameters",
         shared_context=SURVEY_DISPATCH_CONTEXT,
         model="haiku",
     )
@@ -534,7 +534,7 @@ prompts/
 
 ### subagent.py
 
-Three dispatch patterns for spawning sub-agents via the Task tool:
+Three dispatch patterns for spawning sub-agents via the Pi `subagent` tool:
 
 - `subagent_dispatch(agent_type, command, prompt="", model=None)` -- single sequential dispatch
 - `template_dispatch(agent_type, template, targets, command, ...)` -- parallel SIMD (same template, N targets with $var substitution)
@@ -542,7 +542,7 @@ Three dispatch patterns for spawning sub-agents via the Task tool:
 
 Building blocks (also exported):
 
-- `task_tool_instruction(agent_type, model)` -- how to use Task tool
+- `subagent_tool_instruction(agent_type, model)` -- how to use the Pi `subagent` tool
 - `sub_agent_invoke(cmd)` -- command the spawned agent runs
 - `parallel_constraint(count)` -- MANDATORY_PARALLEL enforcement
 

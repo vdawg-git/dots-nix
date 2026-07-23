@@ -15,6 +15,7 @@ import shlex
 import sys
 from pathlib import Path
 
+from skills.lib.workflow.constants import PROJECT_DOCS_GUIDANCE
 from skills.lib.workflow.ast import (
     W, XMLRenderer, render, TextNode,
     StepHeaderNode, CurrentActionNode, InvokeAfterNode,
@@ -100,7 +101,9 @@ def format_step_1(category_ref: str, mode: str = "code", scope: str | None = Non
         "",
         scope_display,
         "",
-        "Before detecting smells, understand the project's technical context.",
+        PROJECT_DOCS_GUIDANCE,
+        "",
+        "Before detecting smells, understand the project's technical and domain context.",
         "This enables translating abstract patterns to project-specific ones.",
         "",
         "IDENTIFY (brief exploration, ~30 seconds):",
@@ -112,7 +115,13 @@ def format_step_1(category_ref: str, mode: str = "code", scope: str | None = Non
         "     Check: package.json, requirements.txt, go.mod, Cargo.toml, pom.xml",
         "     Note: major frameworks (React, Django, Spring, etc.)",
         "",
-        "  3. CONVENTIONS: Naming patterns used in this codebase",
+        "  3. DOMAIN LANGUAGE: CONTEXT.md terms and aliases to avoid, if present",
+        "     Check: CONTEXT-MAP.md, CONTEXT.md",
+        "",
+        "  4. DECISIONS: ADRs that constrain design in scope, if present",
+        "     Check: docs/adr/ and context-local docs/adr/",
+        "",
+        "  5. CONVENTIONS: Naming patterns used in this codebase",
         "     Check: a few source files for naming style",
         "     Note: camelCase vs snake_case, common suffixes (Service, Handler, etc.)",
         "",
@@ -120,6 +129,8 @@ def format_step_1(category_ref: str, mode: str = "code", scope: str | None = Non
         '<domain_context>',
         '  <language>primary language</language>',
         '  <frameworks>framework1, framework2</frameworks>',
+        '  <domain_language>CONTEXT.md terms used, or none found</domain_language>',
+        '  <adrs>relevant ADR constraints, or none found</adrs>',
         '  <conventions>naming patterns observed</conventions>',
         '</domain_context>',
         "",

@@ -4,7 +4,7 @@ Conventions are universal rules used by agents and skills. They live in
 repository conventions (not skill-specific resources directories).
 
 Available conventions:
-- documentation.md: CLAUDE.md/README.md format specification
+- documentation.md: AGENTS.md/README.md format specification
 - structural.md: Code quality conventions (god object, testing, etc.)
 - temporal.md: Comment hygiene (timeless present rule)
 - severity.md: MUST/SHOULD/COULD severity definitions

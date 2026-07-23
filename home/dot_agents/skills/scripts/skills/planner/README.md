@@ -154,7 +154,7 @@ developer/
 
 technical_writer/
   plan_docs.py    Documentation planning (WHY comments, temporal cleanup)
-  exec_docs.py    Post-implementation docs (CLAUDE.md, README.md)
+  exec_docs.py    Post-implementation docs (AGENTS.md, README.md)
 
 quality_reviewer/
   plan_design_qr.py   Plan completeness validation

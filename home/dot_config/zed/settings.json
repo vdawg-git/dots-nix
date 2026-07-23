@@ -58,7 +58,7 @@
     "show_branch_status_icon": false,
   },
   "file_finder": {
-    "modal_max_width": "xlarge",
+    "modal_max_width": "medium",
   },
   "ui_font_weight": 450.0,
   "icon_theme": {
@@ -82,6 +82,7 @@
     "metrics": true,
   },
   "git": {
+    "git_gutter": "hide",
     "inline_blame": {
       "enabled": false,
     },
@@ -133,7 +134,7 @@
   "buffer_font_size": 20.0,
   "toolbar": {
     "selections_menu": false,
-    "breadcrumbs": false,
+    "breadcrumbs": true,
     "quick_actions": false,
     "agent_review": true,
   },
@@ -147,5 +148,13 @@
   "vim": {
     "use_smartcase_find": true,
     "use_system_clipboard": "on_yank",
+  },
+
+  "format_on_save": "on",
+
+  "languages": {
+    "Rust": {
+      "formatter": "language_server",
+    },
   },
 }

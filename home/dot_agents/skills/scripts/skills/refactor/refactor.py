@@ -20,6 +20,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Annotated
 
+from skills.lib.workflow.constants import PROJECT_DOCS_GUIDANCE
 from skills.lib.workflow.core import (
     Arg,
     StepDef,
@@ -226,6 +227,9 @@ def build_explore_dispatch(n: int = DEFAULT_CATEGORY_COUNT, mode_filter: str = "
 
     # Template prompt with $var placeholders
     template = """Explore the codebase for this code smell.
+
+PROJECT DOCUMENTATION CONTRACT:
+Read CONTEXT-MAP.md / CONTEXT.md when present. Use domain vocabulary. Read relevant docs/adr/ before judging design; do not re-litigate settled decisions.
 
 CATEGORY: $name
 MODE: $mode
@@ -1078,6 +1082,8 @@ DO NOT modify commands. DO NOT skip steps. DO NOT interpret.
     # Custom mode takes precedence over design/code when problem indicators present
     actions = [
         "ANALYZE the user's request to determine refactor mode and extract context:",
+        "",
+        PROJECT_DOCS_GUIDANCE,
         "",
         "STEP A - MODE DETECTION:",
         "",

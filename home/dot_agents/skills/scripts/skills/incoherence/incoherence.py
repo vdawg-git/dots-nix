@@ -198,7 +198,7 @@ STEPS = {
         "actions": [
             "CODEBASE SURVEY",
             "",
-            "Gather MINIMAL context (README first 50 lines, CLAUDE.md, dir listing).",
+            "Gather MINIMAL context (README first 50 lines, AGENTS.md, dir listing).",
             "Do NOT read detailed docs, source code, configs, or tests.",
             "",
             "Identify: codebase type, primary language, doc locations, info source types",
