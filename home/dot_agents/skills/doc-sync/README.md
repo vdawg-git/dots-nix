@@ -1,6 +1,6 @@
 # Doc Sync
 
-The CLAUDE.md/README.md hierarchy is central to context hygiene. CLAUDE.md files
+The AGENTS.md/README.md hierarchy is central to context hygiene. AGENTS.md files
 are pure indexes -- tabular navigation with "What" and "When to read" columns
 that help LLMs (and humans) find relevant files without loading everything.
 README.md files capture invisible knowledge: architecture decisions, design
@@ -13,10 +13,10 @@ The doc-sync skill audits and synchronizes this hierarchy across a repository.
 The skill operates in five phases:
 
 1. **Discovery** -- Maps all directories, identifies missing or outdated
-   CLAUDE.md files
+   AGENTS.md files
 2. **Audit** -- Checks for drift (files added/removed but not indexed),
-   misplaced content (architecture docs in CLAUDE.md instead of README.md)
-3. **Migration** -- Moves architectural content from CLAUDE.md to README.md
+   misplaced content (architecture docs in AGENTS.md instead of README.md)
+3. **Migration** -- Moves architectural content from AGENTS.md to README.md
 4. **Update** -- Creates/updates indexes with proper tabular format
 5. **Verification** -- Confirms complete coverage and correct structure
 
