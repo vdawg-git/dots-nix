@@ -202,9 +202,6 @@
         "KeepCurrentChannel": {
             "enabled": false
         },
-        "LastFMRichPresence": {
-            "enabled": false
-        },
         "LoadingQuotes": {
             "enabled": false
         },
@@ -699,6 +696,9 @@
         "CustomCommands": {
             "enabled": false,
             "clyde": true
+        },
+        "MusicRichPresence": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -711,11 +711,12 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1774001939096
+        "settingsSyncVersion": 1785002342064
     },
     "eagerPatches": false,
     "uiElements": {
         "chatBarButtons": {},
         "messagePopoverButtons": {}
-    }
+    },
+    "windowsMaterial": "none"
 }

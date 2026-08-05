@@ -132,9 +132,9 @@ hl.curve("easeOutCirc", { type = "bezier", points = { { 0, 0.55 }, { 0.45, 1 } }
 hl.curve("easeOutExpo", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } })
 hl.curve("softAcDecel", { type = "bezier", points = { { 0.26, 0.26 }, { 0.15, 1 } } })
 hl.curve("md2", { type = "bezier", points = { { 0.4, 0 }, { 0.2, 1 } } })
-hl.curve("bounce", {type = "spring", mass = 1.05, stiffness = 100, dampening = 15 })
+hl.curve("bounce", {type = "spring", mass = 1.05, stiffness = 450, dampening = 30 })
 hl.curve("windows-general", {type = "spring", mass = 1.15, stiffness = 100, dampening = 15 })
-hl.curve("specialIn", {type = "spring", mass = 3, stiffness = 100, dampening = 22 })
+hl.curve("specialIn", {type = "spring", mass = 1, stiffness = 400, dampening = 32 })
 
 -- Animation configs
 

@@ -4,8 +4,12 @@
   ...
 }: let
   baseTools = with pkgs; [
+    # anki
+    # mangayomi
+    # obs-studio
+    # onlyoffice-desktopeditors
+    # vscode
     amberol
-    anki
     bitwarden-desktop
     blanket
     blueman
@@ -20,20 +24,16 @@
     haruna # Video player
     kitty
     lemmeknow # Identify strings and files
-    mangayomi
     mpv
     nautilus
     nerd-fonts.jetbrains-mono
     networkmanagerapplet
     nwg-panel
-    obs-studio
     obsidian
-    onlyoffice-desktopeditors
     pavucontrol
     puddletag
     python3
     qbittorrent-enhanced
-    quickshell
     stablePkgs.rhythmbox
     swaynotificationcenter
     swayosd
@@ -41,16 +41,15 @@
     telegram-desktop
     vesktop
     vicinae
-    vscode
   ];
 
   cliTools = with pkgs; [
+	ctx7
+	unzip
     # harlequin # SQL Tui. Postgres, SQLite etc
-    zed-editor-fhs
     atuin
     bat
     beans
-	  ctx7
     bitwarden-cli
     brave-search-cli
     broot # explore directory trees (works with fifc)
@@ -80,7 +79,6 @@
     imagemagick
     inputs.moo.packages.${pkgs.stdenv.hostPlatform.system}.default
     jq
-    kew
     killall
     lazygit
     lnav # Nice (the best I found) log viewer
@@ -96,6 +94,7 @@
     ripgrep # rg, faster grep
     rsync
     rtk
+	lutris
     satty
     slurp
     starship # Fancy prompt
@@ -108,6 +107,7 @@
     wl-kbptr
     wlrctl
     yt-dlp
+    zed-editor-fhs
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];

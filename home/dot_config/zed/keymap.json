@@ -9,7 +9,8 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      // Put key bindings here if you want them to work in normal & visual mode.
+      "ctrl-o": "pane::GoBack",
+      "ctrl-i": "pane::GoForward",
     },
   },
   {
@@ -26,7 +27,7 @@
   },
 
   {
-    "context": "Editor",
+    "context": "vim_mode == insert",
     "bindings": {
       "ctrl-i": "editor::ShowCompletions",
     },
@@ -85,9 +86,33 @@
     },
   },
   {
+    "context": "vim_operator == y",
+    "bindings": {
+      "o": ["vim::PushAddSurrounds", {}],
+    },
+  },
+  {
+    "context": "vim_operator == ys",
+    "bindings": {
+      "o": "vim::CurrentLine",
+    },
+  },
+  {
+    "context": "vim_operator == d",
+    "bindings": {
+      "o": "vim::PushDeleteSurrounds",
+    },
+  },
+  {
+    "context": "vim_operator == c",
+    "bindings": {
+      "o": ["vim::PushChangeSurrounds", {}],
+    },
+  },
+  {
     "context": "vim_mode == visual",
     "bindings": {
-      "shift-s": "vim::PushAddSurrounds",
+      "shift-o": "vim::PushAddSurrounds",
     },
   },
   {

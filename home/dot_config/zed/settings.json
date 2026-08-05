@@ -62,7 +62,7 @@
   },
   "ui_font_weight": 450.0,
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Frappé",
     "dark": "Warm Charmed Icons",
   },
@@ -157,4 +157,6 @@
       "formatter": "language_server",
     },
   },
+
+  "load_direnv": "shell_hook",
 }
