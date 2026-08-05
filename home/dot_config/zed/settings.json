@@ -62,7 +62,7 @@
   },
   "ui_font_weight": 450.0,
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Catppuccin Frappé",
     "dark": "Warm Charmed Icons",
   },
