@@ -17,7 +17,7 @@ abbr lsg "ls | rg "
 abbr g git
 abbr gitc git-clone-and-cd
 abbr gitcf git-clone-and-cd-fast
-abbr gitf "git add -A && git commit -m 'commit save point' && git push"
+abbr gits "git add -A && git commit -m 'commit save point' && git push"
 abbr gitp "git pull"
 
 abbr nixs nix-shell

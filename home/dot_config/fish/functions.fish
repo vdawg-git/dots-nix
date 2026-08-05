@@ -155,8 +155,14 @@ function cdn
     end
 end
 
+
 function cdc
     cd $argv && code .
+end
+
+
+function cdz
+    cd $argv && zeditor .
 end
 
 function commit_empty
