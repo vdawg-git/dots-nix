@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.83.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "low",
@@ -9,7 +9,9 @@
   "steeringMode": "all",
   "followUpMode": "all",
   "theme": "gruvbox-material",
-  "npmCommand": ["bun"],
+  "npmCommand": [
+    "bun"
+  ],
   "packages": [
     "npm:pi-rtk-optimizer",
     "git:github.com/elpapi42/pi-fork",

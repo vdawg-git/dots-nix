@@ -3,9 +3,6 @@
 - If you want to explore a codebase, use an explore agent. Dont clutter your context window.
 - If you want to do bigger changes, use a developer agent and verify after its done that it really implemented everything correctly. Again, dont clutter your context window.
 
-
-
-
 # Context 7 (documentation fetcher)
 
 Use the `ctx7` CLI to fetch current documentation whenever the user asks about a library, framework, SDK, API, CLI tool, or cloud service -- even well-known ones like React, Next.js, Prisma, Express, Tailwind, Django, or Spring Boot. This includes API syntax, configuration, version migration, library-specific debugging, setup instructions, and CLI tool usage. Use even when you think you know the answer -- your training data may not reflect recent changes. Prefer this over web search for library docs.
