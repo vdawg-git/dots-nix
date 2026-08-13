@@ -61,10 +61,10 @@ hl.config({
 			passes = 3,
 			new_optimizations = true,
 			xray = false,
-			contrast = 2,
-			brightness = 0.80,
-			noise = 0.6,
-			vibrancy = 1,
+			contrast = 0.9,
+			brightness = 0.9,
+			noise = 0.7,
+			vibrancy = 2,
 			vibrancy_darkness = 0.2,
 			special = false,
 			popups = true,
@@ -134,7 +134,7 @@ hl.curve("softAcDecel", { type = "bezier", points = { { 0.26, 0.26 }, { 0.15, 1 
 hl.curve("md2", { type = "bezier", points = { { 0.4, 0 }, { 0.2, 1 } } })
 hl.curve("bounce", {type = "spring", mass = 1.05, stiffness = 450, dampening = 30 })
 hl.curve("windows-general", {type = "spring", mass = 1.15, stiffness = 100, dampening = 15 })
-hl.curve("specialIn", {type = "spring", mass = 1, stiffness = 400, dampening = 32 })
+hl.curve("specialIn", {type = "spring", mass = 1, stiffness = 800, dampening = 42 })
 
 -- Animation configs
 
