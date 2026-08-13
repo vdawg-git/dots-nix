@@ -84,7 +84,7 @@ function __queryPathPartsWithMaybeFile
 	for base in $query_results_file_base $query_results_directory
 		set should_add true
 
-		for found_file in $query_results_file 
+		for found_file in $query_results_file
 			if string match --quiet "$base*" (dirname $found_file)
 				set should_add false
 				break
@@ -157,12 +157,16 @@ end
 
 
 function cdc
-    cd $argv && code .
+  cd $argv
+	code .
 end
 
 
 function cdz
-    cd $argv && zeditor .
+	cd $argv; or return
+
+    direnv export fish 2>/dev/null | source
+    zeditor .
 end
 
 function commit_empty
