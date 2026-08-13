@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "allow_data_collection": "yes",
+  },
+  "completion_menu_item_kind": "symbol",
   "ui_font_family": "Monaspace Neon NF",
   "semantic_tokens": "combined",
   "search": {
