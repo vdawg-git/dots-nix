@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     moo.url = "github:vdawg-git/moo";
     moo.inputs.nixpkgs.follows = "nixpkgs";
