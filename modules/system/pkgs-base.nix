@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   baseTools = with pkgs; [
     # anki
     # mangayomi
@@ -10,6 +11,7 @@
     # onlyoffice-desktopeditors
     # vscode
     amberol
+    anki
     bitwarden-desktop
     blanket
     blueman
@@ -24,9 +26,9 @@
     haruna # Video player
     kitty
     lemmeknow # Identify strings and files
+    mangayomi
     mpv
     nautilus
-    nerd-fonts.jetbrains-mono
     networkmanagerapplet
     nwg-panel
     obsidian
@@ -34,18 +36,16 @@
     puddletag
     python3
     qbittorrent-enhanced
-    stablePkgs.rhythmbox
     swaynotificationcenter
     swayosd
     switcheroo # File conversion
     telegram-desktop
     vesktop
     vicinae
+    zed-editor-fhs
   ];
 
   cliTools = with pkgs; [
-	ctx7
-	unzip
     # harlequin # SQL Tui. Postgres, SQLite etc
     atuin
     bat
@@ -57,6 +57,7 @@
     carapace # Fancy shell completions
     chafa # preview images, gif , pdf etc (works with fifc)
     codex
+    ctx7
     delta # Git differ
     dotbot
     dust
@@ -94,7 +95,6 @@
     ripgrep # rg, faster grep
     rsync
     rtk
-	lutris
     satty
     slurp
     starship # Fancy prompt
@@ -102,16 +102,17 @@
     tealdeer
     tesseract
     tree
+    unzip
     wireguard-tools
     wl-clipboard
     wl-kbptr
     wlrctl
     yt-dlp
-    zed-editor-fhs
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];
-in {
+in
+{
   environment.systemPackages = baseTools ++ cliTools;
 
   # programs.firefox.enable = true;
@@ -119,7 +120,7 @@ in {
 
   programs.yazi = {
     enable = true;
-    settings = {};
+    settings = { };
   };
 
   xdg.terminal-exec = {

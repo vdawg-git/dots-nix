@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   # For some reason the nix-index module just isnt working well with comma, so lets do it manually.
   updateNixIndex = pkgs.writeShellScriptBin "update-nix-index" ''
     set -euo pipefail
@@ -19,15 +20,15 @@
 
     echo "✔ nix-index database updated"
   '';
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     alejandra # Fast nice nix code formatter
-    manix # Easy NixOS docs searcher
     any-nix-shell # Use Fish after going into a shell
-
     comma # Run anything instantly with `, some-app`
-
-    updateNixIndex
+    manix # Easy NixOS docs searcher
+    nil # nix lsp
+    updateNixIndex # update nix pkgs db for comma
   ];
 
   # Idk why, but this failed

@@ -161,6 +161,20 @@
     "Rust": {
       "formatter": "language_server",
     },
+    "Nix": {
+      "formatter": {
+        "external": {
+          "command": "/run/current-system/sw/bin/alejandra",
+          "arguments": ["-"],
+        },
+      },
+      "format_on_save": "on",
+    },
+
+    "Lua": {
+      "formatter": "language_server",
+      "format_on_save": "on",
+    },
   },
 
   "load_direnv": "shell_hook",
