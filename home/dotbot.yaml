@@ -59,9 +59,5 @@
     - ~/.local/share/Anki2
 
 - shell:
-    # Needs to exist for the Hyprland config, but not synced as it changes all the time between devices
-    - touch ~/.config/hypr/monitors.conf
     # Quickshell fills this file with system dependent info
     - touch ./dot_config/quickshell/.qmlls.ini
-    # Claude is an ahole (see logo) and wants to be directly in the home-dir
-    - ln -sfn "$(realpath dot_config/claude)" ~/.claude
