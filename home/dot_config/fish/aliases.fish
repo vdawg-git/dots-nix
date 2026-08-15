@@ -29,3 +29,6 @@ abbr sepoku "systemctl poweroff"
 abbr jd "just dev"
 abbr j "just"
 
+
+abbr schlaf "systemctl hybrid-sleep"
+
