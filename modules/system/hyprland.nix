@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
@@ -11,12 +11,11 @@
 
   environment.systemPackages = with pkgs; [
     hyprcursor
-    hyprdynamicmonitors
-    hypridle
     hyprland-qt-support
     hyprlock
     hyprpaper
     hyprpicker
+    hyprshutdown
     hyprsunset
     kitty
   ];
