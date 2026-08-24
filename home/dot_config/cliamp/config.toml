@@ -1,0 +1,56 @@
+# Default volume in dB (range: volume_min to 6)
+volume = 0
+
+# Minimum volume floor in dB (range: -90 to 0, default: -50)
+# Controls how low the volume control can go.
+volume_min = -50
+
+# Repeat mode: "off", "all", or "one"
+repeat = "off"
+
+# Start with shuffle enabled
+shuffle = true
+
+# Start with mono output (L+R downmix)
+mono = false
+
+# Initial directory for the file browser ('o' key)
+initial_directory = "~/z_bearbeiten"
+
+# Shift+Left/Right seek jump in seconds
+seek_large_step_sec = 15
+
+# EQ preset: "Flat", "Rock", "Pop", "Jazz", "Classical",
+#             "Bass Boost", "Treble Boost", "Vocal", "Electronic", "Acoustic"
+# Leave empty or "Custom" to use manual eq values below
+eq_preset = "Flat"
+
+# 10-band EQ gains in dB (range: -12 to 12)
+# Bands: 70Hz, 180Hz, 320Hz, 600Hz, 1kHz, 3kHz, 6kHz, 12kHz, 14kHz, 16kHz
+# Only used when eq_preset is "Custom" or empty
+eq = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+# Visualizer mode (leave empty for default Bars)
+# Options: Bars, BarsDot, Rain, BarsOutline, Bricks, Columns, ClassicPeak, Wave, Scatter, Flame, Retro, Pulse, Matrix, Binary, Sakura, Firework, Bubbles, Logo, Terrain, Scope, Heartbeat, Butterfly, Ascii, Firefly, Mosaic, Sand, Geyser, ClassicLED, Stereo, None
+visualizer = "Bars"
+
+# Visualizer volume linking (default: true)
+# When true, bar height follows the current volume level (classic behavior).
+# Set to false to decouple the visualizer from volume — bars stay visible
+# even at very low volume levels.
+vis_volume_linked = true
+
+# Reduce CPU usage by lowering UI cadence and disabling visualization.
+# This has the same effect as starting with --low-power.
+low_power = false
+
+# Compact mode: cap UI width at 80 columns (default: fluid/full-width)
+compact = false
+
+# UI theme name (see available themes in ~/.config/cliamp/themes/)
+# theme = "Tokyo Night"
+
+# Log level: "debug", "info", "warn", or "error" (default "info")
+# Logs are written to ~/.config/cliamp/cliamp.log
+log_level = "error"
+

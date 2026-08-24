@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   baseTools = with pkgs; [
     # anki
     # mangayomi
@@ -56,6 +55,7 @@ let
     btop
     carapace # Fancy shell completions
     chafa # preview images, gif , pdf etc (works with fifc)
+    cliamp
     codex
     ctx7
     delta # Git differ
@@ -111,8 +111,7 @@ let
     zip # For (un)zipping stuff, in case you wondered
     zoxide # Better cd
   ];
-in
-{
+in {
   environment.systemPackages = baseTools ++ cliTools;
 
   # programs.firefox.enable = true;
@@ -120,7 +119,7 @@ in
 
   programs.yazi = {
     enable = true;
-    settings = { };
+    settings = {};
   };
 
   xdg.terminal-exec = {
