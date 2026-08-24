@@ -6,6 +6,13 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  systemd.user.targets.hyprland-session = {
+    description = "Hyprland graphical session";
+    bindsTo = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+  };
+
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
 

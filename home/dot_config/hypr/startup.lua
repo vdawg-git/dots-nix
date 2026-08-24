@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function()
   hl.exec_cmd("~/.config/hypr/scripts/polkit.sh")
-  hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd --all")
+  hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd --all && systemctl --user start hyprland-session.target")
 
   hl.exec_cmd("hypridle")
 
@@ -27,4 +27,8 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("mega-cmd-server")
 
   hl.exec_cmd("playerctld daemon")
+end)
+
+hl.on("hyprland.shutdown", function()
+  hl.exec_cmd("systemctl --user stop hyprland-session.target")
 end)

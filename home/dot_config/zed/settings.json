@@ -87,6 +87,7 @@
     "metrics": true,
   },
   "git": {
+    "gutter_debounce": 10,
     "git_gutter": "hide",
     "inline_blame": {
       "enabled": false,

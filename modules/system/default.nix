@@ -8,7 +8,6 @@
     ./env.nix
     ./external-hardware.nix
     ./fonts.nix
-	./steam.nix
     ./host-base.nix
     ./hyprland.nix
     ./keyboard.nix
