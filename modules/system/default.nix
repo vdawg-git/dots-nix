@@ -1,5 +1,6 @@
 {
   imports = [
+	./rust.nix
     ./audio-video-hardware.nix
     ./autologin.nix
     ./bootloader.nix
