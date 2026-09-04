@@ -50,6 +50,13 @@
       glob: true
       create: true
 
+    ~/Pictures/Wallpapers:
+      path: ../assets/wallpaper
+      glob: true
+      create: true
+      
+
+
 - create:
     - ~/Documents/obsidian
     - ~/Documents/sync
@@ -61,3 +68,4 @@
 - shell:
     # Quickshell fills this file with system dependent info
     - touch ./dot_config/quickshell/.qmlls.ini
+    - ./import-activitywatch-categories.sh
