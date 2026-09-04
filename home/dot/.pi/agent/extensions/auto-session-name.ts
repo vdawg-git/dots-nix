@@ -7,8 +7,8 @@ export { createAutoSessionNameExtension as default };
 const CUSTOM_TYPE = "auto-session-name";
 const EXTENSION_VERSION = 1;
 const TURN_INTERVAL = 6;
-const TITLE_MAX_LENGTH = 32;
-const TITLE_MAX_WORDS = 6;
+const TITLE_MAX_LENGTH = 64;
+const TITLE_MAX_WORDS = 7;
 const GENERATION_TIMEOUT_MS = 8000;
 const GENERATION_MAX_TOKENS = 256;
 const FIRST_SNIPPET_LENGTH = 1200;
@@ -213,7 +213,7 @@ function createNamingContext(options: Readonly<{
 		systemPrompt: [
 			"You generate short session titles.",
 			"Return only one title, no quotes, no prefix, no punctuation.",
-			"Use 2 to 4 words and at most 32 characters.",
+			"Use 2 to 5 words and at most 48 characters.",
 			"Prefer descriptive noun phrases. Use task-oriented wording only when the user explicitly asked to do something.",
 			"Preserve specific feature, file, domain, or tool names when useful.",
 		].join("\n"),
