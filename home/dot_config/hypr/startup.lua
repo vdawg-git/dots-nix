@@ -8,8 +8,6 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("hypridle")
   hl.exec_cmd("swayosd-server")
 
-  hl.exec_cmd("aw-qt")
-  hl.exec_cmd("sleep 15 && aw-awatcher")
 
   hl.exec_cmd("hyprsunset")
 
