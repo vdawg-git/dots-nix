@@ -115,11 +115,7 @@
     "show": "never",
   },
   "cursor_blink": true,
-  "buffer_font_fallbacks": [
-    "Monaspace Neon NF",
-    "JetBrainsMono Nerd Font Mono",
-    "monospace",
-  ],
+  "buffer_font_fallbacks": ["Monaspace Neon NF"],
   "buffer_font_family": "Monaspace Neon NF",
   "file_types": {
     "javascript": ["*.cjs "],
@@ -159,9 +155,13 @@
   "format_on_save": "on",
 
   "languages": {
+    "WGSL/WESL": {
+      "enable_language_server": false
+    },
     "Rust": {
       "formatter": "language_server",
     },
+
     "Nix": {
       "formatter": {
         "external": {
@@ -175,6 +175,10 @@
     "Lua": {
       "formatter": "language_server",
       "format_on_save": "on",
+    },
+
+    "TOML": {
+      "formatter": { "language_server": { "name": "tombi" } },
     },
   },
 
