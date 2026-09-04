@@ -1,7 +1,7 @@
 {
   imports = [
-	./rust.nix
     ./audio-video-hardware.nix
+    ./activity-watch.nix
     ./autologin.nix
     ./bootloader.nix
     ./devstuff.nix
@@ -19,6 +19,7 @@
     ./pam.nix
     ./pkgs-base.nix
     ./qt.nix
+    ./rust.nix
     ./theme.nix
     ./thumbnails/thumbnails.nix
   ];
