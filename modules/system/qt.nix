@@ -1,13 +1,10 @@
 {pkgs, ...}: {
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
-
     QT_QPA_PLATFORMTHEME = "qt6ct";
-
-    # To see debug messages for qt6 themeing
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    QT_STYLE_OVERRIDE = "kvantum";
 
-    # QT_STYLE_OVERRIDE = "kvantum";
     #  QT_AUTO_SCREEN_SCALE_FACTOR="1.5";
   };
 
