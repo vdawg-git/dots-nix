@@ -169,6 +169,13 @@ function cdz
     zeditor .
 end
 
+
+function cdy 
+	cd $argv; or return
+
+	y
+end
+
 function commit_empty
     # Check if email argument is provided
     if test (count $argv) -eq 0
