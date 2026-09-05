@@ -63,7 +63,7 @@ hl.config({
 			xray = false,
 			contrast = 0.9,
 			brightness = 0.9,
-			noise = 0.7,
+			noise = 0.4,
 			vibrancy = 2,
 			vibrancy_darkness = 0.2,
 			special = false,
