@@ -9,7 +9,6 @@
     # obs-studio
     # onlyoffice-desktopeditors
     # vscode
-    amberol
     anki
     bitwarden-desktop
     blanket

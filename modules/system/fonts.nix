@@ -5,7 +5,5 @@
     stablePkgs.nerd-fonts.gohufont
   ];
 
-
-  environment.systemPackages = with pkgs; [
-  ];
+  # environment.systemPackages = with pkgs; [ ];
 }
