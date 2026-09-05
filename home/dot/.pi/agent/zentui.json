@@ -1,0 +1,191 @@
+{
+  "components": {
+    "editor": {
+      "enabled": false,
+      "style": "accent-rail",
+      "colorSource": "theme",
+      "borderColorMode": "adaptive",
+      "modelLabel": "name",
+      "viewportIndicators": false,
+      "styles": {
+        "opencode": {
+          "metadataFormat": "$model  $provider(  $thinking)",
+          "completionMenu": "palette"
+        },
+        "opencode-copy-friendly": {
+          "metadataFormat": "$model  $provider(  $thinking)",
+          "completionMenu": "palette"
+        },
+        "accent-rail": {
+          "rail": "▎",
+          "asciiRail": "|",
+          "transparent": false
+        },
+        "minimalist": {
+          "pathDisplay": "compact",
+          "contextFormat": "percent",
+          "contextGauge": false,
+          "showSessionName": true,
+          "showTimer": false,
+          "showCost": false,
+          "showGit": true,
+          "contextThresholds": {
+            "warning": 70,
+            "error": 90
+          }
+        }
+      }
+    },
+    "userMessages": {
+      "enabled": true,
+      "style": "labeled",
+      "colorSource": "theme",
+      "styles": {
+        "framed": {},
+        "framed-copy-friendly": {},
+        "compact": {},
+        "labeled": {}
+      }
+    },
+    "thinkingSteps": {
+      "enabled": true,
+      "mode": "tree"
+    },
+    "workingLine": {
+      "enabled": true,
+      "turnSummary": false,
+      "spinner": "star-bloom",
+      "spinnerIntervalMs": 160,
+      "animateSpinnerColor": false,
+      "textIntervalMs": 60,
+      "textAnimation": "kitt",
+      "colorSource": "theme",
+      "messages": {
+        "custom": true,
+        "values": [
+          "Sautéing…",
+          "Cooking…",
+          "Brewing…",
+          "Combobulating…",
+          "Boogieing…",
+          "Befuddling…",
+          "Alchemizing…",
+          "Conjuring…",
+          "Baking…",
+          "Simmering…",
+          "Blanching…",
+          "Fermenting…",
+          "Marinating…",
+          "Caramelizing…",
+          "Tenderizing…",
+          "Seasoning…",
+          "Microwaving…",
+          "Air-frying…",
+          "Distilling…",
+          "Pasteurizing…",
+          "Culturing…",
+          "Cultivating…",
+          "Metabolizing…",
+          "Mutating…",
+          "Evolving…",
+          "Fossilizing…",
+          "Petrifying…",
+          "Crystallizing…",
+          "Sublimating…",
+          "Vaporizing…",
+          "Liquefying…",
+          "Plasmafying…",
+          "Magnetizing…",
+          "Polarizing…",
+          "Resonating…",
+          "Oscillating…",
+          "Vibing…",
+          "Quantumizing…",
+          "Entangling…",
+          "Superpositioning…",
+          "Tunneling…",
+          "Violating locality…",
+          "Consulting the uncertainty principle…",
+          "Terraforming…",
+          "Orbiting…",
+          "Redshifting…",
+          "Asking the void nicely…",
+          "Poking the singularity…"
+        ]
+      },
+      "segments": {
+        "tool": true,
+        "elapsed": false,
+        "thought": false,
+        "tokens": false
+      }
+    },
+    "footer": {
+      "style": "starship",
+      "colorSource": "theme",
+      "modelLabel": "name",
+      "styles": {
+        "starship": {
+          "format": "",
+          "responsive": true,
+          "compactFormat": "$cwd$wrap(in $session_name)$wrap(on $git_branch) $git_status$wrap$context$wrap_sep$tokens",
+          "compactMaxLines": 2,
+          "separator": "dot",
+          "contextStyle": "text",
+          "contextThresholds": {
+            "warning": 70,
+            "error": 90
+          },
+          "pathDisplay": {
+            "mode": "basename",
+            "depth": 0
+          },
+          "segments": {
+            "cwd": true,
+            "sessionName": true,
+            "gitBranch": true,
+            "gitStatus": true,
+            "gitCounts": false,
+            "gitCommit": false,
+            "gitMetrics": false,
+            "runtime": false,
+            "modelInfo": false,
+            "context": false,
+            "tokens": false,
+            "cost": false,
+            "sessionDuration": false,
+            "username": false,
+            "time": false,
+            "os": false,
+            "packageVersion": false
+          },
+          "gitBranch": {
+            "maxLength": "full"
+          },
+          "gitCommit": {
+            "hashLength": 7,
+            "onlyDetached": true,
+            "showTag": true
+          },
+          "gitMetrics": {
+            "onlyNonzero": true,
+            "ignoreSubmodules": false
+          },
+          "extensionStatuses": {
+            "defaultPlacement": "right",
+            "placements": {},
+            "colorModes": {}
+          }
+        }
+      }
+    },
+    "selectorBorders": {
+      "enabled": true,
+      "style": "zentui",
+      "colorSource": "theme"
+    }
+  },
+  "icons": {
+    "mode": "auto"
+  }
+}
