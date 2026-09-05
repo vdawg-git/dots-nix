@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.85.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
   "defaultThinkingLevel": "low",
@@ -9,13 +9,16 @@
   "steeringMode": "all",
   "followUpMode": "all",
   "theme": "gruvbox-material",
-  "npmCommand": ["bun"],
+  "npmCommand": [
+    "bun"
+  ],
   "packages": [
     "npm:pi-rtk-optimizer",
     "git:github.com/elpapi42/pi-fork",
     "npm:pi-observational-memory",
     "git:github.com/elpapi42/pi-minimal-subagent",
-    "npm:pi-smart-fetch"
+    "npm:pi-smart-fetch",
+    "npm:pi-zentui"
   ],
   "terminal": {
     "showTerminalProgress": true
